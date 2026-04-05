@@ -1,0 +1,151 @@
+<!DOCTYPE html>
+<html lang="tr">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>AksyMH Gfi Service</title>
+
+<style>
+body {
+  margin:0;
+  font-family: Arial;
+  background:#000;
+  color:#00ffcc;
+  text-align:center;
+}
+
+/* GENEL NEON */
+@keyframes glow {
+  from { text-shadow:0 0 5px #00ffcc; }
+  to { text-shadow:0 0 30px #00ffcc, 0 0 80px #00ffcc; }
+}
+
+/* HEADER */
+header {
+  padding:25px;
+  font-size:32px;
+  font-weight:bold;
+  animation: glow 1.5s infinite alternate;
+}
+
+/* TEXT */
+h2, p, footer, a {
+  animation: glow 2s infinite alternate;
+}
+
+/* INPUT */
+input {
+  padding:15px;
+  width:260px;
+  border-radius:10px;
+  border:none;
+  margin-top:20px;
+  box-shadow:0 0 10px #00ffcc;
+}
+
+/* BUTTON */
+button {
+  padding:15px 25px;
+  margin:10px;
+  border:none;
+  border-radius:10px;
+  background:#00ffcc;
+  color:black;
+  font-weight:bold;
+  cursor:pointer;
+  box-shadow:0 0 20px #00ffcc;
+  animation: glow 1s infinite alternate;
+}
+
+/* SERVICES */
+.services {
+  margin-top:50px;
+  display:flex;
+  flex-wrap:wrap;
+  justify-content:center;
+}
+
+.box {
+  background:#020617;
+  margin:10px;
+  padding:20px;
+  width:260px;
+  border-radius:12px;
+  box-shadow:0 0 25px #00ffcc;
+  animation: glow 1.5s infinite alternate;
+}
+
+/* FOOTER */
+footer {
+  margin-top:60px;
+  padding:20px;
+  background:#020617;
+}
+
+a {
+  color:#00ffcc;
+  text-decoration:none;
+}
+
+/* WHATSAPP */
+.whatsapp {
+  position:fixed;
+  bottom:20px;
+  right:20px;
+  background:#25D366;
+  color:white;
+  padding:15px;
+  border-radius:50%;
+  text-decoration:none;
+  box-shadow:0 0 20px #25D366;
+}
+</style>
+
+</head>
+
+<body>
+
+<header>⚡ AksyMH Gfi Service ⚡</header>
+
+<h2>Profesyonel Teknik Servis & Yazılım Hizmetleri</h2>
+
+<input type="text" id="imei" placeholder="IMEI gir...">
+<br>
+<button onclick="check()">Sorgula</button>
+
+<p id="result"></p>
+
+<div class="services">
+  <div class="box">📱 Android Yazılım Desteği</div>
+  <div class="box">🍎 iOS & MacBook Yazılım</div>
+  <div class="box">🔌 Şarj Entegre Değişimi</div>
+  <div class="box">🔥 CPU Reball</div>
+  <div class="box">🛠️ Entegre Tamiri</div>
+  <div class="box">⚡ Hard Brick</div>
+  <div class="box">🔐 iCloud Bypass</div>
+</div>
+
+<footer>
+📞 İLETİŞİM <br><br>
+📱 0544 744 77 98 <br><br>
+💬 <a href="https://wa.me/905447447798">WhatsApp Destek</a><br><br>
+📍 Türkiye Teknik Servis
+</footer>
+
+<a class="whatsapp" href="https://wa.me/905447447798">💬</a>
+
+<script>
+function check(){
+  let imei = document.getElementById("imei").value;
+  let result = document.getElementById("result");
+
+  if(imei.length < 10){
+    result.innerHTML="❌ Geçersiz IMEI";
+  } else {
+    result.innerHTML="✅ Cihaz bulundu (demo)";
+  }
+}
+</script>
+
+</body>
+</html>
