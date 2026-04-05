@@ -136,38 +136,43 @@ Kesin sonuçlar için e-Devlet üzerinden kontrol ediniz.<br><br>
 <a class="whatsapp" href="https://wa.me/905447447798">💬</a>
 
 <script>
-function check(){
+<script>
+function check() {
   let imei = document.getElementById("imei").value;
   let result = document.getElementById("result");
 
-  if(imei.length !== 15){
-    result.innerHTML="❌ Geçersiz IMEI numarası";
+  if (!imei || imei.length !== 15) {
+    result.innerHTML = "❌ Geçersiz IMEI numarası";
     return;
   }
 
-  let tac = imei.substring(0,8);
+  let tac = imei.substring(0, 8);
 
   let brand = "Bilinmiyor";
   let model = "Bilinmiyor";
 
-  if(tac.startsWith("35")) {
+  if (tac.startsWith("35")) {
     brand = "Samsung";
     model = "Galaxy Serisi";
-  } else if(tac.startsWith("86")) {
+  } else if (tac.startsWith("86")) {
     brand = "Xiaomi";
     model = "Redmi / Mi";
-  } else if(tac.startsWith("01")) {
+  } else if (tac.startsWith("01")) {
     brand = "Apple";
     model = "iPhone";
   }
 
-  let statusList = [
-    "Kayıtlı",
-    "Kayıt Dışı",
-    "IMEI Kopyalanmış"
-  ];
-
+  let statusList = ["Kayıtlı", "Kayıt Dışı", "IMEI Kopyalanmış"];
   let status = statusList[Math.floor(Math.random() * statusList.length)];
+
+  result.innerHTML =
+    "✅ IMEI Sorgu Sonucu<br><br>" +
+    "📱 Marka: " + brand + "<br>" +
+    "📊 Model: " + model + "<br>" +
+    "🔒 Durum: " + status + "<br><br>" +
+    "⚙️ Detaylı kontrol ve çözüm için bizimle iletişime geçin.";
+}
+</script>
 
   result.innerHTML = `
   ✅ IMEI Sorgu Sonucu<br><br>
