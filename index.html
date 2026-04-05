@@ -161,6 +161,22 @@ function check(){
     model = "iPhone";
   }
 
+  let statusList = [
+    "Kayıtlı",
+    "Kayıt Dışı",
+    "IMEI Kopyalanmış"
+  ];
+
+  let status = statusList[Math.floor(Math.random() * statusList.length)];
+
+  result.innerHTML = `
+  ✅ IMEI Sorgu Sonucu<br><br>
+  📱 Marka: ${brand}<br>
+  📊 Model: ${model}<br>
+  🔒 Durum: ${status}<br><br>
+  ⚙️ Detaylı kontrol ve çözüm için bizimle iletişime geçin.
+  `;
+}
   result.innerHTML = `
   ✅ IMEI Sorgu Sonucu<br><br>
   📱 Marka: ${brand}<br>
