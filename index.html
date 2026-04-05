@@ -103,8 +103,7 @@ a {
 <h2>Profesyonel Teknik Servis & Yazılım Hizmetleri</h2>
 
 <input type="text" id="imei" placeholder="IMEI gir...">
-<br>
-<button onclick="check()">Sorgula</button>
+<br><button id="btn">Sorgula</button>
 
 <p id="result"></p>
 
@@ -172,24 +171,43 @@ function check() {
     "🔒 Durum: " + status + "<br><br>" +
     "⚙️ Detaylı kontrol ve çözüm için bizimle iletişime geçin.";
 }
-</script>
+</script><script>
+document.getElementById("btn").onclick = function () {
+  let imei = document.getElementById("imei").value;
+  let result = document.getElementById("result");
 
-  result.innerHTML = `
-  ✅ IMEI Sorgu Sonucu<br><br>
-  📱 Marka: ${brand}<br>
-  📊 Model: ${model}<br>
-  🔒 Durum: ${status}<br><br>
-  ⚙️ Detaylı kontrol ve çözüm için bizimle iletişime geçin.
-  `;
-}
-  result.innerHTML = `
-  ✅ IMEI Sorgu Sonucu<br><br>
-  📱 Marka: ${brand}<br>
-  📊 Model: ${model}<br>
-  🔒 Durum: Kayıtlı<br>
-  📡 Şebeke: Açık<br>
-  ⚙️ Servis: AksyMH Güvencesi
-  `;
+  if (!imei || imei.length !== 15) {
+    result.innerHTML = "❌ Geçersiz IMEI numarası";
+    return;
+  }
+
+  let tac = imei.substring(0, 8);
+
+  let brand = "Bilinmiyor";
+  let model = "Bilinmiyor";
+
+  if (tac.startsWith("35")) {
+    brand = "Samsung";
+    model = "Galaxy Serisi";
+  } else if (tac.startsWith("86")) {
+    brand = "Xiaomi";
+    model = "Redmi / Mi";
+  } else if (tac.startsWith("01")) {
+    brand = "Apple";
+    model = "iPhone";
+  }
+
+  let statusList = ["Kayıtlı", "Kayıt Dışı", "IMEI Kopyalanmış"];
+  let status = statusList[Math.floor(Math.random() * statusList.length)];
+
+  result.innerHTML =
+    "✅ IMEI Sorgu Sonucu<br><br>" +
+    "📱 Marka: " + brand + "<br>" +
+    "📊 Model: " + model + "<br>" +
+    "🔒 Durum: " + status + "<br><br>" +
+    "⚙️ Detaylı kontrol ve çözüm için bizimle iletişime geçin.";
+};
+</script>
 }
 </script>
 
