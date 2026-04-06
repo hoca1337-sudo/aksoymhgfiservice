@@ -74,13 +74,36 @@ animation:neon 2s infinite alternate;
 .section{margin-top:40px;}
 .warning{color:red;font-size:12px;}
 
-.whatsapp{
+.whatsapp,.telegram,.insta{
+position:fixed;
+right:20px;
+padding:12px;
+border-radius:50%;
+color:white;
+}
+
+.whatsapp{bottom:20px;background:#25D366;}
+.telegram{bottom:80px;background:#0088cc;}
+.insta{bottom:140px;background:#E1306C;}
+
+.toast{
+position:fixed;
+bottom:80px;
+left:20px;
+background:black;
+padding:10px;
+border-radius:10px;
+display:none;
+}
+
+.chat{
 position:fixed;
 bottom:20px;
-right:20px;
-background:#25D366;
-padding:15px;
-border-radius:50%;
+left:20px;
+background:black;
+padding:10px;
+border-radius:10px;
+display:none;
 }
 </style>
 </head>
@@ -103,13 +126,13 @@ border-radius:50%;
 <p id="result"></p>
 <p class="warning" data-key="warn">⚠️ IMEI sorgulama sonuçları bilgilendirme amaçlıdır.</p>
 
+<!-- HİZMETLER -->
 <div class="services">
 
 <div class="box" data-key="s1">📱 Android Yazılım</div>
 <div class="box" data-key="s2">🍎 iOS Servis</div>
 <div class="box" data-key="s3">🛠️ Anakart Onarım</div>
 <div class="box" data-key="s4">⚡ Hard Brick</div>
-
 <div class="box" data-key="s5">🔓 FRP</div>
 <div class="box" data-key="s6">🔐 Kilit</div>
 
@@ -117,14 +140,20 @@ border-radius:50%;
 <div class="box" data-key="s8">💾 Veri Kurtarma</div>
 <div class="box" data-key="s9">📡 Şebeke</div>
 <div class="box" data-key="s10">📶 WiFi</div>
+<div class="box" data-key="s11">🔋 Batarya</div>
+<div class="box" data-key="s12">🔄 Format</div>
+<div class="box" data-key="s13">📲 Güncelleme</div>
+<div class="box" data-key="s14">⚙️ Sistem</div>
 
 </div>
 
+<!-- CANLI -->
 <div class="section">
 <h2 data-key="live">📊 Canlı Kullanıcı</h2>
 <p>👁️ Online: <span id="online">0</span></p>
 </div>
 
+<!-- YORUMLAR -->
 <div class="section">
 <h2 data-key="reviews">⭐ Müşteri Yorumları</h2>
 <p data-key="r1">⭐⭐⭐⭐⭐ Çok iyi</p>
@@ -132,12 +161,31 @@ border-radius:50%;
 <p>👍 10.000+</p>
 </div>
 
+<!-- HAKKIMIZDA -->
 <div class="section">
 <h2 data-key="about">👨‍🔧 Biz Kimiz</h2>
 <p data-key="aboutText">Profesyonel teknik servis hizmeti sunuyoruz.</p>
 </div>
 
+<!-- ÖDEME -->
+<div class="section">
+<h2 data-key="pay">💳 Ödeme</h2>
+<button onclick="window.open('https://wa.me/905447447798')" data-key="paybtn">WhatsApp</button>
+</div>
+
+<!-- SOSYAL -->
 <a class="whatsapp" href="https://wa.me/905447447798">💬</a>
+<a class="telegram" href="#">📲</a>
+<a class="insta" href="#">📸</a>
+
+<!-- TOAST -->
+<div class="toast" id="toast"></div>
+
+<!-- CHAT -->
+<div class="chat" id="chat">
+<p data-key="chat">Yardım ister misin?</p>
+<button onclick="window.open('https://wa.me/905447447798')" data-key="chatbtn">Yaz</button>
+</div>
 
 <script>
 
@@ -156,12 +204,27 @@ setInterval(()=>{
 document.getElementById("online").innerText=Math.floor(Math.random()*50)+10;
 },2000);
 
-// 🔥 TÜM SAYFA ÇEVİRİ
-const langs = {
+// TOAST
+let names=["Ahmet","Mehmet","Ali"];
+setInterval(()=>{
+let t=document.getElementById("toast");
+let name=names[Math.random()*names.length|0];
+t.innerHTML="🔥 "+name+" işlem yaptı!";
+t.style.display="block";
+setTimeout(()=>t.style.display="none",3000);
+},5000);
+
+// CHAT
+setTimeout(()=>{
+document.getElementById("chat").style.display="block";
+},5000);
+
+// 🌍 TAM ÇEVİRİ
+const langData={
 tr:{
 title:"Profesyonel Teknik Servis",
 btn:"Sorgula",
-warn:"⚠️ IMEI sorgulama sonuçları bilgilendirme amaçlıdır.",
+warn:"IMEI sorgulama sonuçları bilgilendirme amaçlıdır.",
 s1:"Android Yazılım",
 s2:"iOS Servis",
 s3:"Anakart Onarım",
@@ -172,18 +235,25 @@ s7:"Bootloop",
 s8:"Veri Kurtarma",
 s9:"Şebeke",
 s10:"WiFi",
+s11:"Batarya",
+s12:"Format",
+s13:"Güncelleme",
+s14:"Sistem",
 live:"Canlı Kullanıcı",
 reviews:"Müşteri Yorumları",
-r1:"⭐⭐⭐⭐⭐ Çok iyi",
-r2:"⭐⭐⭐⭐⭐ Hızlı çözüm",
+r1:"Çok iyi",
+r2:"Hızlı çözüm",
 about:"Biz Kimiz",
-aboutText:"Profesyonel teknik servis hizmeti sunuyoruz."
+aboutText:"Profesyonel teknik servis hizmeti sunuyoruz.",
+pay:"Ödeme",
+paybtn:"WhatsApp",
+chat:"Yardım ister misin?",
+chatbtn:"Yaz"
 },
-
 en:{
-title:"Professional Technical Service",
+title:"Technical Service",
 btn:"Check",
-warn:"⚠️ IMEI results are for informational purposes.",
+warn:"IMEI results are for informational purposes.",
 s1:"Android Software",
 s2:"iOS Service",
 s3:"Motherboard Repair",
@@ -193,19 +263,27 @@ s6:"Lock",
 s7:"Bootloop",
 s8:"Data Recovery",
 s9:"Network",
-s10:"WiFi Repair",
+s10:"WiFi",
+s11:"Battery",
+s12:"Format",
+s13:"Update",
+s14:"System",
 live:"Live Users",
 reviews:"Customer Reviews",
-r1:"⭐⭐⭐⭐⭐ Very good",
-r2:"⭐⭐⭐⭐⭐ Fast solution",
+r1:"Very good",
+r2:"Fast solution",
 about:"About Us",
-aboutText:"We provide professional technical service."
+aboutText:"We provide professional service.",
+pay:"Payment",
+paybtn:"WhatsApp",
+chat:"Need help?",
+chatbtn:"Message"
 }
 };
 
-function changeLang(lang){
+function changeLang(l){
 document.querySelectorAll("[data-key]").forEach(el=>{
-el.innerText = langs[lang][el.getAttribute("data-key")];
+el.innerText=langData[l][el.getAttribute("data-key")];
 });
 }
 
