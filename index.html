@@ -59,7 +59,7 @@ justify-content:center;
 .box{
 margin:10px;
 padding:15px;
-width:220px;
+width:240px;
 border-radius:12px;
 background:rgba(0,0,0,0.6);
 animation:neon 2s infinite alternate;
@@ -88,15 +88,14 @@ color:white;
 
 .toast{
 position:fixed;
-top:20px;
-right:20px;
+bottom:80px;
+left:20px;
 background:black;
 padding:10px;
 border-radius:10px;
 display:none;
 }
 
-/* CHAT */
 .chat{
 position:fixed;
 bottom:20px;
@@ -104,7 +103,6 @@ left:20px;
 background:black;
 padding:10px;
 border-radius:10px;
-width:200px;
 display:none;
 }
 </style>
@@ -121,45 +119,61 @@ display:none;
 
 <h2 id="title">Profesyonel Teknik Servis</h2>
 
-<!-- VIDEO -->
-<div class="section">
-<video width="90%" controls>
-<source src="https://www.w3schools.com/html/mov_bbb.mp4">
-</video>
-</div>
-
 <input id="imei" placeholder="IMEI gir">
 <br>
 <button onclick="check()">Sorgula</button>
 
 <p id="result"></p>
-<p class="warning">⚠️ IMEI bilgi amaçlıdır</p>
+<p class="warning">⚠️ IMEI sorgulama sonuçları bilgilendirme amaçlıdır.</p>
 
 <div class="services">
-<div class="box">📱 Android</div>
-<div class="box">🍎 iOS</div>
-<div class="box">🛠️ Anakart</div>
-<div class="box">⚡ Brick</div>
+
+<div class="box">📱 Android Yazılım</div>
+<div class="box">🍎 iOS Servis</div>
+<div class="box">🛠️ Anakart Onarım</div>
+<div class="box">⚡ Hard Brick</div>
+
 <div class="box">🔓 FRP<div class="warning">Kayıp cihaz yapılmaz</div></div>
-<div class="box">🔐 Kilit</div>
+<div class="box">🔐 Kilit<div class="warning">Yasa dışı işlem yok</div></div>
+
+<div class="box">🔧 Bootloop</div>
+<div class="box">💾 Veri Kurtarma</div>
+<div class="box">📡 Şebeke</div>
+<div class="box">📶 WiFi</div>
+<div class="box">🔋 Batarya</div>
+<div class="box">🔄 Format</div>
+<div class="box">📲 Güncelleme</div>
+<div class="box">⚙️ Sistem</div>
+
 </div>
 
 <div class="section">
-<h2>💳 Ödeme</h2>
-<button onclick="odeme()">Ödeme Yap</button>
-</div>
-
-<div class="section">
-<h2>📊 Canlı</h2>
+<h2>📊 Canlı Kullanıcı</h2>
 <p>👁️ Online: <span id="online">0</span></p>
 </div>
 
 <div class="section">
-<h2>⭐ Yorumlar</h2>
-<p>⭐⭐⭐⭐⭐ “Harika”</p>
-<p>⭐⭐⭐⭐⭐ “Çok iyi”</p>
+<h2>⭐ Müşteri Yorumları</h2>
+<p>⭐⭐⭐⭐⭐ “Çok hızlı çözdüler”</p>
+<p>⭐⭐⭐⭐⭐ “Güvenilir servis”</p>
+<p>⭐⭐⭐⭐⭐ “Sorunsuz işlem”</p>
 <p>👍 10.000+ Beğeni</p>
 </div>
+
+<div class="section">
+<h2>👨‍🔧 Biz Kimiz?</h2>
+<p>AksyMH Gfi Service profesyonel teknik servis hizmeti sunar.</p>
+</div>
+
+<div class="section">
+<h2>💳 Ödeme</h2>
+<button onclick="window.open('https://wa.me/905447447798')">Ödeme için yaz</button>
+</div>
+
+<footer>
+<p>© 2026 AksyMH Gfi Service</p>
+<p>Tüm Hakları Saklıdır</p>
+</footer>
 
 <!-- CHAT -->
 <div class="chat" id="chat">
@@ -176,58 +190,37 @@ display:none;
 
 <script>
 
-// IMEI
 function check(){
 let imei=document.getElementById("imei").value;
 if(!imei||imei.length!==15){
-document.getElementById("result").innerHTML="❌ Hatalı";
+document.getElementById("result").innerHTML="❌ Geçersiz IMEI";
 return;
 }
 document.getElementById("result").innerHTML="🔒 Kontrol edildi";
 }
 
-// ONLINE
 setInterval(()=>{
 document.getElementById("online").innerText=Math.floor(Math.random()*50)+10;
 },2000);
 
-// TOAST
-let names=["Ahmet","Mehmet","Ali"];
+let names=["Ahmet","Mehmet","Ali","Emre"];
 setInterval(()=>{
 let t=document.getElementById("toast");
-t.innerHTML="🔥 "+names[Math.random()*names.length|0]+" işlem yaptı!";
+t.innerHTML="🔥 "+names[Math.random()*names.length|0]+" işlem yaptırdı!";
 t.style.display="block";
 setTimeout(()=>t.style.display="none",3000);
 },5000);
 
-// CHAT
 setTimeout(()=>{
 document.getElementById("chat").style.display="block";
 },5000);
 
-// DİL
 function dil(d){
 if(d=="en"){
 document.getElementById("title").innerText="Technical Service";
 }else{
 document.getElementById("title").innerText="Profesyonel Teknik Servis";
 }
-}
-
-// ÖDEME
-function odeme(){
-alert("Ödeme için WhatsApp'tan iletişime geçin");
-}
-
-// NOTİFİKASYON
-setInterval(()=>{
-if(Notification.permission==="granted"){
-new Notification("Yeni müşteri siteye girdi!");
-}
-},10000);
-
-if(Notification.permission!=="granted"){
-Notification.requestPermission();
 }
 
 </script>
