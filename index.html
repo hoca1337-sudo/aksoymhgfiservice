@@ -9,17 +9,16 @@
 body {
   margin:0;
   font-family:Arial;
-  text-align:center;
+  background:black;
   color:white;
-  background: radial-gradient(circle, #000, #001a1a);
+  text-align:center;
 }
 
-/* HEADER RGB */
+/* RGB HEADER */
 header {
-  padding:25px;
   font-size:32px;
-  font-weight:bold;
-  animation: rainbow 4s infinite;
+  padding:20px;
+  animation:rainbow 4s infinite;
 }
 
 @keyframes rainbow {
@@ -49,33 +48,27 @@ button {
   color:black;
   font-weight:bold;
   cursor:pointer;
-  transition:0.3s;
 }
 
-button:hover {
-  transform:scale(1.1);
-  box-shadow:0 0 20px #00ffcc;
-}
-
-/* GRID */
+/* SERVICES GRID */
 .services {
   display:flex;
   flex-wrap:wrap;
   justify-content:center;
-  margin-top:40px;
+  margin-top:30px;
 }
 
 /* BOX */
 .box {
   margin:10px;
-  padding:20px;
-  width:240px;
+  padding:15px;
+  width:260px;
   border-radius:12px;
-  animation: neon 2s infinite alternate;
+  cursor:pointer;
   transition:0.3s;
+  animation:neon 2s infinite alternate;
 }
 
-/* NEON EFFECT */
 @keyframes neon {
   0%{box-shadow:0 0 10px #00ffcc;}
   25%{box-shadow:0 0 20px #ff00ff;}
@@ -85,16 +78,25 @@ button:hover {
 }
 
 .box:hover {
-  transform:scale(1.1);
+  transform:scale(1.05);
 }
 
-/* SECTION */
-.section {
+/* DETAIL TEXT */
+.content {
+  display:none;
+  margin-top:10px;
+  font-size:14px;
+  color:#ccc;
+}
+
+.active .content {
+  display:block;
+}
+
+/* FOOTER */
+footer {
   margin-top:50px;
-}
-
-.section h2 {
-  animation: rainbow 4s infinite;
+  padding:20px;
 }
 
 /* WHATSAPP */
@@ -113,7 +115,7 @@ button:hover {
 
 <header>⚡ AKSYMH GFI SERVICE ⚡</header>
 
-<h2 style="animation:rainbow 5s infinite;">Profesyonel Teknik Servis</h2>
+<h2 style="animation:rainbow 4s infinite;">Profesyonel Teknik Servis</h2>
 
 <input type="text" id="imei" placeholder="IMEI gir...">
 <br>
@@ -123,46 +125,60 @@ button:hover {
 
 <div class="services">
 
-<div class="box">📱 Android Yazılım</div>
-<div class="box">🍎 iOS Servis</div>
-<div class="box">🔌 Şarj Entegre</div>
-<div class="box">🔥 CPU Reball</div>
-<div class="box">🛠️ Anakart Onarım</div>
-<div class="box">⚡ Hard Brick</div>
+<div class="box" onclick="toggle(this)">📱 Android Yazılım<div class="content">Android cihazlara yazılım yükleme ve sistem onarım işlemleri yapılır.</div></div>
 
-<div class="box">🔓 FRP Kilit Açma</div>
-<div class="box">🔐 Ekran Kilidi</div>
-<div class="box">📡 Şebeke Onarım</div>
-<div class="box">📶 WiFi Tamir</div>
-<div class="box">🔋 Batarya</div>
-<div class="box">💾 Veri Kurtarma</div>
+<div class="box" onclick="toggle(this)">🍎 iOS Servis<div class="content">iPhone cihazlarda yazılım ve teknik servis hizmeti verilir.</div></div>
 
-<div class="box">📲 Güncelleme</div>
-<div class="box">⚙️ Sistem Onarım</div>
-<div class="box">🔧 Bootloop</div>
-<div class="box">💻 PC Müdahale</div>
-<div class="box">🌐 Uzaktan Destek</div>
-<div class="box">🔄 Format</div>
+<div class="box" onclick="toggle(this)">🔌 Şarj Entegre<div class="content">Şarj almayan cihazlarda entegre ve soket tamiri yapılır.</div></div>
+
+<div class="box" onclick="toggle(this)">🔥 CPU Reball<div class="content">İşlemci yeniden lehimlenerek cihaz onarılır.</div></div>
+
+<div class="box" onclick="toggle(this)">🛠️ Anakart Onarım<div class="content">Anakart arızaları profesyonel şekilde giderilir.</div></div>
+
+<div class="box" onclick="toggle(this)">⚡ Hard Brick<div class="content">Açılmayan cihazlar yeniden çalışır hale getirilir.</div></div>
+
+<div class="box" onclick="toggle(this)">🔓 FRP Kilit Açma<div class="content">Google hesap kilidi kaldırılır.</div></div>
+
+<div class="box" onclick="toggle(this)">🔐 Ekran Kilidi<div class="content">Şifre unutulan cihazların kilidi açılır.</div></div>
+
+<div class="box" onclick="toggle(this)">📡 Şebeke Onarım<div class="content">Servis yok hatası ve çekim sorunları çözülür.</div></div>
+
+<div class="box" onclick="toggle(this)">📶 WiFi Tamir<div class="content">WiFi ve Bluetooth sorunları giderilir.</div></div>
+
+<div class="box" onclick="toggle(this)">🔋 Batarya<div class="content">Batarya değişimi ve güç sorunları çözülür.</div></div>
+
+<div class="box" onclick="toggle(this)">💾 Veri Kurtarma<div class="content">Silinen veriler geri getirilir.</div></div>
+
+<div class="box" onclick="toggle(this)">📲 Güncelleme<div class="content">Cihaz en son sürüme yükseltilir.</div></div>
+
+<div class="box" onclick="toggle(this)">⚙️ Sistem Onarım<div class="content">Donma ve yavaşlama sorunları çözülür.</div></div>
+
+<div class="box" onclick="toggle(this)">🔧 Bootloop<div class="content">Sürekli yeniden başlayan cihazlar düzeltilir.</div></div>
+
+<div class="box" onclick="toggle(this)">💻 PC Müdahale<div class="content">Bilgisayar üzerinden cihaz müdahalesi yapılır.</div></div>
+
+<div class="box" onclick="toggle(this)">🌐 Uzaktan Destek<div class="content">Uzaktan bağlantı ile cihaz destek verilir.</div></div>
+
+<div class="box" onclick="toggle(this)">🔄 Format<div class="content">Cihaz sıfırlanarak temiz kurulum yapılır.</div></div>
 
 </div>
 
-<div class="section">
-<h2>📊 Canlı İstatistik</h2>
-<p>👁️ Online: <span id="online">0</span></p>
-</div>
-
-<footer class="section">
+<footer>
 📞 0544 744 77 98
 </footer>
 
 <a class="whatsapp" href="https://wa.me/905447447798">💬</a>
 
 <script>
+function toggle(el){
+  el.classList.toggle("active");
+}
+
 function check(){
   let imei=document.getElementById("imei").value;
   let result=document.getElementById("result");
 
-  if(!imei||imei.length!==15){
+  if(!imei || imei.length!==15){
     result.innerHTML="❌ Geçersiz IMEI";
     return;
   }
@@ -177,10 +193,6 @@ function check(){
 
   result.innerHTML="📱 "+brand+"<br>🔒 "+status;
 }
-
-setInterval(()=>{
-  document.getElementById("online").innerText=Math.floor(Math.random()*30)+10;
-},1500);
 </script>
 
 </body>
