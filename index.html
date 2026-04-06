@@ -18,20 +18,26 @@ background-size:cover;
 background-attachment:fixed;
 }
 
+/* HEADER */
 header{
-font-size:32px;
+display:flex;
+align-items:center;
+justify-content:center;
+gap:15px;
 padding:20px;
-animation:rainbow 4s infinite;
 }
 
-@keyframes rainbow{
-0%{color:#00ffcc}
-25%{color:#ff00ff}
-50%{color:#00ffff}
-75%{color:#ffff00}
-100%{color:#00ffcc}
+.logo-text{
+font-size:34px;
+font-weight:900;
+letter-spacing:2px;
+background:linear-gradient(90deg,#00ffcc,#ff00ff,#00ffff);
+-webkit-background-clip:text;
+color:transparent;
+text-shadow:0 0 20px rgba(0,255,204,0.7);
 }
 
+/* FORM */
 input,select{
 padding:12px;
 width:250px;
@@ -50,6 +56,7 @@ cursor:pointer;
 font-weight:bold;
 }
 
+/* SERVICES */
 .services{
 display:flex;
 flex-wrap:wrap;
@@ -79,12 +86,31 @@ margin-top:40px;
 padding:20px;
 background:black;
 }
+
+/* WHATSAPP */
+.whatsapp{
+position:fixed;
+bottom:20px;
+right:20px;
+background:#25D366;
+padding:15px;
+border-radius:50%;
+}
 </style>
 </head>
 
 <body>
 
-<header>⚡ AKSYMH GFI SERVICE ⚡</header>
+<!-- 🔥 PRO HEADER -->
+<header>
+<span style="font-size:28px;">🛠️💻</span>
+
+<span class="logo-text">
+AKSYMH GFI SERVICE
+</span>
+
+<span style="font-size:28px;">💻🛠️</span>
+</header>
 
 <select onchange="changeLang(this.value)">
 <option value="tr">🇹🇷 Türkçe</option>
@@ -101,20 +127,20 @@ background:black;
 <p class="warning" data-key="warn">IMEI sorgulama sonuçları bilgilendirme amaçlıdır.</p>
 
 <div class="services">
-<div class="box" data-key="s1">Android Yazılım</div>
-<div class="box" data-key="s2">iOS Servis</div>
-<div class="box" data-key="s3">Anakart Onarım</div>
-<div class="box" data-key="s4">Hard Brick</div>
-<div class="box" data-key="s5">FRP</div>
-<div class="box" data-key="s6">Kilit</div>
-<div class="box" data-key="s7">Bootloop</div>
-<div class="box" data-key="s8">Veri Kurtarma</div>
-<div class="box" data-key="s9">Şebeke</div>
-<div class="box" data-key="s10">WiFi</div>
-<div class="box" data-key="s11">Batarya</div>
-<div class="box" data-key="s12">Format</div>
-<div class="box" data-key="s13">Güncelleme</div>
-<div class="box" data-key="s14">Sistem</div>
+<div class="box" data-key="s1">📱 Android Yazılım</div>
+<div class="box" data-key="s2">🍎 iOS Servis</div>
+<div class="box" data-key="s3">🛠️ Anakart Onarım</div>
+<div class="box" data-key="s4">⚡ Hard Brick</div>
+<div class="box" data-key="s5">🔓 FRP</div>
+<div class="box" data-key="s6">🔐 Kilit</div>
+<div class="box" data-key="s7">🔧 Bootloop</div>
+<div class="box" data-key="s8">💾 Veri Kurtarma</div>
+<div class="box" data-key="s9">📡 Şebeke</div>
+<div class="box" data-key="s10">📶 WiFi</div>
+<div class="box" data-key="s11">🔋 Batarya</div>
+<div class="box" data-key="s12">🔄 Format</div>
+<div class="box" data-key="s13">📲 Güncelleme</div>
+<div class="box" data-key="s14">⚙️ Sistem</div>
 </div>
 
 <div class="section">
@@ -137,21 +163,8 @@ background:black;
 </div>
 
 <div class="section">
-<h2 data-key="why">Neden Biz?</h2>
-<p data-key="w1">✔ Hızlı servis</p>
-<p data-key="w2">✔ Güvenilir işlem</p>
-<p data-key="w3">✔ Profesyonel ekip</p>
-</div>
-
-<div class="section">
 <h2 data-key="pay">Ödeme</h2>
-<p data-key="payText">Ödeme sonrası işlem başlatılır.</p>
 <button onclick="window.open('https://wa.me/905447447798')" data-key="paybtn">WhatsApp</button>
-</div>
-
-<div class="section">
-<h2 data-key="legal">Yasal Uyarı</h2>
-<p data-key="legalText">Kayıp cihazlara işlem yapılmaz.</p>
 </div>
 
 <footer>
@@ -159,8 +172,11 @@ background:black;
 <p data-key="rights">Tüm Hakları Saklıdır</p>
 </footer>
 
+<a class="whatsapp" href="https://wa.me/905447447798">💬</a>
+
 <script>
 
+// IMEI
 function check(){
 let imei=document.getElementById("imei").value;
 if(!imei||imei.length!==15){
@@ -170,10 +186,12 @@ return;
 document.getElementById("result").innerHTML="🔒 Kontrol edildi";
 }
 
+// CANLI
 setInterval(()=>{
 document.getElementById("online").innerText=Math.floor(Math.random()*50)+10;
 },2000);
 
+// 🌍 ÇEVİRİ
 const langData={
 tr:{
 title:"Profesyonel Teknik Servis",
@@ -201,15 +219,8 @@ r3:"Güvenilir servis",
 r4:"Hızlı teslim",
 about:"Biz Kimiz",
 aboutText:"Profesyonel teknik servis hizmeti sunuyoruz.",
-why:"Neden Biz?",
-w1:"✔ Hızlı servis",
-w2:"✔ Güvenilir işlem",
-w3:"✔ Profesyonel ekip",
 pay:"Ödeme",
-payText:"Ödeme sonrası işlem başlatılır.",
 paybtn:"WhatsApp",
-legal:"Yasal Uyarı",
-legalText:"Kayıp cihazlara işlem yapılmaz.",
 rights:"Tüm Hakları Saklıdır"
 },
 en:{
@@ -238,15 +249,8 @@ r3:"Trusted service",
 r4:"Fast delivery",
 about:"About Us",
 aboutText:"We provide professional service.",
-why:"Why Us?",
-w1:"✔ Fast service",
-w2:"✔ Reliable process",
-w3:"✔ Professional team",
 pay:"Payment",
-payText:"Service starts after payment.",
 paybtn:"WhatsApp",
-legal:"Legal Notice",
-legalText:"No service for lost devices.",
 rights:"All Rights Reserved"
 }
 };
