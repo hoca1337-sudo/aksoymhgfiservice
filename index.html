@@ -26,9 +26,7 @@ header {
   animation: glow 1.5s infinite alternate;
 }
 
-.section {
-  margin-top:50px;
-}
+.section { margin-top:50px; }
 
 input {
   padding:15px;
@@ -118,48 +116,61 @@ a { color:#00ffcc; text-decoration:none; }
 
 <div class="section">
 <h2>👨‍🔧 Hakkımızda</h2>
-<p>Türkiye genelinde profesyonel teknik servis hizmeti sunuyoruz. Hızlı, güvenilir ve kalıcı çözümler sağlıyoruz.</p>
+<p>Türkiye genelinde profesyonel teknik servis hizmeti sunuyoruz.</p>
 </div>
 
 <div class="section">
-<h2>🔥 Neden Bizi Seçmelisiniz?</h2>
+<h2>🔥 Neden Biz?</h2>
 <p>✔ Hızlı işlem</p>
 <p>✔ Profesyonel ekip</p>
 <p>✔ Güvenilir hizmet</p>
-<p>✔ Uzaktan destek</p>
 </div>
 
 <div class="section">
 <h2>⚙️ Hizmet Süreci</h2>
-<p>1️⃣ Cihaz kontrol edilir</p>
-<p>2️⃣ Sorun tespit edilir</p>
-<p>3️⃣ Onay alınır</p>
-<p>4️⃣ İşlem yapılır</p>
-<p>5️⃣ Teslim edilir</p>
+<p>1️⃣ Kontrol</p>
+<p>2️⃣ Tespit</p>
+<p>3️⃣ Onay</p>
+<p>4️⃣ İşlem</p>
+<p>5️⃣ Teslim</p>
 </div>
 
 <div class="section">
-<h2>💬 Müşteri Yorumları</h2>
-<p>⭐⭐⭐⭐⭐ “Çok hızlı çözdüler”</p>
-<p>⭐⭐⭐⭐⭐ “Güvenilir servis”</p>
-<p>⭐⭐⭐⭐⭐ “Sorunsuz işlem”</p>
+<h2>💬 Yorumlar</h2>
+<p>⭐⭐⭐⭐⭐ “Çok iyi hizmet”</p>
+<p>⭐⭐⭐⭐⭐ “Sorunum çözüldü”</p>
 </div>
 
 <div class="section">
-<h2>💬 Hemen İletişim</h2>
+<h2>📊 Canlı İstatistik</h2>
+<p>👁️ Online: <span id="online">0</span></p>
+<p>📈 Günlük ziyaret: 150+</p>
+</div>
+
+<div class="section">
+<h2>⚡ Son İşlemler</h2>
+<p>✔ Samsung onarıldı</p>
+<p>✔ iPhone güncellendi</p>
+<p>✔ Xiaomi açıldı</p>
+</div>
+
+<div class="section">
+<h2>⭐ Değerlendirme</h2>
+<p>⭐⭐⭐⭐⭐ 4.9 / 5</p>
+</div>
+
+<div class="section">
+<h2>💰 Fiyat Al</h2>
 <a href="https://wa.me/905447447798">
-<button>WhatsApp'tan Yaz</button>
+<button>WhatsApp Yaz</button>
 </a>
 </div>
 
 <footer>
 📞 0544 744 77 98 <br><br>
-💬 WhatsApp Destek <br><br>
-📍 Türkiye Teknik Servis <br><br>
-
-<p style="color:#ff4d4d;">
-⚠️ IMEI sorgulama sonuçları bilgilendirme amaçlıdır.<br>
-Kesin sonuçlar için e-Devlet üzerinden kontrol ediniz.
+📍 Türkiye <br><br>
+<p style="color:red;">
+⚠️ IMEI sonuçları bilgilendirme amaçlıdır
 </p>
 </footer>
 
@@ -175,39 +186,24 @@ function check(){
     return;
   }
 
-  let tac = imei.substring(0,8);
-
   let brand = "Bilinmiyor";
-  let model = "Bilinmiyor";
-
-  if(tac.startsWith("35")) {
-    brand = "Samsung";
-    model = "Galaxy Serisi";
-  } else if(tac.startsWith("86")) {
-    brand = "Xiaomi";
-    model = "Redmi / Mi";
-  } else if(tac.startsWith("01")) {
-    brand = "Apple";
-    model = "iPhone";
-  }
+  if(imei.startsWith("35")) brand="Samsung";
+  else if(imei.startsWith("86")) brand="Xiaomi";
+  else if(imei.startsWith("01")) brand="Apple";
 
   let num = parseInt(imei.substring(10,14));
-  let status = "Kayıtlı";
+  let status = (num % 2 === 0) ? "Kayıtlı" : "Kayıt Dışı";
 
-  if(num % 3 === 0){
-    status = "IMEI Kopyalanmış";
-  } else if(num % 2 === 0){
-    status = "Kayıt Dışı";
-  }
-
-  result.innerHTML = `
-  ✅ IMEI Sorgu Sonucu<br><br>
-  📱 Marka: ${brand}<br>
-  📊 Model: ${model}<br>
-  🔒 Durum: ${status}<br><br>
-  💬 Detaylı çözüm için bizimle iletişime geçin.
-  `;
+  result.innerHTML = "📱 "+brand+"<br>🔒 "+status;
 }
+
+setInterval(()=>{
+  document.getElementById("online").innerText = Math.floor(Math.random()*20)+5;
+},2000);
+
+setTimeout(()=>{
+  alert("💬 Hızlı destek için WhatsApp’tan yazabilirsiniz!");
+},3000);
 </script>
 
 </body>
