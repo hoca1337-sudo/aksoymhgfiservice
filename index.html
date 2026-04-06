@@ -32,16 +32,16 @@ animation:rainbow 4s infinite;
 100%{color:#00ffcc}
 }
 
-input{
-padding:15px;
-width:260px;
+input,select{
+padding:12px;
+width:250px;
 border-radius:10px;
 border:none;
 margin:5px;
 }
 
 button{
-padding:15px 25px;
+padding:12px 20px;
 margin:10px;
 border:none;
 border-radius:10px;
@@ -59,66 +59,53 @@ justify-content:center;
 .box{
 margin:10px;
 padding:15px;
-width:250px;
+width:220px;
 border-radius:12px;
-cursor:pointer;
-animation:neon 2s infinite alternate;
 background:rgba(0,0,0,0.6);
+animation:neon 2s infinite alternate;
 }
 
 @keyframes neon{
 0%{box-shadow:0 0 10px #00ffcc}
-25%{box-shadow:0 0 20px #ff00ff}
-50%{box-shadow:0 0 30px #00ffff}
-75%{box-shadow:0 0 40px #ffff00}
-100%{box-shadow:0 0 50px #00ffcc}
+50%{box-shadow:0 0 30px #ff00ff}
+100%{box-shadow:0 0 50px #00ffff}
 }
 
 .section{margin-top:40px;}
 .warning{color:red;font-size:12px;}
 
-.popup{
-display:none;
+.whatsapp,.telegram,.insta{
 position:fixed;
-top:50%;
-left:50%;
-transform:translate(-50%,-50%);
-background:black;
-padding:20px;
-border-radius:10px;
-box-shadow:0 0 40px #00ffcc;
-z-index:1000;
+right:20px;
+padding:12px;
+border-radius:50%;
+color:white;
 }
 
-.overlay{
-display:none;
-position:fixed;
-top:0;
-left:0;
-width:100%;
-height:100%;
-background:rgba(0,0,0,0.7);
-z-index:999;
-}
+.whatsapp{bottom:20px;background:#25D366;}
+.telegram{bottom:80px;background:#0088cc;}
+.insta{bottom:140px;background:#E1306C;}
 
 .toast{
 position:fixed;
-bottom:80px;
+top:20px;
+right:20px;
+background:black;
+padding:10px;
+border-radius:10px;
+display:none;
+}
+
+/* CHAT */
+.chat{
+position:fixed;
+bottom:20px;
 left:20px;
 background:black;
 padding:10px;
 border-radius:10px;
-box-shadow:0 0 20px #00ffcc;
+width:200px;
 display:none;
-}
-
-.whatsapp{
-position:fixed;
-bottom:20px;
-right:20px;
-background:#25D366;
-padding:15px;
-border-radius:50%;
 }
 </style>
 </head>
@@ -127,77 +114,65 @@ border-radius:50%;
 
 <header>⚡ AKSYMH GFI SERVICE ⚡</header>
 
-<h3 style="color:yellow;">🔥 BUGÜNE ÖZEL %20 İNDİRİM ⏳ <span id="count">10:00</span></h3>
+<select onchange="dil(this.value)">
+<option value="tr">🇹🇷 Türkçe</option>
+<option value="en">🇬🇧 English</option>
+</select>
 
-<h2>Profesyonel Teknik Servis</h2>
+<h2 id="title">Profesyonel Teknik Servis</h2>
+
+<!-- VIDEO -->
+<div class="section">
+<video width="90%" controls>
+<source src="https://www.w3schools.com/html/mov_bbb.mp4">
+</video>
+</div>
 
 <input id="imei" placeholder="IMEI gir">
 <br>
 <button onclick="check()">Sorgula</button>
 
 <p id="result"></p>
-<p class="warning">⚠️ IMEI sorgulama bilgilendirme amaçlıdır</p>
+<p class="warning">⚠️ IMEI bilgi amaçlıdır</p>
 
 <div class="services">
-
-<div class="box">📱 Android Yazılım</div>
-<div class="box">🍎 iOS Servis</div>
+<div class="box">📱 Android</div>
+<div class="box">🍎 iOS</div>
 <div class="box">🛠️ Anakart</div>
-<div class="box">⚡ Hard Brick</div>
+<div class="box">⚡ Brick</div>
 <div class="box">🔓 FRP<div class="warning">Kayıp cihaz yapılmaz</div></div>
-<div class="box">🔐 Kilit<div class="warning">Yasa dışı işlem yok</div></div>
-
-<div class="box">🔧 Bootloop</div>
-<div class="box">💾 Veri</div>
-<div class="box">📡 Şebeke</div>
-<div class="box">📶 WiFi</div>
-<div class="box">🔋 Batarya</div>
-<div class="box">🔄 Format</div>
-<div class="box">📲 Güncelleme</div>
-<div class="box">⚙️ Sistem</div>
-
+<div class="box">🔐 Kilit</div>
 </div>
 
 <div class="section">
-<h2>📊 Canlı Kullanıcı</h2>
+<h2>💳 Ödeme</h2>
+<button onclick="odeme()">Ödeme Yap</button>
+</div>
+
+<div class="section">
+<h2>📊 Canlı</h2>
 <p>👁️ Online: <span id="online">0</span></p>
 </div>
 
 <div class="section">
 <h2>⭐ Yorumlar</h2>
+<p>⭐⭐⭐⭐⭐ “Harika”</p>
 <p>⭐⭐⭐⭐⭐ “Çok iyi”</p>
-<p>⭐⭐⭐⭐⭐ “Hızlı çözüm”</p>
-<p>⭐⭐⭐⭐⭐ “Güvenilir”</p>
 <p>👍 10.000+ Beğeni</p>
 </div>
 
-<div class="section">
-<h2>📩 Hızlı Talep</h2>
-<input id="ad" placeholder="Ad"><br>
-<input id="tel" placeholder="Telefon"><br>
-<input id="mesaj" placeholder="Sorun"><br>
-<button onclick="gonder()">Gönder</button>
-<p id="durum"></p>
+<!-- CHAT -->
+<div class="chat" id="chat">
+<p>💬 Yardım ister misin?</p>
+<button onclick="window.open('https://wa.me/905447447798')">Yaz</button>
 </div>
 
-<div class="section">
-<h2>📍 Konum</h2>
-<iframe src="https://maps.google.com/maps?q=izmir&t=&z=13&ie=UTF8&iwloc=&output=embed" width="90%" height="250"></iframe>
-</div>
-
-<div class="section">
-<h2>👨‍🔧 Biz Kimiz?</h2>
-<p>AksyMH Gfi Service profesyonel teknik servis hizmeti sunar.</p>
-</div>
-
-<footer>
-<p>© 2026 AksyMH Gfi Service</p>
-<p>Tüm Hakları Saklıdır</p>
-</footer>
+<!-- BUTONLAR -->
+<a class="whatsapp" href="https://wa.me/905447447798">💬</a>
+<a class="telegram" href="#">📲</a>
+<a class="insta" href="#">📸</a>
 
 <div class="toast" id="toast"></div>
-
-<a class="whatsapp" href="https://wa.me/905447447798">💬</a>
 
 <script>
 
@@ -205,46 +180,55 @@ border-radius:50%;
 function check(){
 let imei=document.getElementById("imei").value;
 if(!imei||imei.length!==15){
-document.getElementById("result").innerHTML="❌ Hatalı IMEI";
+document.getElementById("result").innerHTML="❌ Hatalı";
 return;
 }
-let status=(parseInt(imei)%2===0)?"Kayıtlı":"Riskli";
-document.getElementById("result").innerHTML="🔒 "+status;
+document.getElementById("result").innerHTML="🔒 Kontrol edildi";
 }
 
-// CANLI
+// ONLINE
 setInterval(()=>{
 document.getElementById("online").innerText=Math.floor(Math.random()*50)+10;
 },2000);
 
-// GERİ SAYIM
-let time=600;
+// TOAST
+let names=["Ahmet","Mehmet","Ali"];
 setInterval(()=>{
-let m=Math.floor(time/60);
-let s=time%60;
-document.getElementById("count").innerText=m+":"+s;
-time--;
-},1000);
+let t=document.getElementById("toast");
+t.innerHTML="🔥 "+names[Math.random()*names.length|0]+" işlem yaptı!";
+t.style.display="block";
+setTimeout(()=>t.style.display="none",3000);
+},5000);
 
-// FORM
-function gonder(){
-let ad=document.getElementById("ad").value;
-let tel=document.getElementById("tel").value;
-let mesaj=document.getElementById("mesaj").value;
+// CHAT
+setTimeout(()=>{
+document.getElementById("chat").style.display="block";
+},5000);
 
-let text="Ad:"+ad+" Tel:"+tel+" Sorun:"+mesaj;
-window.open("https://wa.me/905447447798?text="+encodeURIComponent(text));
+// DİL
+function dil(d){
+if(d=="en"){
+document.getElementById("title").innerText="Technical Service";
+}else{
+document.getElementById("title").innerText="Profesyonel Teknik Servis";
+}
 }
 
-// FAKE SATIŞ
-let names=["Ahmet","Mehmet","Ali","Emre","Burak"];
+// ÖDEME
+function odeme(){
+alert("Ödeme için WhatsApp'tan iletişime geçin");
+}
+
+// NOTİFİKASYON
 setInterval(()=>{
-let toast=document.getElementById("toast");
-let name=names[Math.floor(Math.random()*names.length)];
-toast.innerHTML="🔥 "+name+" işlem yaptırdı!";
-toast.style.display="block";
-setTimeout(()=>{toast.style.display="none"},3000);
-},5000);
+if(Notification.permission==="granted"){
+new Notification("Yeni müşteri siteye girdi!");
+}
+},10000);
+
+if(Notification.permission!=="granted"){
+Notification.requestPermission();
+}
 
 </script>
 
