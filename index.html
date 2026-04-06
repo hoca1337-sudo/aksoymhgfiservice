@@ -5,36 +5,70 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>AksyMH Gfi Service</title>
 
-<!-- 🔥 SEO -->
-<meta name="description" content="IMEI repair, FRP unlock, Android yazılım, iPhone servis, anakart onarım Türkiye teknik servis">
-<meta name="keywords" content="imei repair, frp unlock, android yazılım, iphone servis, teknik servis">
-<meta name="author" content="AksyMH Gfi Service">
-
 <style>
 
 body{
 margin:0;
 font-family:Arial;
-background:#050505;
-color:#fff;
+color:white;
 text-align:center;
+
+/* 🔥 ARKA PLAN */
+background:
+linear-gradient(rgba(0,0,0,0.8), rgba(0,0,0,0.9)),
+url('https://images.unsplash.com/photo-1518770660439-4636190af475');
+
+background-size:cover;
+background-attachment:fixed;
 }
 
 /* HEADER */
 header{
 padding:25px;
-font-size:32px;
+font-size:34px;
 font-weight:900;
 color:#00ffff;
-animation:neonText 2s infinite alternate;
+text-shadow:0 0 20px #00ffff,0 0 40px #00ffff;
 }
 
-@keyframes neonText{
-0%{text-shadow:0 0 10px #00ffff;}
-100%{text-shadow:0 0 30px #00ffff,0 0 60px #00ffff;}
+/* ŞEFFAF CAM */
+.card, .box{
+backdrop-filter:blur(10px);
+background:rgba(255,255,255,0.05);
+border-radius:15px;
+margin:10px;
+padding:15px;
 }
 
-/* TEXT */
+/* HER BOX AYRI RENK */
+.box:nth-child(1){box-shadow:0 0 15px #00ffff;}
+.box:nth-child(2){box-shadow:0 0 15px #ff00ff;}
+.box:nth-child(3){box-shadow:0 0 15px #00ff00;}
+.box:nth-child(4){box-shadow:0 0 15px #ffff00;}
+.box:nth-child(5){box-shadow:0 0 15px #ff0000;}
+.box:nth-child(6){box-shadow:0 0 15px #00ffff;}
+.box:nth-child(7){box-shadow:0 0 15px #ff00ff;}
+.box:nth-child(8){box-shadow:0 0 15px #00ff00;}
+.box:nth-child(9){box-shadow:0 0 15px #ffff00;}
+.box:nth-child(10){box-shadow:0 0 15px #ff0000;}
+.box:nth-child(11){box-shadow:0 0 15px #00ffff;}
+.box:nth-child(12){box-shadow:0 0 15px #ff00ff;}
+.box:nth-child(13){box-shadow:0 0 15px #00ff00;}
+.box:nth-child(14){box-shadow:0 0 15px #ffff00;}
+
+/* HOVER */
+.box:hover{
+transform:scale(1.05);
+}
+
+/* GRID */
+.services{
+display:grid;
+grid-template-columns:repeat(auto-fit,minmax(150px,1fr));
+padding:10px;
+}
+
+/* TEXT NEON */
 h1,h2,h3,p{
 text-shadow:0 0 5px #00ffff;
 }
@@ -46,7 +80,7 @@ border-radius:10px;
 border:none;
 margin:5px;
 width:240px;
-background:black;
+background:rgba(0,0,0,0.7);
 color:#00ffff;
 box-shadow:0 0 10px #00ffff;
 }
@@ -56,59 +90,18 @@ button{
 padding:12px 20px;
 border:none;
 border-radius:10px;
-background:black;
+background:rgba(0,0,0,0.7);
 color:#00ffff;
-font-weight:bold;
 cursor:pointer;
-animation:btnGlow 2s infinite alternate;
+box-shadow:0 0 15px #00ffff;
 }
 
-@keyframes btnGlow{
-0%{box-shadow:0 0 10px #00ffff;}
-100%{box-shadow:0 0 30px #00ffff;}
-}
-
-/* SERVICES */
-.services{
-display:grid;
-grid-template-columns:repeat(auto-fit,minmax(150px,1fr));
-gap:10px;
-padding:10px;
-}
-
-.box{
-background:black;
-padding:15px;
-border-radius:12px;
-animation:boxGlow 2s infinite alternate;
-}
-
-@keyframes boxGlow{
-0%{box-shadow:0 0 10px #00ffff;}
-100%{box-shadow:0 0 30px #00ffff;}
-}
-
-/* CARD */
-.card{
-margin:20px auto;
-padding:20px;
-width:90%;
-max-width:500px;
-background:black;
-border-radius:15px;
-animation:cardGlow 2s infinite alternate;
-}
-
-@keyframes cardGlow{
-0%{box-shadow:0 0 10px #00ffff;}
-100%{box-shadow:0 0 40px #00ffff;}
-}
-
-.title{
-font-size:20px;
-margin-bottom:10px;
-color:#00ffff;
-}
+/* CARD RENKLER */
+.card:nth-child(1){box-shadow:0 0 20px #00ffff;}
+.card:nth-child(2){box-shadow:0 0 20px #ff00ff;}
+.card:nth-child(3){box-shadow:0 0 20px #00ff00;}
+.card:nth-child(4){box-shadow:0 0 20px #ffff00;}
+.card:nth-child(5){box-shadow:0 0 20px #ff0000;}
 
 /* WHATSAPP */
 .whatsapp{
@@ -121,11 +114,10 @@ border-radius:50%;
 box-shadow:0 0 20px #25D366;
 }
 
-/* FOOTER */
 footer{
 margin-top:30px;
 padding:20px;
-background:black;
+background:rgba(0,0,0,0.8);
 }
 
 </style>
@@ -137,12 +129,9 @@ background:black;
 
 <h2>Profesyonel Teknik Servis</h2>
 
-<!-- 🔥 SATIŞ YAZISI -->
-<h3 style="color:#00ffff;">⚡ Cihazınızda sorun oluşmadan hemen kontrol edin!</h3>
-
-<input id="imei" placeholder="IMEI gir">
+<input placeholder="IMEI gir">
 <br>
-<button onclick="sendWhats()">Sorgula & İletişim</button>
+<button>İletişime Geç</button>
 
 <!-- SERVICES -->
 <div class="services">
@@ -162,83 +151,34 @@ background:black;
 <div class="box">Sistem</div>
 </div>
 
-<!-- FORM -->
+<!-- CARDS -->
 <div class="card">
-<div class="title">Hızlı Talep</div>
-<input id="ad" placeholder="Ad">
-<input id="tel" placeholder="Telefon">
-<br>
-<button onclick="formGonder()">Gönder</button>
+<h3>Canlı Kullanıcı</h3>
+<p>👁️ 34</p>
 </div>
 
-<!-- LIVE -->
 <div class="card">
-<div class="title">Canlı Kullanıcı</div>
-<p>👁️ <span id="online">0</span></p>
-</div>
-
-<!-- REVIEWS -->
-<div class="card">
-<div class="title">Müşteri Yorumları</div>
+<h3>Müşteri Yorumları</h3>
 <p>⭐⭐⭐⭐⭐ Çok iyi</p>
 <p>⭐⭐⭐⭐⭐ Hızlı çözüm</p>
 <p>⭐⭐⭐⭐⭐ Güvenilir servis</p>
-<p>⭐⭐⭐⭐⭐ Hızlı teslim</p>
-
-<!-- 🔥 GÜVEN -->
-<p>✔ 10.000+ işlem yapıldı</p>
-<p>✔ %100 müşteri memnuniyeti</p>
-<p>✔ Türkiye geneli hizmet</p>
-
 </div>
 
-<!-- ABOUT -->
 <div class="card">
-<div class="title">Biz Kimiz</div>
-<p>Profesyonel teknik servis hizmeti sunuyoruz.</p>
+<h3>Biz Kimiz</h3>
+<p>Profesyonel teknik servis hizmeti</p>
 </div>
 
-<!-- PAYMENT -->
 <div class="card">
-<div class="title">Ödeme</div>
-<button onclick="goWhats()">WhatsApp</button>
+<h3>Ödeme</h3>
+<button>WhatsApp</button>
 </div>
 
 <footer>
-<p>© 2026 AksyMH Gfi Service</p>
-<p>Tüm Hakları Saklıdır</p>
+<p>© 2026 AksyMH</p>
 </footer>
 
-<a class="whatsapp" href="https://wa.me/905447447798">💬</a>
-
-<script>
-
-// canlı kullanıcı
-setInterval(()=>{
-document.getElementById("online").innerText=Math.floor(Math.random()*50)+10;
-},2000);
-
-// WHATSAPP IMEI
-function sendWhats(){
-let imei=document.getElementById("imei").value;
-let msg="Merhaba, cihazım için teknik destek almak istiyorum.\nIMEI: "+imei+"\nBilgi alabilir miyim?";
-window.open("https://wa.me/905447447798?text="+encodeURIComponent(msg));
-}
-
-// FORM
-function formGonder(){
-let ad=document.getElementById("ad").value;
-let tel=document.getElementById("tel").value;
-let msg="Ad:"+ad+" Tel:"+tel;
-window.open("https://wa.me/905447447798?text="+encodeURIComponent(msg));
-}
-
-// ödeme
-function goWhats(){
-window.open("https://wa.me/905447447798");
-}
-
-</script>
+<a class="whatsapp">💬</a>
 
 </body>
 </html>
