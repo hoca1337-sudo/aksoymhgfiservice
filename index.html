@@ -12,29 +12,45 @@ font-family:Arial;
 color:white;
 text-align:center;
 background:
-linear-gradient(rgba(0,0,0,0.7), rgba(0,0,0,0.9)),
+linear-gradient(rgba(0,0,0,0.85), rgba(0,0,0,0.95)),
 url('https://images.unsplash.com/photo-1518770660439-4636190af475');
 background-size:cover;
 background-attachment:fixed;
 }
 
-/* HEADER */
+/* 🔥 NEON HEADER */
 header{
 display:flex;
-align-items:center;
 justify-content:center;
-gap:15px;
-padding:20px;
+align-items:center;
+gap:20px;
+padding:25px;
 }
 
 .logo-text{
-font-size:34px;
+font-size:40px;
 font-weight:900;
-letter-spacing:2px;
-background:linear-gradient(90deg,#00ffcc,#ff00ff,#00ffff);
--webkit-background-clip:text;
-color:transparent;
-text-shadow:0 0 20px rgba(0,255,204,0.7);
+letter-spacing:3px;
+animation:neonText 2s infinite alternate;
+}
+
+@keyframes neonText{
+0%{color:#00ffcc; text-shadow:0 0 10px #00ffcc,0 0 20px #00ffcc;}
+25%{color:#ff00ff; text-shadow:0 0 15px #ff00ff,0 0 30px #ff00ff;}
+50%{color:#00ffff; text-shadow:0 0 20px #00ffff,0 0 40px #00ffff;}
+75%{color:#ffff00; text-shadow:0 0 25px #ffff00,0 0 50px #ffff00;}
+100%{color:#00ffcc; text-shadow:0 0 30px #00ffcc,0 0 60px #00ffcc;}
+}
+
+/* 🔥 ICON BLINK */
+.icon{
+font-size:32px;
+animation:blink 1s infinite alternate;
+}
+
+@keyframes blink{
+0%{opacity:1; transform:scale(1);}
+100%{opacity:0.3; transform:scale(1.3);}
 }
 
 /* FORM */
@@ -69,10 +85,10 @@ padding:15px;
 width:240px;
 border-radius:12px;
 background:rgba(0,0,0,0.6);
-animation:neon 2s infinite alternate;
+animation:boxGlow 2s infinite alternate;
 }
 
-@keyframes neon{
+@keyframes boxGlow{
 0%{box-shadow:0 0 10px #00ffcc}
 50%{box-shadow:0 0 30px #ff00ff}
 100%{box-shadow:0 0 50px #00ffff}
@@ -95,21 +111,22 @@ right:20px;
 background:#25D366;
 padding:15px;
 border-radius:50%;
+font-size:20px;
 }
 </style>
 </head>
 
 <body>
 
-<!-- 🔥 PRO HEADER -->
+<!-- 🔥 HEADER -->
 <header>
-<span style="font-size:28px;">🛠️💻</span>
+<span class="icon">🛠️💻</span>
 
 <span class="logo-text">
 AKSYMH GFI SERVICE
 </span>
 
-<span style="font-size:28px;">💻🛠️</span>
+<span class="icon">💻🛠️</span>
 </header>
 
 <select onchange="changeLang(this.value)">
@@ -162,11 +179,6 @@ AKSYMH GFI SERVICE
 <p data-key="aboutText">Profesyonel teknik servis hizmeti sunuyoruz.</p>
 </div>
 
-<div class="section">
-<h2 data-key="pay">Ödeme</h2>
-<button onclick="window.open('https://wa.me/905447447798')" data-key="paybtn">WhatsApp</button>
-</div>
-
 <footer>
 <p>© 2026 AksyMH Gfi Service</p>
 <p data-key="rights">Tüm Hakları Saklıdır</p>
@@ -186,78 +198,32 @@ return;
 document.getElementById("result").innerHTML="🔒 Kontrol edildi";
 }
 
-// CANLI
+// canlı
 setInterval(()=>{
 document.getElementById("online").innerText=Math.floor(Math.random()*50)+10;
 },2000);
 
-// 🌍 ÇEVİRİ
+// dil
 const langData={
 tr:{
 title:"Profesyonel Teknik Servis",
 btn:"Sorgula",
 warn:"IMEI sorgulama sonuçları bilgilendirme amaçlıdır.",
-s1:"Android Yazılım",
-s2:"iOS Servis",
-s3:"Anakart Onarım",
-s4:"Hard Brick",
-s5:"FRP",
-s6:"Kilit",
-s7:"Bootloop",
-s8:"Veri Kurtarma",
-s9:"Şebeke",
-s10:"WiFi",
-s11:"Batarya",
-s12:"Format",
-s13:"Güncelleme",
-s14:"Sistem",
-live:"Canlı Kullanıcı",
-reviews:"Müşteri Yorumları",
-r1:"Çok iyi",
-r2:"Hızlı çözüm",
-r3:"Güvenilir servis",
-r4:"Hızlı teslim",
-about:"Biz Kimiz",
-aboutText:"Profesyonel teknik servis hizmeti sunuyoruz.",
-pay:"Ödeme",
-paybtn:"WhatsApp",
 rights:"Tüm Hakları Saklıdır"
 },
 en:{
 title:"Technical Service",
 btn:"Check",
 warn:"IMEI results are for informational purposes.",
-s1:"Android Software",
-s2:"iOS Service",
-s3:"Motherboard Repair",
-s4:"Hard Brick",
-s5:"FRP",
-s6:"Lock",
-s7:"Bootloop",
-s8:"Data Recovery",
-s9:"Network",
-s10:"WiFi",
-s11:"Battery",
-s12:"Format",
-s13:"Update",
-s14:"System",
-live:"Live Users",
-reviews:"Customer Reviews",
-r1:"Very good",
-r2:"Fast solution",
-r3:"Trusted service",
-r4:"Fast delivery",
-about:"About Us",
-aboutText:"We provide professional service.",
-pay:"Payment",
-paybtn:"WhatsApp",
 rights:"All Rights Reserved"
 }
 };
 
 function changeLang(l){
 document.querySelectorAll("[data-key]").forEach(el=>{
+if(langData[l][el.getAttribute("data-key")]){
 el.innerText=langData[l][el.getAttribute("data-key")];
+}
 });
 }
 
