@@ -9,34 +9,24 @@
 
 body{
 margin:0;
-font-family:'Segoe UI',Arial;
-background:#0f172a;
-color:#e2e8f0;
+font-family:Arial;
+background:#050505;
+color:#fff;
 text-align:center;
 }
 
-/* HEADER */
+/* 🔥 HEADER */
 header{
 padding:25px;
-font-size:28px;
+font-size:32px;
 font-weight:900;
-color:#22c55e;
-text-shadow:0 0 10px rgba(34,197,94,0.5);
+color:#00ffff;
+animation:neonText 2s infinite alternate;
 }
 
-/* BUTTON */
-button{
-padding:12px 20px;
-border:none;
-border-radius:10px;
-background:#22c55e;
-color:black;
-font-weight:bold;
-cursor:pointer;
-transition:0.3s;
-}
-button:hover{
-background:#16a34a;
+@keyframes neonText{
+0%{text-shadow:0 0 10px #00ffff;}
+100%{text-shadow:0 0 30px #00ffff,0 0 60px #00ffff;}
 }
 
 /* INPUT */
@@ -46,9 +36,29 @@ border-radius:10px;
 border:none;
 margin:5px;
 width:240px;
+background:black;
+color:#00ffff;
+box-shadow:0 0 10px #00ffff;
 }
 
-/* SERVICES GRID */
+/* BUTTON */
+button{
+padding:12px 20px;
+border:none;
+border-radius:10px;
+background:black;
+color:#00ffff;
+font-weight:bold;
+cursor:pointer;
+animation:btnGlow 2s infinite alternate;
+}
+
+@keyframes btnGlow{
+0%{box-shadow:0 0 10px #00ffff;}
+100%{box-shadow:0 0 30px #00ffff;}
+}
+
+/* SERVICES */
 .services{
 display:grid;
 grid-template-columns:repeat(auto-fit,minmax(150px,1fr));
@@ -57,15 +67,15 @@ padding:10px;
 }
 
 .box{
-background:#1e293b;
+background:black;
 padding:15px;
 border-radius:12px;
-box-shadow:0 0 10px rgba(0,0,0,0.5);
-transition:0.3s;
+animation:boxGlow 2s infinite alternate;
 }
-.box:hover{
-transform:scale(1.05);
-box-shadow:0 0 15px #22c55e;
+
+@keyframes boxGlow{
+0%{box-shadow:0 0 10px #00ffff;}
+100%{box-shadow:0 0 30px #00ffff;}
 }
 
 /* CARD */
@@ -74,16 +84,26 @@ margin:20px auto;
 padding:20px;
 width:90%;
 max-width:500px;
-background:#1e293b;
+background:black;
 border-radius:15px;
-box-shadow:0 0 15px rgba(0,0,0,0.5);
+animation:cardGlow 2s infinite alternate;
 }
 
-/* TITLE */
+@keyframes cardGlow{
+0%{box-shadow:0 0 10px #00ffff;}
+100%{box-shadow:0 0 40px #00ffff;}
+}
+
 .title{
-font-size:18px;
+font-size:20px;
 margin-bottom:10px;
-color:#22c55e;
+color:#00ffff;
+text-shadow:0 0 10px #00ffff;
+}
+
+/* TEXT */
+p{
+text-shadow:0 0 5px #00ffff;
 }
 
 /* WHATSAPP */
@@ -94,14 +114,15 @@ right:20px;
 background:#25D366;
 padding:15px;
 border-radius:50%;
+box-shadow:0 0 20px #25D366;
 }
 
 /* FOOTER */
 footer{
 margin-top:30px;
 padding:20px;
-background:#020617;
-font-size:13px;
+background:black;
+text-shadow:0 0 10px #00ffff;
 }
 
 </style>
