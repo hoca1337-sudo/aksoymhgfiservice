@@ -112,7 +112,7 @@ display:none;
 
 <header>⚡ AKSYMH GFI SERVICE ⚡</header>
 
-<select onchange="dil(this.value)">
+<select onchange="lang(this.value)">
 <option value="tr">🇹🇷 Türkçe</option>
 <option value="en">🇬🇧 English</option>
 </select>
@@ -121,20 +121,20 @@ display:none;
 
 <input id="imei" placeholder="IMEI gir">
 <br>
-<button onclick="check()">Sorgula</button>
+<button id="btn" onclick="check()">Sorgula</button>
 
 <p id="result"></p>
-<p class="warning">⚠️ IMEI sorgulama sonuçları bilgilendirme amaçlıdır.</p>
+<p class="warning" id="warn">⚠️ IMEI sorgulama sonuçları bilgilendirme amaçlıdır.</p>
 
 <div class="services">
 
-<div class="box">📱 Android Yazılım</div>
-<div class="box">🍎 iOS Servis</div>
-<div class="box">🛠️ Anakart Onarım</div>
-<div class="box">⚡ Hard Brick</div>
+<div class="box" id="s1">📱 Android Yazılım</div>
+<div class="box" id="s2">🍎 iOS Servis</div>
+<div class="box" id="s3">🛠️ Anakart Onarım</div>
+<div class="box" id="s4">⚡ Hard Brick</div>
 
-<div class="box">🔓 FRP<div class="warning">Kayıp cihaz yapılmaz</div></div>
-<div class="box">🔐 Kilit<div class="warning">Yasa dışı işlem yok</div></div>
+<div class="box" id="s5">🔓 FRP<div class="warning">Kayıp cihaz yapılmaz</div></div>
+<div class="box" id="s6">🔐 Kilit<div class="warning">Yasa dışı işlem yok</div></div>
 
 <div class="box">🔧 Bootloop</div>
 <div class="box">💾 Veri Kurtarma</div>
@@ -148,26 +148,25 @@ display:none;
 </div>
 
 <div class="section">
-<h2>📊 Canlı Kullanıcı</h2>
+<h2 id="live">📊 Canlı Kullanıcı</h2>
 <p>👁️ Online: <span id="online">0</span></p>
 </div>
 
 <div class="section">
-<h2>⭐ Müşteri Yorumları</h2>
-<p>⭐⭐⭐⭐⭐ “Çok hızlı çözdüler”</p>
-<p>⭐⭐⭐⭐⭐ “Güvenilir servis”</p>
-<p>⭐⭐⭐⭐⭐ “Sorunsuz işlem”</p>
+<h2 id="rev">⭐ Müşteri Yorumları</h2>
+<p id="r1">⭐⭐⭐⭐⭐ “Çok iyi”</p>
+<p id="r2">⭐⭐⭐⭐⭐ “Hızlı çözüm”</p>
 <p>👍 10.000+ Beğeni</p>
 </div>
 
 <div class="section">
-<h2>👨‍🔧 Biz Kimiz?</h2>
-<p>AksyMH Gfi Service profesyonel teknik servis hizmeti sunar.</p>
+<h2 id="about">👨‍🔧 Biz Kimiz?</h2>
+<p id="abt">Profesyonel teknik servis hizmeti sunuyoruz.</p>
 </div>
 
 <div class="section">
-<h2>💳 Ödeme</h2>
-<button onclick="window.open('https://wa.me/905447447798')">Ödeme için yaz</button>
+<h2 id="pay">💳 Ödeme</h2>
+<button onclick="window.open('https://wa.me/905447447798')">WhatsApp</button>
 </div>
 
 <footer>
@@ -175,21 +174,20 @@ display:none;
 <p>Tüm Hakları Saklıdır</p>
 </footer>
 
-<!-- CHAT -->
-<div class="chat" id="chat">
-<p>💬 Yardım ister misin?</p>
-<button onclick="window.open('https://wa.me/905447447798')">Yaz</button>
-</div>
-
-<!-- BUTONLAR -->
 <a class="whatsapp" href="https://wa.me/905447447798">💬</a>
 <a class="telegram" href="#">📲</a>
 <a class="insta" href="#">📸</a>
 
 <div class="toast" id="toast"></div>
 
+<div class="chat" id="chat">
+<p>💬 Yardım ister misin?</p>
+<button onclick="window.open('https://wa.me/905447447798')">Yaz</button>
+</div>
+
 <script>
 
+// IMEI
 function check(){
 let imei=document.getElementById("imei").value;
 if(!imei||imei.length!==15){
@@ -199,28 +197,70 @@ return;
 document.getElementById("result").innerHTML="🔒 Kontrol edildi";
 }
 
+// ONLINE
 setInterval(()=>{
 document.getElementById("online").innerText=Math.floor(Math.random()*50)+10;
 },2000);
 
-let names=["Ahmet","Mehmet","Ali","Emre"];
+// TOAST
+let names=["Ahmet","Mehmet","Ali"];
 setInterval(()=>{
 let t=document.getElementById("toast");
-t.innerHTML="🔥 "+names[Math.random()*names.length|0]+" işlem yaptırdı!";
+t.innerHTML="🔥 "+names[Math.random()*names.length|0]+" işlem yaptı!";
 t.style.display="block";
 setTimeout(()=>t.style.display="none",3000);
 },5000);
 
+// CHAT
 setTimeout(()=>{
 document.getElementById("chat").style.display="block";
 },5000);
 
-function dil(d){
-if(d=="en"){
+// LANGUAGE
+function lang(l){
+
+if(l=="en"){
 document.getElementById("title").innerText="Technical Service";
+document.getElementById("btn").innerText="Check";
+document.getElementById("warn").innerText="IMEI results are for information purposes";
+
+document.getElementById("s1").innerText="Android Software";
+document.getElementById("s2").innerText="iOS Service";
+document.getElementById("s3").innerText="Motherboard Repair";
+document.getElementById("s4").innerText="Hard Brick";
+
+document.getElementById("live").innerText="Live Users";
+document.getElementById("rev").innerText="Customer Reviews";
+document.getElementById("r1").innerText="Very good service";
+document.getElementById("r2").innerText="Fast solution";
+
+document.getElementById("about").innerText="About Us";
+document.getElementById("abt").innerText="We provide professional technical service.";
+
+document.getElementById("pay").innerText="Payment";
+
 }else{
+
 document.getElementById("title").innerText="Profesyonel Teknik Servis";
+document.getElementById("btn").innerText="Sorgula";
+document.getElementById("warn").innerText="IMEI sorgulama sonuçları bilgilendirme amaçlıdır.";
+
+document.getElementById("s1").innerText="Android Yazılım";
+document.getElementById("s2").innerText="iOS Servis";
+document.getElementById("s3").innerText="Anakart Onarım";
+document.getElementById("s4").innerText="Hard Brick";
+
+document.getElementById("live").innerText="Canlı Kullanıcı";
+document.getElementById("rev").innerText="Müşteri Yorumları";
+document.getElementById("r1").innerText="Çok iyi";
+document.getElementById("r2").innerText="Hızlı çözüm";
+
+document.getElementById("about").innerText="Biz Kimiz";
+document.getElementById("abt").innerText="Profesyonel teknik servis hizmeti sunuyoruz.";
+
+document.getElementById("pay").innerText="Ödeme";
 }
+
 }
 
 </script>
