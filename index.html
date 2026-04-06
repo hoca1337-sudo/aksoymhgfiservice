@@ -5,6 +5,11 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>AksyMH Gfi Service</title>
 
+<!-- 🔥 SEO -->
+<meta name="description" content="IMEI repair, FRP unlock, Android yazılım, iPhone servis, anakart onarım Türkiye teknik servis">
+<meta name="keywords" content="imei repair, frp unlock, android yazılım, iphone servis, teknik servis">
+<meta name="author" content="AksyMH Gfi Service">
+
 <style>
 
 body{
@@ -15,7 +20,7 @@ color:#fff;
 text-align:center;
 }
 
-/* 🔥 HEADER */
+/* HEADER */
 header{
 padding:25px;
 font-size:32px;
@@ -27,6 +32,11 @@ animation:neonText 2s infinite alternate;
 @keyframes neonText{
 0%{text-shadow:0 0 10px #00ffff;}
 100%{text-shadow:0 0 30px #00ffff,0 0 60px #00ffff;}
+}
+
+/* TEXT */
+h1,h2,h3,p{
+text-shadow:0 0 5px #00ffff;
 }
 
 /* INPUT */
@@ -98,12 +108,6 @@ animation:cardGlow 2s infinite alternate;
 font-size:20px;
 margin-bottom:10px;
 color:#00ffff;
-text-shadow:0 0 10px #00ffff;
-}
-
-/* TEXT */
-p{
-text-shadow:0 0 5px #00ffff;
 }
 
 /* WHATSAPP */
@@ -122,7 +126,6 @@ footer{
 margin-top:30px;
 padding:20px;
 background:black;
-text-shadow:0 0 10px #00ffff;
 }
 
 </style>
@@ -133,6 +136,9 @@ text-shadow:0 0 10px #00ffff;
 <header>⚡ AKSYMH GFI SERVICE ⚡</header>
 
 <h2>Profesyonel Teknik Servis</h2>
+
+<!-- 🔥 SATIŞ YAZISI -->
+<h3 style="color:#00ffff;">⚡ Cihazınızda sorun oluşmadan hemen kontrol edin!</h3>
 
 <input id="imei" placeholder="IMEI gir">
 <br>
@@ -178,6 +184,12 @@ text-shadow:0 0 10px #00ffff;
 <p>⭐⭐⭐⭐⭐ Hızlı çözüm</p>
 <p>⭐⭐⭐⭐⭐ Güvenilir servis</p>
 <p>⭐⭐⭐⭐⭐ Hızlı teslim</p>
+
+<!-- 🔥 GÜVEN -->
+<p>✔ 10.000+ işlem yapıldı</p>
+<p>✔ %100 müşteri memnuniyeti</p>
+<p>✔ Türkiye geneli hizmet</p>
+
 </div>
 
 <!-- ABOUT -->
@@ -201,16 +213,19 @@ text-shadow:0 0 10px #00ffff;
 
 <script>
 
+// canlı kullanıcı
 setInterval(()=>{
 document.getElementById("online").innerText=Math.floor(Math.random()*50)+10;
 },2000);
 
+// WHATSAPP IMEI
 function sendWhats(){
 let imei=document.getElementById("imei").value;
-let msg="IMEI: "+imei+" hakkında bilgi almak istiyorum.";
+let msg="Merhaba, cihazım için teknik destek almak istiyorum.\nIMEI: "+imei+"\nBilgi alabilir miyim?";
 window.open("https://wa.me/905447447798?text="+encodeURIComponent(msg));
 }
 
+// FORM
 function formGonder(){
 let ad=document.getElementById("ad").value;
 let tel=document.getElementById("tel").value;
@@ -218,6 +233,7 @@ let msg="Ad:"+ad+" Tel:"+tel;
 window.open("https://wa.me/905447447798?text="+encodeURIComponent(msg));
 }
 
+// ödeme
 function goWhats(){
 window.open("https://wa.me/905447447798");
 }
