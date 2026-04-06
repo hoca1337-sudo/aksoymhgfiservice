@@ -11,7 +11,7 @@ margin:0;
 font-family:Arial;
 color:white;
 text-align:center;
-background:linear-gradient(rgba(0,0,0,0.85), rgba(0,0,0,0.95)),
+background:linear-gradient(rgba(0,0,0,0.9), rgba(0,0,0,0.95)),
 url('https://images.unsplash.com/photo-1518770660439-4636190af475');
 background-size:cover;
 }
@@ -51,17 +51,6 @@ font-weight:bold;
 cursor:pointer;
 }
 
-/* CARDS */
-.card{
-margin:20px auto;
-padding:20px;
-width:90%;
-max-width:500px;
-border-radius:20px;
-background:rgba(255,255,255,0.05);
-box-shadow:0 0 20px #00ffcc;
-}
-
 /* SERVICES */
 .services{
 display:flex;
@@ -74,7 +63,31 @@ margin:10px;
 padding:12px;
 width:200px;
 background:rgba(0,0,0,0.6);
-border-radius:10px;
+border-radius:12px;
+box-shadow:0 0 15px #00ffcc;
+}
+
+/* CARDS */
+.card{
+margin:20px auto;
+padding:20px;
+width:90%;
+max-width:500px;
+border-radius:20px;
+background:rgba(255,255,255,0.05);
+box-shadow:0 0 25px #00ffcc;
+}
+
+.title{
+font-size:20px;
+margin-bottom:10px;
+color:#00ffcc;
+}
+
+footer{
+margin-top:40px;
+padding:20px;
+background:black;
 }
 
 .whatsapp{
@@ -91,22 +104,21 @@ border-radius:50%;
 <body>
 
 <header>
-<span>🛠️</span>
+<span>🛠️💻</span>
 <span class="logo">AKSYMH GFI SERVICE</span>
-<span>💻</span>
+<span>💻🛠️</span>
 </header>
 
 <select onchange="changeLang(this.value)">
-<option value="tr">TR</option>
-<option value="en">EN</option>
+<option value="tr">🇹🇷 Türkçe</option>
+<option value="en">🇬🇧 English</option>
 </select>
 
 <h2 data-key="title">Profesyonel Teknik Servis</h2>
 
-<!-- IMEI -->
 <input id="imei" placeholder="IMEI gir">
 <br>
-<button onclick="sendWhatsApp()" data-key="btn">Sorgula & İletişime Geç</button>
+<button onclick="sendWhats()" data-key="btn">Sorgula & İletişim</button>
 
 <p id="result"></p>
 
@@ -115,12 +127,22 @@ border-radius:50%;
 <div class="box" data-key="s1">Android Yazılım</div>
 <div class="box" data-key="s2">iOS Servis</div>
 <div class="box" data-key="s3">Anakart Onarım</div>
-<div class="box" data-key="s4">Veri Kurtarma</div>
+<div class="box" data-key="s4">Hard Brick</div>
+<div class="box" data-key="s5">FRP</div>
+<div class="box" data-key="s6">Kilit</div>
+<div class="box" data-key="s7">Bootloop</div>
+<div class="box" data-key="s8">Veri Kurtarma</div>
+<div class="box" data-key="s9">Şebeke</div>
+<div class="box" data-key="s10">WiFi</div>
+<div class="box" data-key="s11">Batarya</div>
+<div class="box" data-key="s12">Format</div>
+<div class="box" data-key="s13">Güncelleme</div>
+<div class="box" data-key="s14">Sistem</div>
 </div>
 
 <!-- FORM -->
 <div class="card">
-<h3 data-key="form">Hızlı Talep</h3>
+<div class="title" data-key="form">Hızlı Talep</div>
 <input id="ad" placeholder="Ad">
 <input id="tel" placeholder="Telefon">
 <br>
@@ -129,39 +151,49 @@ border-radius:50%;
 
 <!-- LIVE -->
 <div class="card">
-<h3 data-key="live">Canlı Kullanıcı</h3>
+<div class="title" data-key="live">Canlı Kullanıcı</div>
 <p>👁️ <span id="online">0</span></p>
+</div>
+
+<!-- REVIEWS -->
+<div class="card">
+<div class="title" data-key="reviews">Müşteri Yorumları</div>
+<p data-key="r1">⭐⭐⭐⭐⭐ Çok iyi</p>
+<p data-key="r2">⭐⭐⭐⭐⭐ Hızlı çözüm</p>
+<p data-key="r3">⭐⭐⭐⭐⭐ Güvenilir servis</p>
+<p data-key="r4">⭐⭐⭐⭐⭐ Hızlı teslim</p>
 </div>
 
 <!-- ABOUT -->
 <div class="card">
-<h3 data-key="about">Biz Kimiz</h3>
+<div class="title" data-key="about">Biz Kimiz</div>
 <p data-key="aboutText">Profesyonel teknik servis hizmeti sunuyoruz.</p>
 </div>
 
 <!-- PAYMENT -->
 <div class="card">
-<h3 data-key="pay">Ödeme</h3>
+<div class="title" data-key="pay">Ödeme</div>
 <button onclick="goWhats()" data-key="paybtn">WhatsApp</button>
 </div>
 
 <footer>
-<p>© 2026 AksyMH</p>
+<p>© 2026 AksyMH Gfi Service</p>
+<p data-key="rights">Tüm Hakları Saklıdır</p>
 </footer>
 
 <a class="whatsapp" href="https://wa.me/905447447798">💬</a>
 
 <script>
 
-// canlı
+// canlı kullanıcı
 setInterval(()=>{
 document.getElementById("online").innerText=Math.floor(Math.random()*50)+10;
 },2000);
 
-// IMEI → WhatsApp
-function sendWhatsApp(){
+// imei → whatsapp
+function sendWhats(){
 let imei=document.getElementById("imei").value;
-let msg="Merhaba, IMEI kontrol için bilgi almak istiyorum. IMEI: "+imei;
+let msg="IMEI: "+imei+" hakkında bilgi almak istiyorum.";
 window.open("https://wa.me/905447447798?text="+encodeURIComponent(msg));
 }
 
@@ -169,7 +201,6 @@ window.open("https://wa.me/905447447798?text="+encodeURIComponent(msg));
 function formGonder(){
 let ad=document.getElementById("ad").value;
 let tel=document.getElementById("tel").value;
-
 let msg="Ad:"+ad+" Tel:"+tel;
 window.open("https://wa.me/905447447798?text="+encodeURIComponent(msg));
 }
@@ -183,18 +214,34 @@ window.open("https://wa.me/905447447798");
 const lang={
 tr:{
 title:"Profesyonel Teknik Servis",
-btn:"Sorgula & İletişime Geç",
+btn:"Sorgula & İletişim",
 s1:"Android Yazılım",
 s2:"iOS Servis",
 s3:"Anakart Onarım",
-s4:"Veri Kurtarma",
+s4:"Hard Brick",
+s5:"FRP",
+s6:"Kilit",
+s7:"Bootloop",
+s8:"Veri Kurtarma",
+s9:"Şebeke",
+s10:"WiFi",
+s11:"Batarya",
+s12:"Format",
+s13:"Güncelleme",
+s14:"Sistem",
 form:"Hızlı Talep",
 send:"Gönder",
 live:"Canlı Kullanıcı",
+reviews:"Müşteri Yorumları",
+r1:"Çok iyi",
+r2:"Hızlı çözüm",
+r3:"Güvenilir servis",
+r4:"Hızlı teslim",
 about:"Biz Kimiz",
 aboutText:"Profesyonel teknik servis hizmeti sunuyoruz.",
 pay:"Ödeme",
-paybtn:"WhatsApp"
+paybtn:"WhatsApp",
+rights:"Tüm Hakları Saklıdır"
 },
 en:{
 title:"Technical Service",
@@ -202,14 +249,30 @@ btn:"Check & Contact",
 s1:"Android Software",
 s2:"iOS Service",
 s3:"Motherboard Repair",
-s4:"Data Recovery",
+s4:"Hard Brick",
+s5:"FRP",
+s6:"Lock",
+s7:"Bootloop",
+s8:"Data Recovery",
+s9:"Network",
+s10:"WiFi",
+s11:"Battery",
+s12:"Format",
+s13:"Update",
+s14:"System",
 form:"Quick Request",
 send:"Send",
 live:"Live Users",
+reviews:"Customer Reviews",
+r1:"Very good",
+r2:"Fast solution",
+r3:"Trusted service",
+r4:"Fast delivery",
 about:"About Us",
 aboutText:"We provide professional service.",
 pay:"Payment",
-paybtn:"WhatsApp"
+paybtn:"WhatsApp",
+rights:"All Rights Reserved"
 }
 };
 
