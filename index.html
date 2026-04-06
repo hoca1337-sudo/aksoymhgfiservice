@@ -35,23 +35,6 @@ animation:rainbow 4s infinite;
 100%{color:#00ffcc}
 }
 
-input{
-padding:15px;
-width:260px;
-border-radius:10px;
-border:none;
-}
-
-button{
-padding:15px 25px;
-margin:10px;
-border:none;
-border-radius:10px;
-background:#00ffcc;
-cursor:pointer;
-font-weight:bold;
-}
-
 .services{
 display:flex;
 flex-wrap:wrap;
@@ -77,12 +60,7 @@ animation:neon 2s infinite alternate;
 
 .warning{
 color:red;
-font-size:13px;
-margin-top:5px;
-}
-
-.section{
-margin-top:40px;
+font-size:12px;
 }
 
 .popup{
@@ -109,15 +87,6 @@ height:100%;
 background:rgba(0,0,0,0.7);
 z-index:999;
 }
-
-.whatsapp{
-position:fixed;
-bottom:20px;
-right:20px;
-background:#25D366;
-padding:15px;
-border-radius:50%;
-}
 </style>
 </head>
 
@@ -125,47 +94,53 @@ border-radius:50%;
 
 <header>⚡ AKSYMH GFI SERVICE ⚡</header>
 
-<h2>Profesyonel Teknik Servis</h2>
-
-<input id="imei" placeholder="IMEI gir">
-<br>
-<button onclick="check()">Sorgula</button>
-
-<p id="result"></p>
-
-<p class="warning">⚠️ IMEI sorgulama sonuçları bilgilendirme amaçlıdır.</p>
-
 <div class="services">
 
-<div class="box" onclick="openPopup('FRP kilidi kaldırılır.')">
-🔓 FRP Kilit Açma
-<div class="warning">⚠️ Kayıp / lost cihazlara işlem yapılmaz</div>
-</div>
+<div class="box" onclick="openPopup('FRP kilidi kaldırılır.')">🔓 FRP Kilit Açma<div class="warning">⚠️ Kayıp cihaz yapılmaz</div></div>
+<div class="box" onclick="openPopup('Ekran kilidi açılır.')">🔐 Ekran Kilidi<div class="warning">⚠️ Yasa dışı işlem yok</div></div>
 
-<div class="box" onclick="openPopup('Şifreli cihaz açılır.')">
-🔐 Ekran Kilidi
-<div class="warning">⚠️ Lütfen yasa dışı işlem talep etmeyiniz</div>
-</div>
-
-<div class="box" onclick="openPopup('Android yazılım yükleme yapılır.')">📱 Android Yazılım</div>
-<div class="box" onclick="openPopup('iPhone servis işlemleri yapılır.')">🍎 iOS Servis</div>
-<div class="box" onclick="openPopup('Anakart tamiri yapılır.')">🛠️ Anakart</div>
+<div class="box" onclick="openPopup('Android yazılım yüklenir.')">📱 Android Yazılım</div>
+<div class="box" onclick="openPopup('iOS servis yapılır.')">🍎 iOS Servis</div>
+<div class="box" onclick="openPopup('Anakart onarılır.')">🛠️ Anakart</div>
 <div class="box" onclick="openPopup('Brick cihaz kurtarılır.')">⚡ Hard Brick</div>
 
+<div class="box" onclick="openPopup('Bootloop çözülür.')">🔧 Bootloop</div>
+<div class="box" onclick="openPopup('Veri kurtarılır.')">💾 Veri Kurtarma</div>
+<div class="box" onclick="openPopup('Şebeke onarılır.')">📡 Şebeke</div>
+<div class="box" onclick="openPopup('WiFi tamir edilir.')">📶 WiFi</div>
+
+<div class="box" onclick="openPopup('Batarya değiştirilir.')">🔋 Batarya</div>
+<div class="box" onclick="openPopup('Format atılır.')">🔄 Format</div>
+<div class="box" onclick="openPopup('Virüs temizlenir.')">🧠 Virüs</div>
+<div class="box" onclick="openPopup('Güncelleme yapılır.')">📲 Güncelleme</div>
+
+<div class="box" onclick="openPopup('Sistem onarılır.')">⚙️ Sistem</div>
+<div class="box" onclick="openPopup('Uzaktan bağlanılır.')">🌐 Uzaktan Destek</div>
+<div class="box" onclick="openPopup('PC üzerinden işlem yapılır.')">💻 PC Müdahale</div>
+<div class="box" onclick="openPopup('Yedekleme yapılır.')">📥 Yedekleme</div>
+
+<div class="box" onclick="openPopup('IMEI kontrol edilir.')">📱 IMEI Kontrol</div>
+<div class="box" onclick="openPopup('Sinyal güçlendirilir.')">📡 Sinyal</div>
+<div class="box" onclick="openPopup('Ekran değişimi yapılır.')">📱 Ekran</div>
+<div class="box" onclick="openPopup('Şarj soketi onarılır.')">🔌 Soket</div>
+
+<div class="box" onclick="openPopup('Kısa devre onarılır.')">⚡ Kısa Devre</div>
+<div class="box" onclick="openPopup('Entegre değişimi yapılır.')">🛠️ Entegre</div>
+<div class="box" onclick="openPopup('Root işlemi yapılır.')">⚡ Root</div>
+<div class="box" onclick="openPopup('Boot repair yapılır.')">🔧 Boot Repair</div>
+
+<div class="box" onclick="openPopup('Flash işlemi yapılır.')">💻 Flash</div>
+<div class="box" onclick="openPopup('ADB işlemleri yapılır.')">📲 ADB</div>
+<div class="box" onclick="openPopup('Fastboot işlemleri yapılır.')">⚡ Fastboot</div>
+<div class="box" onclick="openPopup('Firmware yüklenir.')">📥 Firmware</div>
+
+<div class="box" onclick="openPopup('Token işlemleri yapılır.')">🔐 Token</div>
+<div class="box" onclick="openPopup('Cloud işlemleri yapılır.')">☁️ Cloud</div>
+
 </div>
 
-<div class="section">
 <h2>📊 Canlı Kullanıcı</h2>
-<p>👁️ Online: <span id="online">0</span></p>
-</div>
-
-<div class="section">
-<h2>⭐ Müşteri Yorumları</h2>
-<p>⭐⭐⭐⭐⭐ “Çok hızlı çözdüler”</p>
-<p>⭐⭐⭐⭐⭐ “Güvenilir servis”</p>
-<p>⭐⭐⭐⭐⭐ “Sorunum çözüldü”</p>
-<p>👍 10.000+ Beğeni</p>
-</div>
+<p>Online: <span id="online">0</span></p>
 
 <div class="overlay" id="overlay" onclick="closePopup()"></div>
 
@@ -175,28 +150,7 @@ border-radius:50%;
 <button onclick="closePopup()">Kapat</button>
 </div>
 
-<a class="whatsapp" href="https://wa.me/905447447798">💬</a>
-
 <script>
-function check(){
-let imei=document.getElementById("imei").value;
-let result=document.getElementById("result");
-
-if(!imei||imei.length!==15){
-result.innerHTML="❌ Geçersiz IMEI";
-return;
-}
-
-let brand="Bilinmiyor";
-if(imei.startsWith("35")) brand="Samsung";
-else if(imei.startsWith("86")) brand="Xiaomi";
-else if(imei.startsWith("01")) brand="Apple";
-
-let status=(parseInt(imei)%2===0)?"Kayıtlı":"Kayıt Dışı";
-
-result.innerHTML="📱 "+brand+"<br>🔒 "+status;
-}
-
 function openPopup(text){
 document.getElementById("popupText").innerText=text;
 document.getElementById("popup").style.display="block";
@@ -209,7 +163,7 @@ document.getElementById("overlay").style.display="none";
 }
 
 setInterval(()=>{
-document.getElementById("online").innerText=Math.floor(Math.random()*30)+5;
+document.getElementById("online").innerText=Math.floor(Math.random()*50)+10;
 },2000);
 </script>
 
