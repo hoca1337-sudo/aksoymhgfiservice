@@ -18,6 +18,7 @@ background-size:cover;
 background-attachment:fixed;
 }
 
+/* HEADER */
 header{
 font-size:32px;
 padding:20px;
@@ -73,15 +74,11 @@ background:rgba(0,0,0,0.6);
 100%{box-shadow:0 0 50px #00ffcc}
 }
 
-.warning{
-color:red;
-font-size:12px;
-}
+.warning{color:red;font-size:12px;}
 
-.section{
-margin-top:40px;
-}
+.section{margin-top:40px;}
 
+/* POPUP */
 .popup{
 display:none;
 position:fixed;
@@ -107,6 +104,7 @@ background:rgba(0,0,0,0.7);
 z-index:999;
 }
 
+/* WHATSAPP */
 .whatsapp{
 position:fixed;
 bottom:20px;
@@ -114,6 +112,18 @@ right:20px;
 background:#25D366;
 padding:15px;
 border-radius:50%;
+}
+
+/* FAKE SALES */
+.toast{
+position:fixed;
+bottom:80px;
+left:20px;
+background:black;
+padding:10px;
+border-radius:10px;
+box-shadow:0 0 20px #00ffcc;
+display:none;
 }
 </style>
 </head>
@@ -132,30 +142,10 @@ border-radius:50%;
 <p class="warning">⚠️ IMEI sorgulama sonuçları bilgilendirme amaçlıdır.</p>
 
 <div class="services">
-
-<div class="box" onclick="openPopup('FRP kilidi kaldırılır.')">🔓 FRP<div class="warning">Kayıp cihaz yapılmaz</div></div>
-<div class="box" onclick="openPopup('Ekran kilidi açılır.')">🔐 Kilit<div class="warning">Yasa dışı işlem yok</div></div>
-
-<div class="box" onclick="openPopup('Android yazılım yüklenir.')">📱 Android</div>
-<div class="box" onclick="openPopup('iOS servis yapılır.')">🍎 iOS</div>
-<div class="box" onclick="openPopup('Anakart onarılır.')">🛠️ Anakart</div>
-<div class="box" onclick="openPopup('Brick cihaz kurtarılır.')">⚡ Brick</div>
-
-<div class="box" onclick="openPopup('Bootloop çözülür.')">🔧 Bootloop</div>
-<div class="box" onclick="openPopup('Veri kurtarılır.')">💾 Veri</div>
-<div class="box" onclick="openPopup('Şebeke onarılır.')">📡 Şebeke</div>
-<div class="box" onclick="openPopup('WiFi tamir edilir.')">📶 WiFi</div>
-
-<div class="box" onclick="openPopup('Batarya değişimi.')">🔋 Batarya</div>
-<div class="box" onclick="openPopup('Format atılır.')">🔄 Format</div>
-<div class="box" onclick="openPopup('Virüs temizlenir.')">🧠 Virüs</div>
-<div class="box" onclick="openPopup('Güncelleme yapılır.')">📲 Güncelleme</div>
-
-<div class="box" onclick="openPopup('Sistem onarılır.')">⚙️ Sistem</div>
-<div class="box" onclick="openPopup('Uzaktan bağlanılır.')">🌐 Uzaktan</div>
-<div class="box" onclick="openPopup('PC müdahale.')">💻 PC</div>
-<div class="box" onclick="openPopup('Yedekleme.')">📥 Yedek</div>
-
+<div class="box">📱 Android</div>
+<div class="box">🍎 iOS</div>
+<div class="box">🛠️ Anakart</div>
+<div class="box">⚡ Brick</div>
 </div>
 
 <div class="section">
@@ -164,54 +154,30 @@ border-radius:50%;
 </div>
 
 <div class="section">
-<h2>⭐ Müşteri Yorumları</h2>
-<p>⭐⭐⭐⭐⭐ “Çok hızlı çözdüler”</p>
-<p>⭐⭐⭐⭐⭐ “Güvenilir servis”</p>
-<p>⭐⭐⭐⭐⭐ “Sorunsuz işlem”</p>
-<p>⭐⭐⭐⭐⭐ “Uygun fiyat hızlı çözüm”</p>
-<p>⭐⭐⭐⭐⭐ “Tek kelimeyle mükemmel”</p>
+<h2>⭐ Yorumlar</h2>
+<p>⭐⭐⭐⭐⭐ “Çok iyi”</p>
+<p>⭐⭐⭐⭐⭐ “Hızlı çözüm”</p>
 <p>👍 10.000+ Beğeni</p>
 </div>
 
-<div class="section">
-<h2>👨‍🔧 Biz Kimiz?</h2>
-<p>AksyMH Gfi Service olarak Türkiye genelinde profesyonel teknik servis hizmeti sunmaktayız.</p>
-<p>Hızlı, güvenilir ve kalıcı çözümler sağlıyoruz.</p>
-</div>
-
-<div class="section">
-<h2>⚠️ Yasal Uyarı</h2>
-<p style="color:red;">Kayıp (lost) cihazlara işlem yapılmaz.</p>
-<p style="color:red;">Yasa dışı talepler kabul edilmez.</p>
-</div>
-
-<footer>
-<p>© 2026 AksyMH Gfi Service</p>
-<p>Tüm Hakları Saklıdır</p>
-</footer>
-
-<div class="overlay" id="overlay" onclick="closePopup()"></div>
-
+<!-- POPUP -->
+<div class="overlay" id="overlay"></div>
 <div class="popup" id="popup">
-<p id="popupText"></p>
+<p>💬 Cihazınızda sorun mu var? Hemen destek alın!</p>
 <br>
+<a href="https://wa.me/905447447798?text=Merhaba%20IMEI%20sorgu%20yaptım%20yardım%20istiyorum">
+<button>WhatsApp Yaz</button>
+</a>
+<br><br>
 <button onclick="closePopup()">Kapat</button>
 </div>
 
-<a class="whatsapp" href="https://wa.me/905447447798">💬</a>
+<!-- FAKE SALES -->
+<div class="toast" id="toast"></div>
+
+<a class="whatsapp" href="https://wa.me/905447447798?text=Merhaba%20yardım%20istiyorum">💬</a>
 
 <script>
-function openPopup(text){
-document.getElementById("popupText").innerText=text;
-document.getElementById("popup").style.display="block";
-document.getElementById("overlay").style.display="block";
-}
-
-function closePopup(){
-document.getElementById("popup").style.display="none";
-document.getElementById("overlay").style.display="none";
-}
-
 function check(){
 let imei=document.getElementById("imei").value;
 let result=document.getElementById("result");
@@ -221,19 +187,35 @@ result.innerHTML="❌ Geçersiz IMEI";
 return;
 }
 
-let brand="Bilinmiyor";
-if(imei.startsWith("35")) brand="Samsung";
-else if(imei.startsWith("86")) brand="Xiaomi";
-else if(imei.startsWith("01")) brand="Apple";
-
 let status=(parseInt(imei)%2===0)?"Kayıtlı":"Kayıt Dışı";
-
-result.innerHTML="📱 "+brand+"<br>🔒 "+status;
+result.innerHTML="🔒 "+status;
 }
 
+// CANLI
 setInterval(()=>{
 document.getElementById("online").innerText=Math.floor(Math.random()*50)+10;
 },2000);
+
+// POPUP
+setTimeout(()=>{
+document.getElementById("popup").style.display="block";
+document.getElementById("overlay").style.display="block";
+},4000);
+
+function closePopup(){
+document.getElementById("popup").style.display="none";
+document.getElementById("overlay").style.display="none";
+}
+
+// FAKE SATIŞ
+let names=["Ahmet","Mehmet","Ali","Hasan","Emre","Burak"];
+setInterval(()=>{
+let toast=document.getElementById("toast");
+let name=names[Math.floor(Math.random()*names.length)];
+toast.innerHTML="🔥 "+name+" az önce işlem yaptırdı!";
+toast.style.display="block";
+setTimeout(()=>{toast.style.display="none"},3000);
+},5000);
 </script>
 
 </body>
