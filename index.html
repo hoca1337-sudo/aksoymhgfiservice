@@ -26,8 +26,8 @@ header {
   animation: glow 1.5s infinite alternate;
 }
 
-h2, p, footer, a {
-  animation: glow 2s infinite alternate;
+.section {
+  margin-top:50px;
 }
 
 input {
@@ -52,10 +52,10 @@ button {
 }
 
 .services {
-  margin-top:50px;
   display:flex;
   flex-wrap:wrap;
   justify-content:center;
+  margin-top:40px;
 }
 
 .box {
@@ -67,20 +67,13 @@ button {
   box-shadow:0 0 25px #00ffcc;
 }
 
-.section {
-  margin-top:50px;
-}
-
 footer {
   margin-top:60px;
   padding:20px;
   background:#020617;
 }
 
-a {
-  color:#00ffcc;
-  text-decoration:none;
-}
+a { color:#00ffcc; text-decoration:none; }
 
 .whatsapp {
   position:fixed;
@@ -90,7 +83,6 @@ a {
   color:white;
   padding:15px;
   border-radius:50%;
-  text-decoration:none;
 }
 </style>
 </head>
@@ -101,64 +93,73 @@ a {
 
 <h2>Profesyonel Teknik Servis & Yazılım Hizmetleri</h2>
 
-<!-- IMEI -->
 <input type="text" id="imei" placeholder="IMEI gir...">
 <br>
 <button onclick="check()">Sorgula</button>
 
 <p id="result"></p>
 
-<!-- GÜVEN -->
 <div class="section">
-  <h2>🔥 Müşteri Memnuniyeti 🔥</h2>
-  <p>⭐ 10.000+ Yorum</p>
-  <p>👍 5.000+ Beğeni</p>
-  <p>👥 100.000+ Takipçi</p>
-  <p>✔ Türkiye Geneli Güvenilir Hizmet</p>
+<h2>🔥 Müşteri Memnuniyeti 🔥</h2>
+<p>⭐ 10.000+ Yorum</p>
+<p>👍 5.000+ Beğeni</p>
+<p>👥 100.000+ Takipçi</p>
+<p>✔ Türkiye Geneli Güvenilir Hizmet</p>
 </div>
 
-<!-- HİZMETLER -->
 <div class="services">
-  <div class="box">📱 Android Yazılım</div>
-  <div class="box">🍎 iOS & Mac Servis</div>
-  <div class="box">🔌 Şarj Entegre</div>
-  <div class="box">🔥 CPU Reball</div>
-  <div class="box">🛠️ Anakart Onarım</div>
-  <div class="box">⚡ Hard Brick</div>
+<div class="box">📱 Android Yazılım</div>
+<div class="box">🍎 iOS Servis</div>
+<div class="box">🔌 Şarj Entegre</div>
+<div class="box">🔥 CPU Reball</div>
+<div class="box">🛠️ Anakart Onarım</div>
+<div class="box">⚡ Hard Brick</div>
 </div>
 
-<!-- PROFESYONEL BÖLÜM -->
 <div class="section">
-  <h2>⚡ Profesyonel Servis İşlemleri ⚡</h2>
-
-  <p>✔ Yazılım Güncelleme & Onarım</p>
-  <p>✔ Cihaz Kilit Açma İşlemleri</p>
-  <p>✔ Veri Kurtarma & Yedekleme</p>
-  <p>✔ Sistem Onarımı & Hata Giderme</p>
-  <p>✔ Tüm Android & iOS Destek</p>
-
-  <p style="margin-top:20px;">
-  💬 Uzaktan destek ve hızlı çözüm imkanı
-  </p>
+<h2>👨‍🔧 Hakkımızda</h2>
+<p>Türkiye genelinde profesyonel teknik servis hizmeti sunuyoruz. Hızlı, güvenilir ve kalıcı çözümler sağlıyoruz.</p>
 </div>
 
-<!-- YORUMLAR -->
 <div class="section">
-  <h2>💬 Müşteri Yorumları</h2>
-  <p>“Cihazımı kısa sürede çözdüler, çok memnun kaldım.” ⭐⭐⭐⭐⭐</p>
-  <p>“IMEI sorunum çözüldü, güvenilir servis.” ⭐⭐⭐⭐⭐</p>
-  <p>“Hızlı ve profesyonel hizmet, tavsiye ederim.” ⭐⭐⭐⭐⭐</p>
+<h2>🔥 Neden Bizi Seçmelisiniz?</h2>
+<p>✔ Hızlı işlem</p>
+<p>✔ Profesyonel ekip</p>
+<p>✔ Güvenilir hizmet</p>
+<p>✔ Uzaktan destek</p>
+</div>
+
+<div class="section">
+<h2>⚙️ Hizmet Süreci</h2>
+<p>1️⃣ Cihaz kontrol edilir</p>
+<p>2️⃣ Sorun tespit edilir</p>
+<p>3️⃣ Onay alınır</p>
+<p>4️⃣ İşlem yapılır</p>
+<p>5️⃣ Teslim edilir</p>
+</div>
+
+<div class="section">
+<h2>💬 Müşteri Yorumları</h2>
+<p>⭐⭐⭐⭐⭐ “Çok hızlı çözdüler”</p>
+<p>⭐⭐⭐⭐⭐ “Güvenilir servis”</p>
+<p>⭐⭐⭐⭐⭐ “Sorunsuz işlem”</p>
+</div>
+
+<div class="section">
+<h2>💬 Hemen İletişim</h2>
+<a href="https://wa.me/905447447798">
+<button>WhatsApp'tan Yaz</button>
+</a>
 </div>
 
 <footer>
 📞 0544 744 77 98 <br><br>
-💬 <a href="https://wa.me/905447447798">WhatsApp Destek</a><br><br>
+💬 WhatsApp Destek <br><br>
 📍 Türkiye Teknik Servis <br><br>
 
 <p style="color:#ff4d4d;">
 ⚠️ IMEI sorgulama sonuçları bilgilendirme amaçlıdır.<br>
-Kesin sonuçlar için e-Devlet üzerinden kontrol ediniz.<br><br>
-✔ Detaylı kontrol ve çözüm için bizimle iletişime geçebilirsiniz.
+Kesin sonuçlar için e-Devlet üzerinden kontrol ediniz.
 </p>
 </footer>
 
@@ -204,7 +205,7 @@ function check(){
   📱 Marka: ${brand}<br>
   📊 Model: ${model}<br>
   🔒 Durum: ${status}<br><br>
-  💬 Cihazınızla ilgili detaylı çözüm için bizimle iletişime geçin.
+  💬 Detaylı çözüm için bizimle iletişime geçin.
   `;
 }
 </script>
