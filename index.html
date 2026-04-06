@@ -1,37 +1,207 @@
-Android Yazılım
-iOS Servis
-Anakart Onarım
-Hard Brick
-FRP
-Kilit
-Bootloop
-Veri Kurtarma
-Şebeke
-WiFi
-Batarya
-Format
-Güncelleme
-Sistem
-Hızlı Talep
-Ad
- 
-Telefon
+<!DOCTYPE html>
+<html lang="tr">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>AksyMH Gfi Service</title>
 
-Gönder
-Canlı Kullanıcı
-👁️ 38
+<style>
 
-Müşteri Yorumları
-⭐⭐⭐⭐⭐ Çok iyi
+body{
+margin:0;
+font-family:'Segoe UI',Arial;
+background:#0f172a;
+color:#e2e8f0;
+text-align:center;
+}
 
-⭐⭐⭐⭐⭐ Hızlı çözüm
+/* HEADER */
+header{
+padding:25px;
+font-size:28px;
+font-weight:900;
+color:#22c55e;
+text-shadow:0 0 10px rgba(34,197,94,0.5);
+}
 
-⭐⭐⭐⭐⭐ Güvenilir servis
+/* BUTTON */
+button{
+padding:12px 20px;
+border:none;
+border-radius:10px;
+background:#22c55e;
+color:black;
+font-weight:bold;
+cursor:pointer;
+transition:0.3s;
+}
+button:hover{
+background:#16a34a;
+}
 
-⭐⭐⭐⭐⭐ Hızlı teslim
+/* INPUT */
+input{
+padding:12px;
+border-radius:10px;
+border:none;
+margin:5px;
+width:240px;
+}
 
-Biz Kimiz
-Profesyonel teknik servis hizmeti sunuyoruz.
+/* SERVICES GRID */
+.services{
+display:grid;
+grid-template-columns:repeat(auto-fit,minmax(150px,1fr));
+gap:10px;
+padding:10px;
+}
 
-Ödeme
-WhatsApp
+.box{
+background:#1e293b;
+padding:15px;
+border-radius:12px;
+box-shadow:0 0 10px rgba(0,0,0,0.5);
+transition:0.3s;
+}
+.box:hover{
+transform:scale(1.05);
+box-shadow:0 0 15px #22c55e;
+}
+
+/* CARD */
+.card{
+margin:20px auto;
+padding:20px;
+width:90%;
+max-width:500px;
+background:#1e293b;
+border-radius:15px;
+box-shadow:0 0 15px rgba(0,0,0,0.5);
+}
+
+/* TITLE */
+.title{
+font-size:18px;
+margin-bottom:10px;
+color:#22c55e;
+}
+
+/* WHATSAPP */
+.whatsapp{
+position:fixed;
+bottom:20px;
+right:20px;
+background:#25D366;
+padding:15px;
+border-radius:50%;
+}
+
+/* FOOTER */
+footer{
+margin-top:30px;
+padding:20px;
+background:#020617;
+font-size:13px;
+}
+
+</style>
+</head>
+
+<body>
+
+<header>⚡ AKSYMH GFI SERVICE ⚡</header>
+
+<h2>Profesyonel Teknik Servis</h2>
+
+<input id="imei" placeholder="IMEI gir">
+<br>
+<button onclick="sendWhats()">Sorgula & İletişim</button>
+
+<!-- SERVICES -->
+<div class="services">
+<div class="box">Android Yazılım</div>
+<div class="box">iOS Servis</div>
+<div class="box">Anakart Onarım</div>
+<div class="box">Hard Brick</div>
+<div class="box">FRP</div>
+<div class="box">Kilit</div>
+<div class="box">Bootloop</div>
+<div class="box">Veri Kurtarma</div>
+<div class="box">Şebeke</div>
+<div class="box">WiFi</div>
+<div class="box">Batarya</div>
+<div class="box">Format</div>
+<div class="box">Güncelleme</div>
+<div class="box">Sistem</div>
+</div>
+
+<!-- FORM -->
+<div class="card">
+<div class="title">Hızlı Talep</div>
+<input id="ad" placeholder="Ad">
+<input id="tel" placeholder="Telefon">
+<br>
+<button onclick="formGonder()">Gönder</button>
+</div>
+
+<!-- LIVE -->
+<div class="card">
+<div class="title">Canlı Kullanıcı</div>
+<p>👁️ <span id="online">0</span></p>
+</div>
+
+<!-- REVIEWS -->
+<div class="card">
+<div class="title">Müşteri Yorumları</div>
+<p>⭐⭐⭐⭐⭐ Çok iyi</p>
+<p>⭐⭐⭐⭐⭐ Hızlı çözüm</p>
+<p>⭐⭐⭐⭐⭐ Güvenilir servis</p>
+<p>⭐⭐⭐⭐⭐ Hızlı teslim</p>
+</div>
+
+<!-- ABOUT -->
+<div class="card">
+<div class="title">Biz Kimiz</div>
+<p>Profesyonel teknik servis hizmeti sunuyoruz.</p>
+</div>
+
+<!-- PAYMENT -->
+<div class="card">
+<div class="title">Ödeme</div>
+<button onclick="goWhats()">WhatsApp</button>
+</div>
+
+<footer>
+<p>© 2026 AksyMH Gfi Service</p>
+<p>Tüm Hakları Saklıdır</p>
+</footer>
+
+<a class="whatsapp" href="https://wa.me/905447447798">💬</a>
+
+<script>
+
+setInterval(()=>{
+document.getElementById("online").innerText=Math.floor(Math.random()*50)+10;
+},2000);
+
+function sendWhats(){
+let imei=document.getElementById("imei").value;
+let msg="IMEI: "+imei+" hakkında bilgi almak istiyorum.";
+window.open("https://wa.me/905447447798?text="+encodeURIComponent(msg));
+}
+
+function formGonder(){
+let ad=document.getElementById("ad").value;
+let tel=document.getElementById("tel").value;
+let msg="Ad:"+ad+" Tel:"+tel;
+window.open("https://wa.me/905447447798?text="+encodeURIComponent(msg));
+}
+
+function goWhats(){
+window.open("https://wa.me/905447447798");
+}
+
+</script>
+
+</body>
+</html>
