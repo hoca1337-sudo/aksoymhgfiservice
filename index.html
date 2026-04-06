@@ -22,9 +22,9 @@ animation:bg 10s infinite alternate;
 }
 
 header{
-font-size:34px;
+font-size:32px;
 padding:20px;
-animation:rainbow 3s infinite;
+animation:rainbow 4s infinite;
 }
 
 @keyframes rainbow{
@@ -50,12 +50,6 @@ border-radius:10px;
 background:#00ffcc;
 cursor:pointer;
 font-weight:bold;
-transition:0.3s;
-}
-
-button:hover{
-transform:scale(1.2);
-box-shadow:0 0 30px #00ffcc;
 }
 
 .services{
@@ -67,15 +61,10 @@ justify-content:center;
 .box{
 margin:10px;
 padding:15px;
-width:250px;
+width:260px;
 border-radius:12px;
 cursor:pointer;
 animation:neon 2s infinite alternate;
-transition:0.3s;
-}
-
-.box:hover{
-transform:scale(1.2) rotate(2deg);
 }
 
 @keyframes neon{
@@ -86,7 +75,16 @@ transform:scale(1.2) rotate(2deg);
 100%{box-shadow:0 0 50px #00ffcc}
 }
 
-/* POPUP */
+.warning{
+color:red;
+font-size:13px;
+margin-top:5px;
+}
+
+.section{
+margin-top:40px;
+}
+
 .popup{
 display:none;
 position:fixed;
@@ -101,11 +99,6 @@ width:300px;
 z-index:1000;
 }
 
-.popup button{
-background:red;
-color:white;
-}
-
 .overlay{
 display:none;
 position:fixed;
@@ -117,7 +110,6 @@ background:rgba(0,0,0,0.7);
 z-index:999;
 }
 
-/* WHATSAPP */
 .whatsapp{
 position:fixed;
 bottom:20px;
@@ -125,13 +117,6 @@ right:20px;
 background:#25D366;
 padding:15px;
 border-radius:50%;
-animation:shake 1s infinite;
-}
-
-@keyframes shake{
-0%{transform:translateX(0)}
-50%{transform:translateX(5px)}
-100%{transform:translateX(0)}
 }
 </style>
 </head>
@@ -148,22 +133,38 @@ animation:shake 1s infinite;
 
 <p id="result"></p>
 
+<p class="warning">⚠️ IMEI sorgulama sonuçları bilgilendirme amaçlıdır.</p>
+
 <div class="services">
 
-<div class="box" onclick="openPopup('Android yazılım cihazın sistemini sıfırlar ve hızlandırır.')">📱 Android Yazılım</div>
-<div class="box" onclick="openPopup('iOS cihazlar için özel servis işlemleri yapılır.')">🍎 iOS Servis</div>
-<div class="box" onclick="openPopup('Şarj entegre arızaları çözülür.')">🔌 Şarj Entegre</div>
-<div class="box" onclick="openPopup('CPU yeniden lehimlenir.')">🔥 CPU Reball</div>
+<div class="box" onclick="openPopup('FRP kilidi kaldırılır.')">
+🔓 FRP Kilit Açma
+<div class="warning">⚠️ Kayıp / lost cihazlara işlem yapılmaz</div>
+</div>
+
+<div class="box" onclick="openPopup('Şifreli cihaz açılır.')">
+🔐 Ekran Kilidi
+<div class="warning">⚠️ Lütfen yasa dışı işlem talep etmeyiniz</div>
+</div>
+
+<div class="box" onclick="openPopup('Android yazılım yükleme yapılır.')">📱 Android Yazılım</div>
+<div class="box" onclick="openPopup('iPhone servis işlemleri yapılır.')">🍎 iOS Servis</div>
 <div class="box" onclick="openPopup('Anakart tamiri yapılır.')">🛠️ Anakart</div>
-<div class="box" onclick="openPopup('Brick cihazlar kurtarılır.')">⚡ Hard Brick</div>
+<div class="box" onclick="openPopup('Brick cihaz kurtarılır.')">⚡ Hard Brick</div>
 
-<div class="box" onclick="openPopup('FRP kilidi kaldırılır.')">🔓 FRP</div>
-<div class="box" onclick="openPopup('Şifreli cihaz açılır.')">🔐 Kilit</div>
-<div class="box" onclick="openPopup('Şebeke sorunları çözülür.')">📡 Şebeke</div>
-<div class="box" onclick="openPopup('WiFi tamiri yapılır.')">📶 WiFi</div>
-<div class="box" onclick="openPopup('Batarya değişimi yapılır.')">🔋 Batarya</div>
-<div class="box" onclick="openPopup('Veriler kurtarılır.')">💾 Veri</div>
+</div>
 
+<div class="section">
+<h2>📊 Canlı Kullanıcı</h2>
+<p>👁️ Online: <span id="online">0</span></p>
+</div>
+
+<div class="section">
+<h2>⭐ Müşteri Yorumları</h2>
+<p>⭐⭐⭐⭐⭐ “Çok hızlı çözdüler”</p>
+<p>⭐⭐⭐⭐⭐ “Güvenilir servis”</p>
+<p>⭐⭐⭐⭐⭐ “Sorunum çözüldü”</p>
+<p>👍 10.000+ Beğeni</p>
 </div>
 
 <div class="overlay" id="overlay" onclick="closePopup()"></div>
@@ -206,6 +207,10 @@ function closePopup(){
 document.getElementById("popup").style.display="none";
 document.getElementById("overlay").style.display="none";
 }
+
+setInterval(()=>{
+document.getElementById("online").innerText=Math.floor(Math.random()*30)+5;
+},2000);
 </script>
 
 </body>
