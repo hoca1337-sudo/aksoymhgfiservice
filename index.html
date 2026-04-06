@@ -126,13 +126,13 @@ display:none;
 <p id="result"></p>
 <p class="warning" data-key="warn">⚠️ IMEI sorgulama sonuçları bilgilendirme amaçlıdır.</p>
 
-<!-- HİZMETLER -->
 <div class="services">
 
 <div class="box" data-key="s1">📱 Android Yazılım</div>
 <div class="box" data-key="s2">🍎 iOS Servis</div>
 <div class="box" data-key="s3">🛠️ Anakart Onarım</div>
 <div class="box" data-key="s4">⚡ Hard Brick</div>
+
 <div class="box" data-key="s5">🔓 FRP</div>
 <div class="box" data-key="s6">🔐 Kilit</div>
 
@@ -147,41 +147,42 @@ display:none;
 
 </div>
 
-<!-- CANLI -->
 <div class="section">
 <h2 data-key="live">📊 Canlı Kullanıcı</h2>
 <p>👁️ Online: <span id="online">0</span></p>
 </div>
 
-<!-- YORUMLAR -->
 <div class="section">
 <h2 data-key="reviews">⭐ Müşteri Yorumları</h2>
 <p data-key="r1">⭐⭐⭐⭐⭐ Çok iyi</p>
 <p data-key="r2">⭐⭐⭐⭐⭐ Hızlı çözüm</p>
+<p data-key="r3">⭐⭐⭐⭐⭐ Güvenilir servis</p>
+<p data-key="r4">⭐⭐⭐⭐⭐ Hızlı teslim</p>
 <p>👍 10.000+</p>
 </div>
 
-<!-- HAKKIMIZDA -->
 <div class="section">
 <h2 data-key="about">👨‍🔧 Biz Kimiz</h2>
 <p data-key="aboutText">Profesyonel teknik servis hizmeti sunuyoruz.</p>
 </div>
 
-<!-- ÖDEME -->
 <div class="section">
 <h2 data-key="pay">💳 Ödeme</h2>
+<p data-key="payText">Ödeme sonrası işlem başlatılır. WhatsApp'tan iletişime geçin.</p>
 <button onclick="window.open('https://wa.me/905447447798')" data-key="paybtn">WhatsApp</button>
 </div>
 
-<!-- SOSYAL -->
+<footer>
+<p>© 2026 AksyMH Gfi Service</p>
+<p data-key="rights">Tüm Hakları Saklıdır</p>
+</footer>
+
 <a class="whatsapp" href="https://wa.me/905447447798">💬</a>
 <a class="telegram" href="#">📲</a>
 <a class="insta" href="#">📸</a>
 
-<!-- TOAST -->
 <div class="toast" id="toast"></div>
 
-<!-- CHAT -->
 <div class="chat" id="chat">
 <p data-key="chat">Yardım ister misin?</p>
 <button onclick="window.open('https://wa.me/905447447798')" data-key="chatbtn">Yaz</button>
@@ -199,22 +200,21 @@ return;
 document.getElementById("result").innerHTML="🔒 Kontrol edildi";
 }
 
-// CANLI
+// canlı
 setInterval(()=>{
 document.getElementById("online").innerText=Math.floor(Math.random()*50)+10;
 },2000);
 
-// TOAST
-let names=["Ahmet","Mehmet","Ali"];
+// toast
+let names=["Ahmet","Mehmet","Ali","Emre"];
 setInterval(()=>{
 let t=document.getElementById("toast");
-let name=names[Math.random()*names.length|0];
-t.innerHTML="🔥 "+name+" işlem yaptı!";
+t.innerHTML="🔥 "+names[Math.random()*names.length|0]+" işlem yaptı!";
 t.style.display="block";
 setTimeout(()=>t.style.display="none",3000);
 },5000);
 
-// CHAT
+// chat
 setTimeout(()=>{
 document.getElementById("chat").style.display="block";
 },5000);
@@ -243,15 +243,19 @@ live:"Canlı Kullanıcı",
 reviews:"Müşteri Yorumları",
 r1:"Çok iyi",
 r2:"Hızlı çözüm",
+r3:"Güvenilir servis",
+r4:"Hızlı teslim",
 about:"Biz Kimiz",
 aboutText:"Profesyonel teknik servis hizmeti sunuyoruz.",
 pay:"Ödeme",
+payText:"Ödeme sonrası işlem başlatılır. WhatsApp'tan iletişime geçin.",
 paybtn:"WhatsApp",
 chat:"Yardım ister misin?",
-chatbtn:"Yaz"
+chatbtn:"Yaz",
+rights:"Tüm Hakları Saklıdır"
 },
 en:{
-title:"Technical Service",
+title:"Professional Technical Service",
 btn:"Check",
 warn:"IMEI results are for informational purposes.",
 s1:"Android Software",
@@ -262,22 +266,26 @@ s5:"FRP",
 s6:"Lock",
 s7:"Bootloop",
 s8:"Data Recovery",
-s9:"Network",
-s10:"WiFi",
-s11:"Battery",
-s12:"Format",
-s13:"Update",
-s14:"System",
+s9:"Network Repair",
+s10:"WiFi Repair",
+s11:"Battery Replacement",
+s12:"Formatting",
+s13:"System Update",
+s14:"System Repair",
 live:"Live Users",
 reviews:"Customer Reviews",
-r1:"Very good",
-r2:"Fast solution",
+r1:"Very professional service",
+r2:"Fast and reliable solution",
+r3:"Trusted repair service",
+r4:"Quick delivery",
 about:"About Us",
-aboutText:"We provide professional service.",
+aboutText:"AksyMH Gfi Service provides fast, secure and professional repair solutions for all mobile devices.",
 pay:"Payment",
-paybtn:"WhatsApp",
+payText:"Service starts after payment confirmation. Contact us via WhatsApp.",
+paybtn:"Contact via WhatsApp",
 chat:"Need help?",
-chatbtn:"Message"
+chatbtn:"Message",
+rights:"All Rights Reserved"
 }
 };
 
