@@ -95,7 +95,7 @@ cursor:pointer;
 box-shadow:0 0 15px #00ffff;
 }
 
-/* SOCIAL BUTTONS */
+/* SOCIAL */
 .social a{
 display:block;
 margin:10px auto;
@@ -168,18 +168,11 @@ background:rgba(0,0,0,0.8);
 <div class="box">Sistem</div>
 </div>
 
-<!-- 🔥 SOCIAL -->
+<!-- SOCIAL -->
 <div class="card social">
 <h3>📡 Hesaplarımız</h3>
-
-<a class="instagram" href="https://instagram.com/aksoymhgfiservice" target="_blank">
-📸 Instagram'a Git
-</a>
-
-<a class="facebook" href="https://www.facebook.com/aksoymhgfiservice" target="_blank">
-📘 Facebook'a Git
-</a>
-
+<a class="instagram" href="https://instagram.com/aksoymhgfiservice" target="_blank">📸 Instagram</a>
+<a class="facebook" href="https://www.facebook.com/aksoymhgfiservice" target="_blank">📘 Facebook</a>
 </div>
 
 <!-- LIVE -->
@@ -188,8 +181,31 @@ background:rgba(0,0,0,0.8);
 <p>👁️ <span id="online">0</span></p>
 </div>
 
+<!-- REVIEWS -->
+<div class="card">
+<h3>Müşteri Yorumları</h3>
+<p>⭐⭐⭐⭐⭐ Çok iyi</p>
+<p>⭐⭐⭐⭐⭐ Hızlı çözüm</p>
+<p>⭐⭐⭐⭐⭐ Güvenilir servis</p>
+<p>⭐⭐⭐⭐⭐ Hızlı teslim</p>
+<p>✔ 10.000+ işlem</p>
+</div>
+
+<!-- ABOUT -->
+<div class="card">
+<h3>Biz Kimiz</h3>
+<p>Profesyonel teknik servis hizmeti sunuyoruz.</p>
+</div>
+
+<!-- PAYMENT -->
+<div class="card">
+<h3>Ödeme</h3>
+<button onclick="goWhats()">WhatsApp</button>
+</div>
+
 <footer>
 <p>© 2026 AksyMH Gfi Service</p>
+<p>Tüm Hakları Saklıdır</p>
 </footer>
 
 <a class="whatsapp" href="https://wa.me/905447447798">💬</a>
@@ -203,6 +219,10 @@ function sendWhats(){
 let imei=document.getElementById("imei").value;
 let msg="IMEI: "+imei+" hakkında bilgi almak istiyorum.";
 window.open("https://wa.me/905447447798?text="+encodeURIComponent(msg));
+}
+
+function goWhats(){
+window.open("https://wa.me/905447447798");
 }
 </script>
 
