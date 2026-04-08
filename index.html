@@ -3,204 +3,198 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>AksyMH Gfi Service</title>
+<title>AKSYMH GFI SERVICE</title>
 
 <style>
-
 body{
 margin:0;
 font-family:Arial;
+background:#0b0f1a;
 color:white;
-text-align:center;
-background:
-linear-gradient(rgba(0,0,0,0.85), rgba(0,0,0,0.95)),
-url('https://images.unsplash.com/photo-1518770660439-4636190af475');
-background-size:cover;
-background-attachment:fixed;
 }
 
-/* HEADER */
-header{
+/* TOP BAR */
+.topbar{
+background:#020617;
+padding:10px;
 display:flex;
-justify-content:center;
+justify-content:space-between;
 align-items:center;
-gap:15px;
-padding:25px;
+color:#00ffff;
+font-size:14px;
+box-shadow:0 0 10px #00ffff33;
 }
 
 .logo{
-font-size:34px;
-font-weight:900;
-color:#00ffff;
-text-shadow:0 0 20px #00ffff;
-}
-
-/* CARDS */
-.card, .box{
-background:rgba(255,255,255,0.05);
-backdrop-filter:blur(15px);
-border-radius:15px;
-margin:10px;
-padding:18px;
-transition:0.3s;
-border:1px solid rgba(0,255,255,0.2);
-cursor:pointer;
-}
-
-.card:hover, .box:hover{
-transform:translateY(-5px) scale(1.05);
-box-shadow:0 0 25px #00ffff;
+font-weight:bold;
+font-size:18px;
 }
 
 /* GRID */
-.services{
+.grid{
 display:grid;
-grid-template-columns:repeat(auto-fit,minmax(150px,1fr));
-padding:10px;
+grid-template-columns:repeat(auto-fit,minmax(160px,1fr));
+gap:15px;
+padding:15px;
 }
 
-/* TEXT */
-h1,h2,h3,p{
-text-shadow:0 0 5px #00ffff;
+/* CARD */
+.card{
+background:rgba(255,255,255,0.05);
+backdrop-filter:blur(15px);
+border-radius:15px;
+padding:20px;
+text-align:center;
+cursor:pointer;
+transition:0.3s;
+border:1px solid rgba(0,255,255,0.2);
 }
 
-/* INPUT */
-input{
-padding:12px;
-border-radius:10px;
-border:none;
-margin:5px;
-width:240px;
-background:rgba(0,0,0,0.7);
-color:#00ffff;
-box-shadow:0 0 10px #00ffff;
+.card:hover{
+transform:translateY(-5px) scale(1.05);
+box-shadow:0 0 30px #00ffff;
+}
+
+/* PANEL */
+.panel{
+display:none;
+padding:20px;
+animation:fade 0.3s;
+}
+
+.active{
+display:block;
+}
+
+@keyframes fade{
+from{opacity:0;}
+to{opacity:1;}
+}
+
+/* BOX */
+.box{
+background:rgba(255,255,255,0.05);
+padding:20px;
+border-radius:15px;
+max-width:600px;
+margin:auto;
+box-shadow:0 0 10px #00ffff33;
 }
 
 /* BUTTON */
 button{
-padding:12px 20px;
+padding:12px;
 border:none;
 border-radius:10px;
 background:#00ffff;
 color:black;
 cursor:pointer;
+margin-top:10px;
 font-weight:bold;
-transition:0.3s;
-}
-
-button:hover{
-box-shadow:0 0 20px #00ffff;
 }
 
 /* WHATSAPP */
-.whatsapp{
+.wp{
 position:fixed;
 bottom:20px;
 right:20px;
 background:#25D366;
 padding:15px;
 border-radius:50%;
-box-shadow:0 0 20px #25D366;
 font-size:20px;
+box-shadow:0 0 20px #25D366;
 }
-
-footer{
-margin-top:30px;
-padding:20px;
-background:rgba(0,0,0,0.8);
-}
-
 </style>
 </head>
 
 <body>
 
-<header>
-<span class="logo">🚀 AKSYMH GFI SERVICE</span>
-</header>
+<!-- TOP -->
+<div class="topbar">
+<div class="logo">🚀 AKSYMH PANEL</div>
+<div>Online Service</div>
+</div>
 
-<h2>Profesyonel Teknik Servis</h2>
+<!-- HOME -->
+<div id="home" class="panel active">
 
-<input id="imei" placeholder="IMEI gir">
-<br>
-<button onclick="sendWhats()">Sorgula & İletişim</button>
+<div class="grid">
 
-<p id="result"></p>
-
-<div class="services">
-
-<div class="box">📱 Android Yazılım</div>
-<div class="box">🍎 iOS Servis</div>
-<div class="box">🔧 Anakart Onarım</div>
-<div class="box">💀 Hard Brick</div>
-<div class="box">🔓 FRP</div>
-<div class="box">🔐 Kilit</div>
-<div class="box">⚠ Bootloop</div>
-<div class="box">💾 Veri Kurtarma</div>
-<div class="box">📶 Şebeke</div>
-<div class="box">📡 WiFi</div>
-<div class="box">🔋 Batarya</div>
-<div class="box">🧹 Format</div>
-<div class="box">⬆ Güncelleme</div>
-<div class="box">⚙ Sistem</div>
-
-<!-- 🔥 YENİ PREMIUM BUTONLAR -->
-<div class="box" onclick="window.location.href='samsung-cpid.html'">💎 Samsung CPID</div>
-<div class="box" onclick="window.location.href='remote-frp.html'">⚡ Remote FRP</div>
-<div class="box" onclick="window.location.href='kg-service.html'">🛠 KG Service</div>
+<div class="card" onclick="openPage('cpid')">📱 Samsung CPID</div>
+<div class="card" onclick="openPage('frp')">🔓 Remote FRP</div>
+<div class="card" onclick="openPage('kg')">⚙️ KG Service</div>
+<div class="card">📶 Network</div>
+<div class="card">💾 Data</div>
 
 </div>
 
-<div class="card">
-<h3>Hızlı Talep</h3>
-<input id="ad" placeholder="Ad">
-<input id="tel" placeholder="Telefon">
-<br>
-<button onclick="formGonder()">Gönder</button>
 </div>
 
-<div class="card">
-<h3>Canlı Kullanıcı</h3>
-<p>👁️ <span id="online">0</span></p>
+<!-- CPID -->
+<div id="cpid" class="panel">
+<div class="box">
+
+<h2>Samsung CPID</h2>
+
+<p>S23 → 10.500 TL</p>
+<p>S24 Ultra → 15.000 TL</p>
+<p>S25 Ultra → 18.000 TL</p>
+
+<button onclick="goWhats()">WhatsApp</button>
+<button onclick="goHome()">⬅ Geri</button>
+
+</div>
 </div>
 
-<div class="card">
-<h3>Müşteri Yorumları</h3>
-<p>⭐⭐⭐⭐⭐ Çok iyi</p>
-<p>⭐⭐⭐⭐⭐ Hızlı çözüm</p>
-<p>⭐⭐⭐⭐⭐ Güvenilir servis</p>
-<p>⭐⭐⭐⭐⭐ Hızlı teslim</p>
-<p>✔ 10.000+ işlem</p>
+<!-- FRP -->
+<div id="frp" class="panel">
+<div class="box">
+
+<h2>Remote FRP</h2>
+
+<p>✔ Uzaktan FRP kaldırma</p>
+<p>✔ Tüm cihaz destekli</p>
+<p>💰 500 - 1500 TL</p>
+
+<button onclick="goWhats()">WhatsApp</button>
+<button onclick="goHome()">⬅ Geri</button>
+
+</div>
 </div>
 
-<div class="card">
-<h3>Biz Kimiz</h3>
-<p>Profesyonel teknik servis hizmeti sunuyoruz.</p>
+<!-- KG -->
+<div id="kg" class="panel">
+<div class="box">
+
+<h2>Samsung KG Service</h2>
+
+<p>✔ KG Locked çözüm</p>
+<p>✔ USB Redirector destekli</p>
+<p>💰 1500 - 3000 TL</p>
+
+<button onclick="goWhats()">WhatsApp</button>
+<button onclick="goHome()">⬅ Geri</button>
+
+</div>
 </div>
 
-<footer>
-<p>© 2026 AksyMH Gfi Service</p>
-</footer>
-
-<a class="whatsapp" href="https://wa.me/905447447798">💬</a>
+<!-- WHATSAPP -->
+<a class="wp" href="https://wa.me/905447447798">💬</a>
 
 <script>
 
-setInterval(()=>{
-document.getElementById("online").innerText=Math.floor(Math.random()*50)+10;
-},2000);
-
-function sendWhats(){
-let imei=document.getElementById("imei").value;
-let msg="IMEI: "+imei;
-window.open("https://wa.me/905447447798?text="+encodeURIComponent(msg));
+function openPage(id){
+document.querySelectorAll(".panel").forEach(p=>p.classList.remove("active"));
+document.getElementById(id).classList.add("active");
 }
 
-function formGonder(){
-let ad=document.getElementById("ad").value;
-let tel=document.getElementById("tel").value;
-let msg="Ad:"+ad+" Tel:"+tel;
-window.open("https://wa.me/905447447798?text="+encodeURIComponent(msg));
+function goHome(){
+document.querySelectorAll(".panel").forEach(p=>p.classList.remove("active"));
+document.getElementById("home").classList.add("active");
+}
+
+function goWhats(){
+window.open("https://wa.me/905447447798");
 }
 
 </script>
