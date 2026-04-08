@@ -213,105 +213,157 @@ background:rgba(0,0,0,0.8);
 <h2>Samsung CPID Fiyat Listesi</h2>
 
 <table>
-<h2>Samsung CPID Fiyat Listesi</h2>
+<div id="cpid" class="page">
+
+<h2>💎 Samsung CPID Fiyat Listesi</h2>
+
+<style>
+
+/* TABLO GENEL */
+table{
+width:95%;
+margin:auto;
+border-collapse:collapse;
+background:rgba(0,0,0,0.4);
+border-radius:10px;
+overflow:hidden;
+}
+
+/* SATIR */
+td,th{
+padding:10px;
+border-bottom:1px solid rgba(0,255,255,0.2);
+}
+
+/* BAŞLIK */
+th{
+color:#00ffff;
+font-size:18px;
+}
+
+/* KATEGORİ */
+.category{
+background:rgba(0,255,255,0.1);
+font-weight:bold;
+color:#00ffff;
+}
+
+/* FİYAT NORMAL */
+.price{
+color:#00ffff;
+text-shadow:0 0 5px #00ffff;
+transition:0.3s;
+}
+
+/* HOVER */
+.price:hover{
+text-shadow:
+0 0 10px #00ffff,
+0 0 25px #00ffff,
+0 0 40px #00ffff;
+transform:scale(1.1);
+}
+
+/* SATIR HOVER */
+tr:hover{
+background:rgba(0,255,255,0.05);
+}
+
+</style>
 
 <table>
 <tr><th>Model</th><th>Fiyat</th></tr>
 
-<tr><td><b>--- S SERİSİ ---</b></td><td></td></tr>
+<!-- S -->
+<tr class="category"><td colspan="2">🚀 S SERİSİ</td></tr>
 
-<tr><td>S20</td><td>6.500 TL</td></tr>
-<tr><td>S20+</td><td>7.000 TL</td></tr>
-<tr><td>S20 Ultra</td><td>7.500 TL</td></tr>
+<tr><td>S20</td><td class="price">6.500 TL</td></tr>
+<tr><td>S20+</td><td class="price">7.000 TL</td></tr>
+<tr><td>S20 Ultra</td><td class="price">7.500 TL</td></tr>
 
-<tr><td>S21</td><td>7.500 TL</td></tr>
-<tr><td>S21+</td><td>8.000 TL</td></tr>
-<tr><td>S21 Ultra</td><td>9.000 TL</td></tr>
+<tr><td>S21</td><td class="price">7.500 TL</td></tr>
+<tr><td>S21+</td><td class="price">8.000 TL</td></tr>
+<tr><td>S21 Ultra</td><td class="price">9.000 TL</td></tr>
 
-<tr><td>S22</td><td>8.500 TL</td></tr>
-<tr><td>S22+</td><td>9.500 TL</td></tr>
-<tr><td>S22 Ultra</td><td>11.000 TL</td></tr>
+<tr><td>S22</td><td class="price">8.500 TL</td></tr>
+<tr><td>S22+</td><td class="price">9.500 TL</td></tr>
+<tr><td>S22 Ultra</td><td class="price">11.000 TL</td></tr>
 
-<tr><td>S23</td><td class="price">10.500 TL</td></tr><tr><td>S23+</td><td>11.500 TL</td></tr>
-<tr><td>S23 Ultra</td><td>13.000 TL</td></tr>
+<tr><td>S23</td><td class="price">10.500 TL</td></tr>
+<tr><td>S23+</td><td class="price">11.500 TL</td></tr>
+<tr><td>S23 Ultra</td><td class="price">13.000 TL</td></tr>
 
-<tr><td>S24</td><td>12.000 TL</td></tr>
-<tr><td>S24+</td><td>13.500 TL</td></tr>
-<tr><td>S24 Ultra</td><td>15.000 TL</td></tr>
+<tr><td>S24</td><td class="price">12.000 TL</td></tr>
+<tr><td>S24+</td><td class="price">13.500 TL</td></tr>
+<tr><td>S24 Ultra</td><td class="price">15.000 TL</td></tr>
 
-<tr><td>S25</td><td>14.000 TL</td></tr>
-<tr><td>S25+</td><td>16.000 TL</td></tr>
-<tr><td>S25 Ultra</td><td>18.000 TL</td></tr>
+<tr><td>S25</td><td class="price">14.000 TL</td></tr>
+<tr><td>S25+</td><td class="price">16.000 TL</td></tr>
+<tr><td>S25 Ultra</td><td class="price">18.000 TL</td></tr>
 
-<tr><td>S26</td><td>16.000 TL</td></tr>
-<tr><td>S26+</td><td>18.000 TL</td></tr>
-<tr><td>S26 Ultra</td><td>20.000 TL</td></tr>
+<tr><td>S20 FE</td><td class="price">6.000 TL</td></tr>
+<tr><td>S21 FE</td><td class="price">7.000 TL</td></tr>
+<tr><td>S23 FE</td><td class="price">9.500 TL</td></tr>
 
-<tr><td>S20 FE</td><td>6.000 TL</td></tr>
-<tr><td>S21 FE</td><td>7.000 TL</td></tr>
-<tr><td>S23 FE</td><td>9.500 TL</td></tr>
-<tr><td>S24 FE</td><td>11.000 TL</td></tr>
+<!-- NOTE -->
+<tr class="category"><td colspan="2">📝 NOTE SERİSİ</td></tr>
 
-<tr><td><b>--- NOTE SERİSİ ---</b></td><td></td></tr>
+<tr><td>Note 8</td><td class="price">5.000 TL</td></tr>
+<tr><td>Note 9</td><td class="price">5.500 TL</td></tr>
+<tr><td>Note 10</td><td class="price">6.500 TL</td></tr>
+<tr><td>Note 10+</td><td class="price">7.500 TL</td></tr>
+<tr><td>Note 20</td><td class="price">8.500 TL</td></tr>
+<tr><td>Note 20 Ultra</td><td class="price">10.000 TL</td></tr>
 
-<tr><td>Note 8</td><td>5.000 TL</td></tr>
-<tr><td>Note 9</td><td>5.500 TL</td></tr>
-<tr><td>Note 10</td><td>6.500 TL</td></tr>
-<tr><td>Note 10+</td><td>7.500 TL</td></tr>
-<tr><td>Note 20</td><td>8.500 TL</td></tr>
-<tr><td>Note 20 Ultra</td><td>10.000 TL</td></tr>
+<!-- A -->
+<tr class="category"><td colspan="2">📱 A SERİSİ</td></tr>
 
-<tr><td><b>--- A SERİSİ ---</b></td><td></td></tr>
+<tr><td>A12</td><td class="price">4.500 TL</td></tr>
+<tr><td>A13</td><td class="price">5.000 TL</td></tr>
+<tr><td>A14</td><td class="price">5.500 TL</td></tr>
+<tr><td>A15</td><td class="price">6.000 TL</td></tr>
 
-<tr><td>A10</td><td>3.500 TL</td></tr>
-<tr><td>A20</td><td>4.000 TL</td></tr>
-<tr><td>A30</td><td>4.500 TL</td></tr>
-<tr><td>A50</td><td>5.000 TL</td></tr>
+<tr><td>A21</td><td class="price">5.500 TL</td></tr>
+<tr><td>A22</td><td class="price">6.000 TL</td></tr>
+<tr><td>A23</td><td class="price">6.500 TL</td></tr>
+<tr><td>A24</td><td class="price">7.000 TL</td></tr>
 
-<tr><td>A12</td><td>4.500 TL</td></tr>
-<tr><td>A13</td><td>5.000 TL</td></tr>
-<tr><td>A14</td><td>5.500 TL</td></tr>
-<tr><td>A15</td><td>6.000 TL</td></tr>
+<tr><td>A31</td><td class="price">6.000 TL</td></tr>
+<tr><td>A32</td><td class="price">6.500 TL</td></tr>
+<tr><td>A33</td><td class="price">7.000 TL</td></tr>
+<tr><td>A34</td><td class="price">7.500 TL</td></tr>
 
-<tr><td>A21</td><td>5.500 TL</td></tr>
-<tr><td>A22</td><td>6.000 TL</td></tr>
-<tr><td>A23</td><td>6.500 TL</td></tr>
-<tr><td>A24</td><td>7.000 TL</td></tr>
+<tr><td>A51</td><td class="price">6.500 TL</td></tr>
+<tr><td>A52</td><td class="price">7.500 TL</td></tr>
+<tr><td>A53</td><td class="price">8.500 TL</td></tr>
+<tr><td>A54</td><td class="price">9.000 TL</td></tr>
 
-<tr><td>A31</td><td>6.000 TL</td></tr>
-<tr><td>A32</td><td>6.500 TL</td></tr>
-<tr><td>A33</td><td>7.000 TL</td></tr>
-<tr><td>A34</td><td>7.500 TL</td></tr>
+<!-- M -->
+<tr class="category"><td colspan="2">🔋 M SERİSİ</td></tr>
 
-<tr><td>A51</td><td>6.500 TL</td></tr>
-<tr><td>A52</td><td>7.500 TL</td></tr>
-<tr><td>A53</td><td>8.500 TL</td></tr>
-<tr><td>A54</td><td>9.000 TL</td></tr>
+<tr><td>M11</td><td class="price">4.000 TL</td></tr>
+<tr><td>M12</td><td class="price">4.500 TL</td></tr>
+<tr><td>M13</td><td class="price">5.000 TL</td></tr>
+<tr><td>M14</td><td class="price">5.500 TL</td></tr>
 
-<tr><td>A71</td><td>7.500 TL</td></tr>
-<tr><td>A72</td><td>8.500 TL</td></tr>
-<tr><td>A73</td><td>9.500 TL</td></tr>
+<tr><td>M21</td><td class="price">5.000 TL</td></tr>
+<tr><td>M22</td><td class="price">5.500 TL</td></tr>
+<tr><td>M23</td><td class="price">6.000 TL</td></tr>
 
-<tr><td><b>--- M SERİSİ ---</b></td><td></td></tr>
+<tr><td>M31</td><td class="price">5.500 TL</td></tr>
+<tr><td>M32</td><td class="price">6.000 TL</td></tr>
+<tr><td>M33</td><td class="price">6.500 TL</td></tr>
 
-<tr><td>M11</td><td>4.000 TL</td></tr>
-<tr><td>M12</td><td>4.500 TL</td></tr>
-<tr><td>M13</td><td>5.000 TL</td></tr>
-<tr><td>M14</td><td>5.500 TL</td></tr>
-
-<tr><td>M21</td><td>5.000 TL</td></tr>
-<tr><td>M22</td><td>5.500 TL</td></tr>
-<tr><td>M23</td><td>6.000 TL</td></tr>
-
-<tr><td>M31</td><td>5.500 TL</td></tr>
-<tr><td>M32</td><td>6.000 TL</td></tr>
-<tr><td>M33</td><td>6.500 TL</td></tr>
-
-<tr><td>M51</td><td>7.000 TL</td></tr>
-<tr><td>M52</td><td>7.500 TL</td></tr>
-<tr><td>M53</td><td>8.000 TL</td></tr>
+<tr><td>M51</td><td class="price">7.000 TL</td></tr>
+<tr><td>M52</td><td class="price">7.500 TL</td></tr>
+<tr><td>M53</td><td class="price">8.000 TL</td></tr>
 
 </table>
+
+<br>
+<button onclick="goHome()">⬅ Geri</button>
+
+</div>
 </table>
 
 <button onclick="goHome()">⬅ Geri</button>
