@@ -5,7 +5,115 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>AksyMH Gfi Service</title>
 
+<style
+
+<!-- FİYAT LİSTESİ BUTONU -->
+<button id="fiyatBtn" onclick="openFiyat()">💰 Fiyat</button>
+
+<!-- POPUP -->
+<div id="fiyatPopup">
+  <div class="popupBox">
+
+    <span class="kapat" onclick="closeFiyat()">✖</span>
+
+    <h2>Samsung CPID Fiyat Listesi</h2>
+
+    <h3>S Serisi</h3>
+    <ul>
+      <li>S23 Serisi Combi - 7.950 TL</li>
+      <li>S22 Serisi - 9.750 TL</li>
+      <li>S23 - 10.500 TL</li>
+      <li>S23+ - 9.900 TL</li>
+      <li>S23 Ultra - 12.000 TL</li>
+      <li>S24 - 11.500 TL</li>
+      <li>S24+ - 12.450 TL</li>
+      <li>S24 Ultra - 15.000 TL</li>
+      <li>S25 - 16.000 TL</li>
+      <li>S25+ - 17.250 TL</li>
+      <li>S25 Ultra - 18.000 TL</li>
+    </ul>
+
+    <h3>M Serisi</h3>
+    <ul>
+      <li>M3 - 9.600 TL</li>
+      <li>M4 - 10.200 TL</li>
+      <li>M5 - 11.500 TL</li>
+      <li>M6 - 8.850 TL</li>
+      <li>M7 - 16.750 TL</li>
+    </ul>
+
+    <a href="https://wa.me/905447447798" target="_blank" class="wpBtn">
+      WhatsApp Yaz
+    </a>
+
+  </div>
+</div>
+
 <style>
+#fiyatBtn {
+  position: fixed;
+  bottom: 20px;
+  right: 20px;
+  background: #00ffcc;
+  border: none;
+  padding: 12px 18px;
+  border-radius: 10px;
+  cursor: pointer;
+  z-index: 9999;
+  font-weight: bold;
+}
+
+#fiyatPopup {
+  display: none;
+  position: fixed;
+  z-index: 10000;
+  left: 0;
+  top: 0;
+  width: 100%;
+  height: 100%;
+  background: rgba(0,0,0,0.8);
+}
+
+.popupBox {
+  background: #111;
+  color: white;
+  max-width: 500px;
+  margin: 60px auto;
+  padding: 20px;
+  border-radius: 15px;
+  position: relative;
+}
+
+.kapat {
+  position: absolute;
+  right: 15px;
+  top: 10px;
+  cursor: pointer;
+  font-size: 20px;
+}
+
+.wpBtn {
+  display: block;
+  text-align: center;
+  background: #25D366;
+  padding: 10px;
+  border-radius: 10px;
+  color: white;
+  text-decoration: none;
+  margin-top: 15px;
+}
+</style>
+
+<script>
+function openFiyat() {
+  document.getElementById("fiyatPopup").style.display = "block";
+}
+
+function closeFiyat() {
+  document.getElementById("fiyatPopup").style.display = "none";
+}
+</script>
+  
 body{
 margin:0;
 font-family:Arial;
