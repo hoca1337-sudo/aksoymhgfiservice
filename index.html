@@ -3,135 +3,236 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>AksoyMH GFİ Service</title>
+<title>AksyMH Gfi Service</title>
 
 <style>
-body {
-  margin: 0;
-  font-family: Arial, sans-serif;
-  background: #0f2027;
-  color: white;
+
+body{
+margin:0;
+font-family:Arial;
+color:white;
+text-align:center;
+background:
+linear-gradient(rgba(0,0,0,0.8), rgba(0,0,0,0.9)),
+url('https://images.unsplash.com/photo-1518770660439-4636190af475');
+background-size:cover;
+background-attachment:fixed;
 }
 
-/* HEADER */
-.header {
-  text-align: center;
-  padding: 30px;
-  font-size: 28px;
-  color: #00ffcc;
+/* 🔥 HEADER */
+header{
+display:flex;
+justify-content:center;
+align-items:center;
+gap:15px;
+padding:25px;
 }
 
-/* BUTON */
-#fiyatBtn {
-  position: fixed;
-  bottom: 20px;
-  right: 20px;
-  background: #00ffcc;
-  border: none;
-  padding: 12px 18px;
-  border-radius: 10px;
-  cursor: pointer;
-  z-index: 9999;
+.logo{
+font-size:34px;
+font-weight:900;
+animation:rgbGlow 2s infinite alternate;
 }
 
-/* POPUP */
-#popup {
-  display: none;
-  position: fixed;
-  z-index: 10000;
-  left: 0;
-  top: 0;
-  width: 100%;
-  height: 100%;
-  background: rgba(0,0,0,0.8);
+@keyframes rgbGlow{
+0%{color:#00ffff;text-shadow:0 0 10px #00ffff;}
+50%{color:#ff00ff;text-shadow:0 0 20px #ff00ff;}
+100%{color:#00ff00;text-shadow:0 0 30px #00ff00;}
 }
 
-.box {
-  background: #111;
-  max-width: 500px;
-  margin: 60px auto;
-  padding: 20px;
-  border-radius: 15px;
-  position: relative;
+/* ICON BLINK */
+.icon{
+font-size:28px;
+animation:blink 1s infinite alternate;
 }
 
-.close {
-  position: absolute;
-  right: 15px;
-  top: 10px;
-  cursor: pointer;
+@keyframes blink{
+0%{opacity:1; transform:scale(1);}
+100%{opacity:0.3; transform:scale(1.3);}
 }
 
-a.wp {
-  display: block;
-  text-align: center;
-  background: #25D366;
-  padding: 10px;
-  border-radius: 10px;
-  color: white;
-  text-decoration: none;
-  margin-top: 15px;
+/* CAM EFFECT */
+.card, .box{
+background:rgba(255,255,255,0.05);
+backdrop-filter:blur(10px);
+border-radius:15px;
+margin:10px;
+padding:15px;
+animation:pulse 2s infinite alternate;
 }
+
+/* PULSE */
+@keyframes pulse{
+0%{box-shadow:0 0 10px #00ffff;}
+50%{box-shadow:0 0 25px #ff00ff;}
+100%{box-shadow:0 0 40px #00ff00;}
+}
+
+/* GRID */
+.services{
+display:grid;
+grid-template-columns:repeat(auto-fit,minmax(150px,1fr));
+padding:10px;
+}
+
+/* TEXT */
+h1,h2,h3,p{
+text-shadow:0 0 5px #00ffff;
+}
+
+/* INPUT */
+input{
+padding:12px;
+border-radius:10px;
+border:none;
+margin:5px;
+width:240px;
+background:rgba(0,0,0,0.7);
+color:#00ffff;
+box-shadow:0 0 10px #00ffff;
+}
+
+/* BUTTON */
+button{
+padding:12px 20px;
+border:none;
+border-radius:10px;
+background:rgba(0,0,0,0.7);
+color:#00ffff;
+cursor:pointer;
+animation:btnGlow 1.5s infinite alternate;
+}
+
+@keyframes btnGlow{
+0%{box-shadow:0 0 10px #00ffff;}
+100%{box-shadow:0 0 30px #00ffff;}
+}
+
+/* WHATSAPP */
+.whatsapp{
+position:fixed;
+bottom:20px;
+right:20px;
+background:#25D366;
+padding:15px;
+border-radius:50%;
+box-shadow:0 0 20px #25D366;
+}
+
+footer{
+margin-top:30px;
+padding:20px;
+background:rgba(0,0,0,0.8);
+}
+
 </style>
-
 </head>
 
 <body>
 
-<div class="header">
-💚 AKSOYMH GFİ SERVICE 💚
+<header>
+<span class="icon">📱🔧</span>
+<span class="logo">AKSYMH GFI SERVICE</span>
+<span class="icon">🔧📱</span>
+</header>
+
+<h2>Profesyonel Teknik Servis</h2>
+
+<input id="imei" placeholder="IMEI gir">
+<br>
+<button onclick="sendWhats()">Sorgula & İletişim</button>
+
+<p id="result"></p>
+
+<!-- SERVICES -->
+<div class="services">
+<div class="box">Android Yazılım</div>
+<div class="box">iOS Servis</div>
+<div class="box">Anakart Onarım</div>
+<div class="box">Hard Brick</div>
+<div class="box">FRP</div>
+<div class="box">Kilit</div>
+<div class="box">Bootloop</div>
+<div class="box">Veri Kurtarma</div>
+<div class="box">Şebeke</div>
+<div class="box">WiFi</div>
+<div class="box">Batarya</div>
+<div class="box">Format</div>
+<div class="box">Güncelleme</div>
+<div class="box">Sistem</div>
 </div>
 
-<!-- BUTON -->
-<button id="fiyatBtn" onclick="openPopup()">💰 Fiyat</button>
-
-<!-- POPUP -->
-<div id="popup">
-  <div class="box">
-
-    <span class="close" onclick="closePopup()">✖</span>
-
-    <h2>Samsung CPID Fiyat Listesi</h2>
-
-    <h3>S Serisi</h3>
-    <ul>
-      <li>S23 Serisi Combi - 7.950 TL</li>
-      <li>S22 Serisi - 9.750 TL</li>
-      <li>S23 - 10.500 TL</li>
-      <li>S23+ - 9.900 TL</li>
-      <li>S23 Ultra - 12.000 TL</li>
-      <li>S24 - 11.500 TL</li>
-      <li>S24+ - 12.450 TL</li>
-      <li>S24 Ultra - 15.000 TL</li>
-      <li>S25 - 16.000 TL</li>
-      <li>S25+ - 17.250 TL</li>
-      <li>S25 Ultra - 18.000 TL</li>
-    </ul>
-
-    <h3>M Serisi</h3>
-    <ul>
-      <li>M3 - 9.600 TL</li>
-      <li>M4 - 10.200 TL</li>
-      <li>M5 - 11.500 TL</li>
-      <li>M6 - 8.850 TL</li>
-      <li>M7 - 16.750 TL</li>
-    </ul>
-
-    <a href="https://wa.me/905447447798" target="_blank" class="wp">
-      WhatsApp Yaz
-    </a>
-
-  </div>
+<!-- FORM -->
+<div class="card">
+<h3>Hızlı Talep</h3>
+<input id="ad" placeholder="Ad">
+<input id="tel" placeholder="Telefon">
+<br>
+<button onclick="formGonder()">Gönder</button>
 </div>
+
+<!-- LIVE -->
+<div class="card">
+<h3>Canlı Kullanıcı</h3>
+<p>👁️ <span id="online">0</span></p>
+</div>
+
+<!-- REVIEWS -->
+<div class="card">
+<h3>Müşteri Yorumları</h3>
+<p>⭐⭐⭐⭐⭐ Çok iyi</p>
+<p>⭐⭐⭐⭐⭐ Hızlı çözüm</p>
+<p>⭐⭐⭐⭐⭐ Güvenilir servis</p>
+<p>⭐⭐⭐⭐⭐ Hızlı teslim</p>
+<p>✔ 10.000+ işlem</p>
+</div>
+
+<!-- ABOUT -->
+<div class="card">
+<h3>Biz Kimiz</h3>
+<p>Profesyonel teknik servis hizmeti sunuyoruz.</p>
+</div>
+
+<!-- PAYMENT -->
+<div class="card">
+<h3>Ödeme</h3>
+<button onclick="goWhats()">WhatsApp</button>
+</div>
+
+<footer>
+<p>© 2026 AksyMH Gfi Service</p>
+<p>Tüm Hakları Saklıdır</p>
+</footer>
+
+<a class="whatsapp" href="https://wa.me/905447447798">💬</a>
 
 <script>
-function openPopup() {
-  document.getElementById("popup").style.display = "block";
+
+// canlı
+setInterval(()=>{
+document.getElementById("online").innerText=Math.floor(Math.random()*50)+10;
+},2000);
+
+// imei
+function sendWhats(){
+let imei=document.getElementById("imei").value;
+let msg="IMEI: "+imei+" hakkında bilgi almak istiyorum.";
+window.open("https://wa.me/905447447798?text="+encodeURIComponent(msg));
 }
 
-function closePopup() {
-  document.getElementById("popup").style.display = "none";
+// form
+function formGonder(){
+let ad=document.getElementById("ad").value;
+let tel=document.getElementById("tel").value;
+let msg="Ad:"+ad+" Tel:"+tel;
+window.open("https://wa.me/905447447798?text="+encodeURIComponent(msg));
 }
+
+// ödeme
+function goWhats(){
+window.open("https://wa.me/905447447798");
+}
+
 </script>
 
 </body>
