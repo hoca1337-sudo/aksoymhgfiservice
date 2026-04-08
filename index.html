@@ -1,47 +1,138 @@
-<!-- FİYAT BUTONU -->
-<button onclick="document.getElementById('fiyatPopup').style.display='block'" 
-style="position:fixed;bottom:20px;right:20px;z-index:9999;padding:12px 18px;border:none;border-radius:10px;background:#00ffcc;cursor:pointer;">
-💰 Fiyat
-</button>
+<!DOCTYPE html>
+<html lang="tr">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>AksoyMH GFİ Service</title>
+
+<style>
+body {
+  margin: 0;
+  font-family: Arial, sans-serif;
+  background: #0f2027;
+  color: white;
+}
+
+/* HEADER */
+.header {
+  text-align: center;
+  padding: 30px;
+  font-size: 28px;
+  color: #00ffcc;
+}
+
+/* BUTON */
+#fiyatBtn {
+  position: fixed;
+  bottom: 20px;
+  right: 20px;
+  background: #00ffcc;
+  border: none;
+  padding: 12px 18px;
+  border-radius: 10px;
+  cursor: pointer;
+  z-index: 9999;
+}
+
+/* POPUP */
+#popup {
+  display: none;
+  position: fixed;
+  z-index: 10000;
+  left: 0;
+  top: 0;
+  width: 100%;
+  height: 100%;
+  background: rgba(0,0,0,0.8);
+}
+
+.box {
+  background: #111;
+  max-width: 500px;
+  margin: 60px auto;
+  padding: 20px;
+  border-radius: 15px;
+  position: relative;
+}
+
+.close {
+  position: absolute;
+  right: 15px;
+  top: 10px;
+  cursor: pointer;
+}
+
+a.wp {
+  display: block;
+  text-align: center;
+  background: #25D366;
+  padding: 10px;
+  border-radius: 10px;
+  color: white;
+  text-decoration: none;
+  margin-top: 15px;
+}
+</style>
+
+</head>
+
+<body>
+
+<div class="header">
+💚 AKSOYMH GFİ SERVICE 💚
+</div>
+
+<!-- BUTON -->
+<button id="fiyatBtn" onclick="openPopup()">💰 Fiyat</button>
 
 <!-- POPUP -->
-<div id="fiyatPopup" style="display:none;position:fixed;z-index:10000;left:0;top:0;width:100%;height:100%;background:rgba(0,0,0,0.8);">
+<div id="popup">
+  <div class="box">
 
-<div style="background:#111;color:#fff;max-width:500px;margin:60px auto;padding:20px;border-radius:15px;position:relative;">
+    <span class="close" onclick="closePopup()">✖</span>
 
-<span onclick="document.getElementById('fiyatPopup').style.display='none'" 
-style="position:absolute;right:15px;top:10px;cursor:pointer;font-size:20px;">✖</span>
+    <h2>Samsung CPID Fiyat Listesi</h2>
 
-<h2>Samsung CPID Fiyat Listesi</h2>
+    <h3>S Serisi</h3>
+    <ul>
+      <li>S23 Serisi Combi - 7.950 TL</li>
+      <li>S22 Serisi - 9.750 TL</li>
+      <li>S23 - 10.500 TL</li>
+      <li>S23+ - 9.900 TL</li>
+      <li>S23 Ultra - 12.000 TL</li>
+      <li>S24 - 11.500 TL</li>
+      <li>S24+ - 12.450 TL</li>
+      <li>S24 Ultra - 15.000 TL</li>
+      <li>S25 - 16.000 TL</li>
+      <li>S25+ - 17.250 TL</li>
+      <li>S25 Ultra - 18.000 TL</li>
+    </ul>
 
-<h3>S Serisi</h3>
-<ul>
-<li>S23 Serisi Combi - 7.950 TL</li>
-<li>S22 Serisi - 9.750 TL</li>
-<li>S23 - 10.500 TL</li>
-<li>S23+ - 9.900 TL</li>
-<li>S23 Ultra - 12.000 TL</li>
-<li>S24 - 11.500 TL</li>
-<li>S24+ - 12.450 TL</li>
-<li>S24 Ultra - 15.000 TL</li>
-<li>S25 - 16.000 TL</li>
-<li>S25+ - 17.250 TL</li>
-<li>S25 Ultra - 18.000 TL</li>
-</ul>
+    <h3>M Serisi</h3>
+    <ul>
+      <li>M3 - 9.600 TL</li>
+      <li>M4 - 10.200 TL</li>
+      <li>M5 - 11.500 TL</li>
+      <li>M6 - 8.850 TL</li>
+      <li>M7 - 16.750 TL</li>
+    </ul>
 
-<h3>M Serisi</h3>
-<ul>
-<li>M3 - 9.600 TL</li>
-<li>M4 - 10.200 TL</li>
-<li>M5 - 11.500 TL</li>
-<li>M6 - 8.850 TL</li>
-<li>M7 - 16.750 TL</li>
-</ul>
+    <a href="https://wa.me/905447447798" target="_blank" class="wp">
+      WhatsApp Yaz
+    </a>
 
-<a href="https://wa.me/905447447798" target="_blank" 
-style="display:block;text-align:center;background:#25D366;padding:10px;border-radius:10px;color:white;text-decoration:none;margin-top:15px;">
-WhatsApp Yaz
-</a>
-
+  </div>
 </div>
-</div>
+
+<script>
+function openPopup() {
+  document.getElementById("popup").style.display = "block";
+}
+
+function closePopup() {
+  document.getElementById("popup").style.display = "none";
+}
+</script>
+
+</body>
+</html>
