@@ -9,9 +9,45 @@
 body{
 margin:0;
 font-family:Arial;
-background:#0b0f1a;
 color:white;
 text-align:center;
+background:
+linear-gradient(rgba(0,0,0,0.8), rgba(0,0,0,0.9)),
+url('https://images.unsplash.com/photo-1518770660439-4636190af475');
+background-size:cover;
+background-attachment:fixed;
+}
+
+/* HEADER */
+header{
+display:flex;
+justify-content:center;
+align-items:center;
+gap:15px;
+padding:25px;
+}
+
+.logo{
+font-size:34px;
+font-weight:900;
+color:#00ffff;
+text-shadow:0 0 20px #00ffff;
+}
+
+/* BOX */
+.card,.box{
+background:rgba(255,255,255,0.05);
+backdrop-filter:blur(10px);
+border-radius:15px;
+margin:10px;
+padding:15px;
+cursor:pointer;
+transition:0.3s;
+}
+
+.box:hover{
+transform:scale(1.05);
+box-shadow:0 0 20px #00ffff;
 }
 
 /* GRID */
@@ -21,19 +57,22 @@ grid-template-columns:repeat(auto-fit,minmax(150px,1fr));
 padding:10px;
 }
 
-/* BOX */
-.box{
-background:#111827;
-margin:10px;
-padding:20px;
+/* INPUT */
+input{
+padding:12px;
 border-radius:10px;
-cursor:pointer;
-transition:0.3s;
+border:none;
+margin:5px;
+width:240px;
 }
 
-.box:hover{
-transform:scale(1.05);
-box-shadow:0 0 20px #00ffff;
+/* BUTTON */
+button{
+padding:12px;
+border:none;
+border-radius:10px;
+background:#00ffff;
+cursor:pointer;
 }
 
 /* PAGE */
@@ -49,36 +88,60 @@ background:#25D366;
 padding:15px;
 border-radius:50%;
 }
+
+footer{
+margin-top:30px;
+padding:20px;
+background:rgba(0,0,0,0.8);
+}
 </style>
 </head>
 
 <body>
 
-<h1>AKSYMH GFI SERVICE</h1>
-
 <!-- ANA SAYFA -->
 <div id="home" class="page active">
+
+<header>
+<span class="logo">AKSYMH GFI SERVICE</span>
+</header>
+
+<h2>Profesyonel Teknik Servis</h2>
+
+<input id="imei" placeholder="IMEI gir">
+<br>
+<button onclick="sendWhats()">Sorgula</button>
 
 <div class="services">
 <div class="box">Android</div>
 <div class="box">iOS</div>
-<div class="box">Şebeke</div>
+<div class="box">Anakart</div>
+<div class="box">FRP</div>
+<div class="box">Format</div>
 
+<!-- YENİ -->
 <div class="box" onclick="openPage('cpid')">Samsung CPID</div>
 <div class="box" onclick="openPage('frp')">Remote FRP</div>
 <div class="box" onclick="openPage('kg')">KG Service</div>
+
 </div>
+
+<div class="card">
+<h3>Müşteri Yorumları</h3>
+<p>⭐⭐⭐⭐⭐ Çok iyi</p>
+<p>⭐⭐⭐⭐⭐ Hızlı çözüm</p>
+</div>
+
+<footer>© 2026 AksyMH</footer>
 
 </div>
 
 <!-- CPID -->
 <div id="cpid" class="page">
 <h2>Samsung CPID</h2>
-
 <p>S23 - 10.500 TL</p>
 <p>S24 Ultra - 15.000 TL</p>
 <p>S25 Ultra - 18.000 TL</p>
-
 <br>
 <button onclick="goHome()">⬅ Geri</button>
 </div>
@@ -86,19 +149,15 @@ border-radius:50%;
 <!-- FRP -->
 <div id="frp" class="page">
 <h2>Remote FRP</h2>
-
 <p>500 - 1500 TL</p>
-
 <br>
 <button onclick="goHome()">⬅ Geri</button>
 </div>
 
 <!-- KG -->
 <div id="kg" class="page">
-<h2>Samsung KG Service</h2>
-
+<h2>KG Service</h2>
 <p>1500 - 3000 TL</p>
-
 <br>
 <button onclick="goHome()">⬅ Geri</button>
 </div>
@@ -106,7 +165,6 @@ border-radius:50%;
 <a class="whatsapp" href="https://wa.me/905447447798">💬</a>
 
 <script>
-
 function openPage(id){
 document.querySelectorAll(".page").forEach(p=>p.classList.remove("active"));
 document.getElementById(id).classList.add("active");
@@ -117,6 +175,10 @@ document.querySelectorAll(".page").forEach(p=>p.classList.remove("active"));
 document.getElementById("home").classList.add("active");
 }
 
+function sendWhats(){
+let imei=document.getElementById("imei").value;
+window.open("https://wa.me/905447447798?text="+imei);
+}
 </script>
 
 </body>
