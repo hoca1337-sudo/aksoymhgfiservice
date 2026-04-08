@@ -20,14 +20,39 @@ background-attachment:fixed;
 
 /* HEADER */
 header{
-display:flex;
-justify-content:center;
-align-items:center;
-gap:15px;
 padding:25px;
 font-size:30px;
+}
+
+/* NEON */
+.neon{
 color:#00ffff;
-text-shadow:0 0 20px #00ffff;
+text-shadow:
+0 0 5px #00ffff,
+0 0 10px #00ffff,
+0 0 20px #00ffff,
+0 0 40px #00ffff;
+animation:neonGlow 1.5s infinite alternate;
+}
+
+@keyframes neonGlow{
+from{opacity:0.7;}
+to{opacity:1;}
+}
+
+/* MARQUEE */
+.marquee{
+width:100%;
+overflow:hidden;
+white-space:nowrap;
+color:#ff4444;
+font-weight:bold;
+animation:marquee 12s linear infinite;
+}
+
+@keyframes marquee{
+0%{transform:translateX(100%);}
+100%{transform:translateX(-100%);}
 }
 
 /* GRID */
@@ -46,7 +71,6 @@ margin:10px;
 padding:15px;
 transition:0.3s;
 cursor:pointer;
-border:1px solid rgba(0,255,255,0.2);
 }
 
 .box:hover{
@@ -54,16 +78,13 @@ transform:scale(1.07);
 box-shadow:0 0 25px #00ffff;
 }
 
-/* INPUT */
 input{
 padding:12px;
 border-radius:10px;
 border:none;
 margin:5px;
-width:240px;
 }
 
-/* BUTTON */
 button{
 padding:12px;
 border:none;
@@ -72,11 +93,9 @@ background:#00ffff;
 cursor:pointer;
 }
 
-/* PAGE */
 .page{display:none;}
 .active{display:block;}
 
-/* TABLE */
 table{
 width:90%;
 margin:auto;
@@ -87,7 +106,6 @@ padding:10px;
 border-bottom:1px solid #00ffff;
 }
 
-/* WHATSAPP */
 .whatsapp{
 position:fixed;
 bottom:20px;
@@ -95,12 +113,6 @@ right:20px;
 background:#25D366;
 padding:15px;
 border-radius:50%;
-}
-
-footer{
-margin-top:30px;
-padding:20px;
-background:rgba(0,0,0,0.8);
 }
 </style>
 </head>
@@ -111,254 +123,46 @@ background:rgba(0,0,0,0.8);
 <div id="home" class="page active">
 
 <header>
-  <div class="marquee">
+<div class="marquee">
 ⚠ Lütfen dikkat T.C.KANUNLARINA GÖRE IMEI DEĞİŞTİRMEK YASAL DEĞİLDİR. BU SUPPORT SADECE ONARIM AMAÇLIDIR
 </div>
-<span class="neon">🚀 AKSYMH GFI SERVICE</span>
+<div class="neon">🚀 AKSYMH GFI SERVICE</div>
 </header>
-  .neon{
-color:#00ffff;
-text-shadow:
-0 0 5px #00ffff,
-0 0 10px #00ffff,
-0 0 20px #00ffff,
-0 0 40px #00ffff;
-animation:neonGlow 1.5s infinite alternate;
-}
-
-@keyframes neonGlow{
-from{opacity:0.7;}
-to{opacity:1;}
-}
 
 <h2>Profesyonel Teknik Servis</h2>
 
 <input id="imei" placeholder="IMEI gir">
 <br>
-<button onclick="sendWhats()">Sorgula & İletişim</button>
+<button onclick="sendWhats()">Sorgula</button>
 
-<!-- SERVICES -->
 <div class="services">
-<div class="box">Android Yazılım</div>
-<div class="box">iOS Servis</div>
-<div class="box">Anakart Onarım</div>
-<div class="box">Hard Brick</div>
-<div class="box">FRP</div>
-<div class="box">Kilit</div>
-<div class="box">Bootloop</div>
-<div class="box">Veri Kurtarma</div>
-<div class="box">Şebeke</div>
-<div class="box">WiFi</div>
-<div class="box">Batarya</div>
-<div class="box">Format</div>
-<div class="box">Güncelleme</div>
-<div class="box">Sistem</div>
+<div class="box">Android</div>
+<div class="box">iOS</div>
 
 <div class="box" onclick="openPage('cpid')">💎 Samsung CPID</div>
 <div class="box" onclick="openPage('frp')">⚡ Remote FRP</div>
 <div class="box" onclick="openPage('kg')">🛠 KG Service</div>
 </div>
 
-<!-- FORM -->
-<div class="card">
-<h3>Hızlı Talep</h3>
-<input id="ad" placeholder="Ad">
-<input id="tel" placeholder="Telefon">
-<br>
-<button onclick="formGonder()">Gönder</button>
-</div>
-
-<!-- LIVE -->
-<div class="card">
-<h3>Canlı Kullanıcı</h3>
-<p>👁️ <span id="online">0</span></p>
-</div>
-
-<!-- REVIEWS -->
-<div class="card">
-<h3>Müşteri Yorumları</h3>
-<p>⭐⭐⭐⭐⭐ Çok iyi</p>
-<p>⭐⭐⭐⭐⭐ Hızlı çözüm</p>
-<p>⭐⭐⭐⭐⭐ Güvenilir servis</p>
-<p>⭐⭐⭐⭐⭐ Hızlı teslim</p>
-<p>✔ 10.000+ işlem</p>
-</div>
-
-<!-- ABOUT -->
-<div class="card">
-<h3>Biz Kimiz</h3>
-<p>Profesyonel teknik servis hizmeti sunuyoruz.</p>
-</div>
-
-<!-- PAYMENT -->
-<div class="card">
-<h3>Ödeme</h3>
-<button onclick="goWhats()">WhatsApp</button>
-</div>
-
-<footer>
-<p>© 2026 AksyMH Gfi Service</p>
-</footer>
-
 </div>
 
 <!-- CPID -->
 <div id="cpid" class="page">
-<h2>Samsung CPID Fiyat Listesi</h2>
-
-<table>
-<h2>Samsung CPID Fiyat Listesi</h2>
+<h2>Samsung CPID</h2>
 
 <table>
 <tr><th>Model</th><th>Fiyat</th></tr>
-
-<!-- S SERİSİ -->
-<tr><td><b>--- S SERİSİ ---</b></td><td></td></tr>
-
-<tr><td>S20</td><td>6.500 TL</td></tr>
-<tr><td>S20+</td><td>7.000 TL</td></tr>
-<tr><td>S20 Ultra</td><td>7.500 TL</td></tr>
-
-<tr><td>S21</td><td>7.500 TL</td></tr>
-<tr><td>S21+</td><td>8.000 TL</td></tr>
-<tr><td>S21 Ultra</td><td>9.000 TL</td></tr>
-
-<tr><td>S22</td><td>8.500 TL</td></tr>
-<tr><td>S22+</td><td>9.500 TL</td></tr>
-<tr><td>S22 Ultra</td><td>11.000 TL</td></tr>
-
 <tr><td>S23</td><td>10.500 TL</td></tr>
-<tr><td>S23+</td><td>11.500 TL</td></tr>
-<tr><td>S23 Ultra</td><td>13.000 TL</td></tr>
-
-<tr><td>S24</td><td>12.000 TL</td></tr>
-<tr><td>S24+</td><td>13.500 TL</td></tr>
 <tr><td>S24 Ultra</td><td>15.000 TL</td></tr>
-
-<tr><td>S25</td><td>14.000 TL</td></tr>
-<tr><td>S25+</td><td>16.000 TL</td></tr>
 <tr><td>S25 Ultra</td><td>18.000 TL</td></tr>
-
-<tr><td>S26</td><td>16.000 TL</td></tr>
-<tr><td>S26+</td><td>18.000 TL</td></tr>
-<tr><td>S26 Ultra</td><td>20.000 TL</td></tr>
-
-<tr><td>S20 FE</td><td>6.000 TL</td></tr>
-<tr><td>S21 FE</td><td>7.000 TL</td></tr>
-<tr><td>S23 FE</td><td>9.500 TL</td></tr>
-<tr><td>S24 FE</td><td>11.000 TL</td></tr>
-
-<!-- NOTE SERİSİ -->
-<tr><td><b>--- NOTE SERİSİ ---</b></td><td></td></tr>
-
-<tr><td>Note 8</td><td>5.000 TL</td></tr>
-<tr><td>Note 9</td><td>5.500 TL</td></tr>
-<tr><td>Note 10</td><td>6.500 TL</td></tr>
-<tr><td>Note 10+</td><td>7.500 TL</td></tr>
-<tr><td>Note 20</td><td>8.500 TL</td></tr>
-<tr><td>Note 20 Ultra</td><td>10.000 TL</td></tr>
-
-<!-- A SERİSİ -->
-<tr><td><b>--- A SERİSİ ---</b></td><td></td></tr>
-
-<tr><td>A10</td><td>3.500 TL</td></tr>
-<tr><td>A20</td><td>4.000 TL</td></tr>
-<tr><td>A30</td><td>4.500 TL</td></tr>
-<tr><td>A50</td><td>5.000 TL</td></tr>
-
-<tr><td>A12</td><td>4.500 TL</td></tr>
-<tr><td>A13</td><td>5.000 TL</td></tr>
-<tr><td>A14</td><td>5.500 TL</td></tr>
-<tr><td>A15</td><td>6.000 TL</td></tr>
-
-<tr><td>A21</td><td>5.500 TL</td></tr>
-<tr><td>A22</td><td>6.000 TL</td></tr>
-<tr><td>A23</td><td>6.500 TL</td></tr>
-<tr><td>A24</td><td>7.000 TL</td></tr>
-
-<tr><td>A31</td><td>6.000 TL</td></tr>
-<tr><td>A32</td><td>6.500 TL</td></tr>
-<tr><td>A33</td><td>7.000 TL</td></tr>
-<tr><td>A34</td><td>7.500 TL</td></tr>
-
-<tr><td>A51</td><td>6.500 TL</td></tr>
-<tr><td>A52</td><td>7.500 TL</td></tr>
-<tr><td>A53</td><td>8.500 TL</td></tr>
-<tr><td>A54</td><td>9.000 TL</td></tr>
-
-<tr><td>A71</td><td>7.500 TL</td></tr>
-<tr><td>A72</td><td>8.500 TL</td></tr>
-<tr><td>A73</td><td>9.500 TL</td></tr>
-
-<!-- M SERİSİ -->
-<tr><td><b>--- M SERİSİ ---</b></td><td></td></tr>
-
-<tr><td>M11</td><td>4.000 TL</td></tr>
-<tr><td>M12</td><td>4.500 TL</td></tr>
-<tr><td>M13</td><td>5.000 TL</td></tr>
-<tr><td>M14</td><td>5.500 TL</td></tr>
-
-<tr><td>M21</td><td>5.000 TL</td></tr>
-<tr><td>M22</td><td>5.500 TL</td></tr>
-<tr><td>M23</td><td>6.000 TL</td></tr>
-
-<tr><td>M31</td><td>5.500 TL</td></tr>
-<tr><td>M32</td><td>6.000 TL</td></tr>
-<tr><td>M33</td><td>6.500 TL</td></tr>
-
-<tr><td>M51</td><td>7.000 TL</td></tr>
-<tr><td>M52</td><td>7.500 TL</td></tr>
-<tr><td>M53</td><td>8.000 TL</td></tr>
-
-</table>
-</table>
 </table>
 
-<button onclick="goHome()">⬅ Geri</button>
-</div>
-
-<!-- FRP -->
-<div id="frp" class="page">
-<h2>Remote FRP</h2>
-<p>500 - 1500 TL</p>
-<button onclick="goHome()">⬅ Geri</button>
-</div>
-
-<!-- KG -->
-<div id="kg" class="page">
-<h2>Samsung KG Service</h2>
-<p>1500 - 3000 TL</p>
 <button onclick="goHome()">⬅ Geri</button>
 </div>
 
 <a class="whatsapp" href="https://wa.me/905447447798">💬</a>
 
 <script>
-
-// canlı
-setInterval(()=>{
-document.getElementById("online").innerText=Math.floor(Math.random()*50)+10;
-},2000);
-
-// imei
-function sendWhats(){
-let imei=document.getElementById("imei").value;
-window.open("https://wa.me/905447447798?text="+imei);
-}
-
-// form
-function formGonder(){
-let ad=document.getElementById("ad").value;
-let tel=document.getElementById("tel").value;
-window.open("https://wa.me/905447447798?text=Ad:"+ad+" Tel:"+tel);
-}
-
-// ödeme
-function goWhats(){
-window.open("https://wa.me/905447447798");
-}
-
-// sayfa geçiş
 function openPage(id){
 document.querySelectorAll(".page").forEach(p=>p.classList.remove("active"));
 document.getElementById(id).classList.add("active");
@@ -369,6 +173,10 @@ document.querySelectorAll(".page").forEach(p=>p.classList.remove("active"));
 document.getElementById("home").classList.add("active");
 }
 
+function sendWhats(){
+let imei=document.getElementById("imei").value;
+window.open("https://wa.me/905447447798?text="+imei);
+}
 </script>
 
 </body>
