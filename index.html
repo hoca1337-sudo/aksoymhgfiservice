@@ -3,137 +3,70 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>AKSYMH TOOL PANEL</title>
+<title>AksyMH Gfi Service</title>
 
 <style>
-body{margin:0;font-family:Arial;background:#0b0f1a;color:white;text-align:center;}
+body{
+margin:0;
+font-family:Arial;
+color:white;
+text-align:center;
+background:
+linear-gradient(rgba(0,0,0,0.8), rgba(0,0,0,0.9)),
+url('https://images.unsplash.com/photo-1518770660439-4636190af475');
+background-size:cover;
+}
+
+.services{
+display:grid;
+grid-template-columns:repeat(auto-fit,minmax(150px,1fr));
+padding:10px;
+}
 
 .box{
-background:#111827;
-padding:20px;
-border-radius:10px;
-margin:10px auto;
-max-width:400px;
-}
-
-input{
-padding:10px;
-margin:5px;
-border-radius:10px;
-border:none;
-}
-
-button{
-padding:10px;
-border:none;
-border-radius:10px;
-background:#00ffcc;
+background:rgba(255,255,255,0.05);
+border-radius:15px;
+margin:10px;
+padding:15px;
 cursor:pointer;
+transition:0.3s;
 }
 
-.page{display:none;}
-.active{display:block;}
+.box:hover{
+transform:scale(1.05);
+box-shadow:0 0 20px #00ffff;
+}
+
+.whatsapp{
+position:fixed;
+bottom:20px;
+right:20px;
+background:#25D366;
+padding:15px;
+border-radius:50%;
+}
 </style>
 </head>
 
 <body>
 
-<!-- LOGIN -->
-<div id="login" class="page active">
-<div class="box">
-<h2>Giriş Yap</h2>
-<input id="user" placeholder="Kullanıcı">
-<input id="pass" placeholder="Şifre">
-<br>
-<button onclick="login()">Giriş</button>
-</div>
-</div>
+<h1>AKSYMH GFI SERVICE</h1>
 
-<!-- PANEL -->
-<div id="panel" class="page">
+<div class="services">
 
-<h2>🚀 TOOL PANEL</h2>
+<div class="box">Android</div>
+<div class="box">iOS</div>
+<div class="box">Şebeke</div>
+<div class="box">Format</div>
 
-<div class="box">
-<p>💰 Bakiye: <span id="balance">0</span> TL</p>
-<button onclick="addBalance()">+100 TL Ekle</button>
-</div>
-
-<div class="box">
-<h3>Servisler</h3>
-
-<button onclick="order('CPID')">Samsung CPID</button>
-<button onclick="order('FRP')">Remote FRP</button>
-<button onclick="order('KG')">KG Service</button>
+<!-- 🔥 SENİN BUTONLAR -->
+<div class="box" onclick="location.href='samsung-cpid.html'">Samsung CPID</div>
+<div class="box" onclick="location.href='remote-frp.html'">Remote FRP</div>
+<div class="box" onclick="location.href='kg-service.html'">KG Service</div>
 
 </div>
 
-<div class="box">
-<h3>IMEI / Model</h3>
-<input id="imei" placeholder="IMEI veya model">
-<button onclick="sendOrder()">Sipariş Ver</button>
-</div>
-
-<button onclick="logout()">Çıkış</button>
-
-</div>
-
-<script>
-
-let selectedService = "";
-
-// LOGIN
-function login(){
-let u = document.getElementById("user").value;
-let p = document.getElementById("pass").value;
-
-if(u === "admin" && p === "1234"){
-document.getElementById("login").classList.remove("active");
-document.getElementById("panel").classList.add("active");
-loadBalance();
-}else{
-alert("Hatalı giriş");
-}
-}
-
-// LOGOUT
-function logout(){
-location.reload();
-}
-
-// BAKİYE
-function loadBalance(){
-let b = localStorage.getItem("balance") || 0;
-document.getElementById("balance").innerText = b;
-}
-
-function addBalance(){
-let b = parseInt(localStorage.getItem("balance") || 0);
-b += 100;
-localStorage.setItem("balance", b);
-loadBalance();
-}
-
-// SERVİS SEÇ
-function order(type){
-selectedService = type;
-alert(type + " seçildi");
-}
-
-// SİPARİŞ
-function sendOrder(){
-let imei = document.getElementById("imei").value;
-
-if(!selectedService){
-alert("Servis seç");
-return;
-}
-
-let msg = "Servis: " + selectedService + " IMEI: " + imei;
-window.open("https://wa.me/905447447798?text="+encodeURIComponent(msg));
-}
-
-</script>
+<a class="whatsapp" href="https://wa.me/905447447798">💬</a>
 
 </body>
 </html>
