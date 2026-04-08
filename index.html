@@ -6,59 +6,6 @@
 <title>AksyMH Gfi Service</title>
 
 <style>
-  <script>
-window.addEventListener("load", function(){
-
-// BUTON
-var btn = document.createElement("div");
-btn.innerHTML = "💰";
-btn.style.position = "fixed";
-btn.style.bottom = "90px";
-btn.style.right = "20px";
-btn.style.width = "50px";
-btn.style.height = "50px";
-btn.style.background = "#00ffcc";
-btn.style.borderRadius = "50%";
-btn.style.display = "flex";
-btn.style.alignItems = "center";
-btn.style.justifyContent = "center";
-btn.style.cursor = "pointer";
-btn.style.zIndex = "9999";
-btn.style.fontSize = "20px";
-
-document.body.appendChild(btn);
-
-// POPUP
-var popup = document.createElement("div");
-popup.style.display = "none";
-popup.style.position = "fixed";
-popup.style.top = "0";
-popup.style.left = "0";
-popup.style.width = "100%";
-popup.style.height = "100%";
-popup.style.background = "rgba(0,0,0,0.85)";
-popup.style.zIndex = "10000";
-
-popup.innerHTML = `
-<div style="background:#111;color:#fff;max-width:400px;margin:80px auto;padding:20px;border-radius:15px;text-align:center;">
-<h3>Samsung Fiyat</h3>
-<p>S23 → 10.500 TL</p>
-<p>S24 Ultra → 15.000 TL</p>
-<p>S25 Ultra → 18.000 TL</p>
-<br>
-<button onclick="this.parentElement.parentElement.style.display='none'" style="padding:10px;border:none;border-radius:10px;">Kapat</button>
-</div>
-`;
-
-document.body.appendChild(popup);
-
-// CLICK
-btn.onclick = function(){
-popup.style.display = "block";
-}
-
-});
-</script>
 body{
 margin:0;
 font-family:Arial;
@@ -108,6 +55,7 @@ border-radius:15px;
 margin:10px;
 padding:15px;
 animation:pulse 2s infinite alternate;
+cursor:pointer;
 }
 
 @keyframes pulse{
@@ -186,6 +134,7 @@ background:rgba(0,0,0,0.8);
 
 <p id="result"></p>
 
+<!-- SERVICES -->
 <div class="services">
 <div class="box">Android Yazılım</div>
 <div class="box">iOS Servis</div>
@@ -200,7 +149,21 @@ background:rgba(0,0,0,0.8);
 <div class="box">Batarya</div>
 <div class="box">Format</div>
 <div class="box">Güncelleme</div>
-<div class="box">Sistem</div>
+
+<!-- 🔥 BURASI -->
+<div class="box" onclick="toggleFiyat()">Sistem</div>
+</div>
+
+<!-- 🔥 FİYAT LİSTESİ -->
+<div id="fiyatList" style="display:none;">
+<div class="card">
+<h3>Samsung CPID Fiyat Listesi</h3>
+
+<p>S23 - 10.500 TL</p>
+<p>S24 Ultra - 15.000 TL</p>
+<p>S25 Ultra - 18.000 TL</p>
+
+</div>
 </div>
 
 <div class="card">
@@ -236,31 +199,6 @@ background:rgba(0,0,0,0.8);
 
 <a class="whatsapp" href="https://wa.me/905447447798">💬</a>
 
-<!-- 🔥 FİYAT BUTON + POPUP -->
-<button onclick="document.getElementById('popup').style.display='block'" 
-style="position:fixed;bottom:80px;right:20px;z-index:9999;background:#00ffcc;padding:12px;border:none;border-radius:10px;">
-💰 Fiyat
-</button>
-
-<div id="popup" style="display:none;position:fixed;top:0;left:0;width:100%;height:100%;background:rgba(0,0,0,0.8);z-index:10000;">
-<div style="background:#111;color:white;max-width:500px;margin:60px auto;padding:20px;border-radius:15px;position:relative;">
-
-<span onclick="document.getElementById('popup').style.display='none'" style="position:absolute;right:10px;top:10px;">✖</span>
-
-<h2>Samsung CPID Fiyat Listesi</h2>
-
-<p>S23 - 10.500 TL</p>
-<p>S24 Ultra - 15.000 TL</p>
-<p>S25 Ultra - 18.000 TL</p>
-
-<a href="https://wa.me/905447447798" target="_blank"
-style="display:block;text-align:center;background:#25D366;padding:10px;border-radius:10px;color:white;text-decoration:none;margin-top:15px;">
-WhatsApp Yaz
-</a>
-
-</div>
-</div>
-
 <script>
 setInterval(()=>{
 document.getElementById("online").innerText=Math.floor(Math.random()*50)+10;
@@ -277,6 +215,16 @@ let ad=document.getElementById("ad").value;
 let tel=document.getElementById("tel").value;
 let msg="Ad:"+ad+" Tel:"+tel;
 window.open("https://wa.me/905447447798?text="+encodeURIComponent(msg));
+}
+
+// 🔥 FİYAT TOGGLE
+function toggleFiyat(){
+let box = document.getElementById("fiyatList");
+if(box.style.display === "none"){
+  box.style.display = "block";
+}else{
+  box.style.display = "none";
+}
 }
 </script>
 
