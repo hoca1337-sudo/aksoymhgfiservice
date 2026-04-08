@@ -30,12 +30,27 @@ padding:25px;
 .logo{
 font-size:34px;
 font-weight:900;
-color:#00ffff;
-text-shadow:0 0 20px #00ffff;
+animation:rgbGlow 2s infinite alternate;
+}
+
+@keyframes rgbGlow{
+0%{color:#00ffff;}
+50%{color:#ff00ff;}
+100%{color:#00ff00;}
+}
+
+.icon{
+font-size:28px;
+animation:blink 1s infinite alternate;
+}
+
+@keyframes blink{
+0%{opacity:1;}
+100%{opacity:0.3;}
 }
 
 /* BOX */
-.card,.box{
+.card, .box{
 background:rgba(255,255,255,0.05);
 backdrop-filter:blur(10px);
 border-radius:15px;
@@ -79,7 +94,6 @@ cursor:pointer;
 .page{display:none;}
 .active{display:block;}
 
-/* WHATSAPP */
 .whatsapp{
 position:fixed;
 bottom:20px;
@@ -87,12 +101,6 @@ right:20px;
 background:#25D366;
 padding:15px;
 border-radius:50%;
-}
-
-footer{
-margin-top:30px;
-padding:20px;
-background:rgba(0,0,0,0.8);
 }
 </style>
 </head>
@@ -103,23 +111,34 @@ background:rgba(0,0,0,0.8);
 <div id="home" class="page active">
 
 <header>
+<span class="icon">📱</span>
 <span class="logo">AKSYMH GFI SERVICE</span>
+<span class="icon">🔧</span>
 </header>
 
 <h2>Profesyonel Teknik Servis</h2>
 
 <input id="imei" placeholder="IMEI gir">
 <br>
-<button onclick="sendWhats()">Sorgula</button>
+<button onclick="sendWhats()">Sorgula & İletişim</button>
 
 <div class="services">
-<div class="box">Android</div>
-<div class="box">iOS</div>
-<div class="box">Anakart</div>
+<div class="box">Android Yazılım</div>
+<div class="box">iOS Servis</div>
+<div class="box">Anakart Onarım</div>
+<div class="box">Hard Brick</div>
 <div class="box">FRP</div>
+<div class="box">Kilit</div>
+<div class="box">Bootloop</div>
+<div class="box">Veri Kurtarma</div>
+<div class="box">Şebeke</div>
+<div class="box">WiFi</div>
+<div class="box">Batarya</div>
 <div class="box">Format</div>
+<div class="box">Güncelleme</div>
+<div class="box">Sistem</div>
 
-<!-- YENİ -->
+<!-- 🔥 EKLENENLER -->
 <div class="box" onclick="openPage('cpid')">Samsung CPID</div>
 <div class="box" onclick="openPage('frp')">Remote FRP</div>
 <div class="box" onclick="openPage('kg')">KG Service</div>
@@ -130,9 +149,8 @@ background:rgba(0,0,0,0.8);
 <h3>Müşteri Yorumları</h3>
 <p>⭐⭐⭐⭐⭐ Çok iyi</p>
 <p>⭐⭐⭐⭐⭐ Hızlı çözüm</p>
+<p>⭐⭐⭐⭐⭐ Güvenilir servis</p>
 </div>
-
-<footer>© 2026 AksyMH</footer>
 
 </div>
 
@@ -142,7 +160,6 @@ background:rgba(0,0,0,0.8);
 <p>S23 - 10.500 TL</p>
 <p>S24 Ultra - 15.000 TL</p>
 <p>S25 Ultra - 18.000 TL</p>
-<br>
 <button onclick="goHome()">⬅ Geri</button>
 </div>
 
@@ -150,7 +167,6 @@ background:rgba(0,0,0,0.8);
 <div id="frp" class="page">
 <h2>Remote FRP</h2>
 <p>500 - 1500 TL</p>
-<br>
 <button onclick="goHome()">⬅ Geri</button>
 </div>
 
@@ -158,7 +174,6 @@ background:rgba(0,0,0,0.8);
 <div id="kg" class="page">
 <h2>KG Service</h2>
 <p>1500 - 3000 TL</p>
-<br>
 <button onclick="goHome()">⬅ Geri</button>
 </div>
 
