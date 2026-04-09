@@ -18,12 +18,14 @@ background-size:cover;
 background-attachment:fixed;
 }
 
+/* NEON */
 .neon{
-font-size:30px;
+font-size:32px;
 color:#00ffff;
 text-shadow:0 0 10px #00ffff,0 0 20px #00ffff;
 }
 
+/* KAYAN YAZI */
 .marquee{
 width:100%;
 overflow:hidden;
@@ -37,13 +39,14 @@ animation:marquee 12s linear infinite;
 100%{transform:translateX(-100%);}
 }
 
+/* GRID */
 .services{
 display:grid;
 grid-template-columns:repeat(auto-fit,minmax(150px,1fr));
 padding:10px;
 }
 
-.box{
+.box,.card{
 background:rgba(255,255,255,0.08);
 border-radius:15px;
 margin:10px;
@@ -51,19 +54,24 @@ padding:15px;
 cursor:pointer;
 }
 
-.box:hover{box-shadow:0 0 25px #00ffff;}
+.box:hover{
+box-shadow:0 0 25px #00ffff;
+}
 
+/* INPUT */
 input{
 padding:12px;
 border-radius:10px;
 border:none;
 margin:5px;
-width:250px;
+width:260px;
 }
 
+/* PAGE */
 .page{display:none;}
 .active{display:block;}
 
+/* TABLE */
 table{
 width:95%;
 margin:auto;
@@ -74,11 +82,13 @@ padding:10px;
 border-bottom:1px solid rgba(0,255,255,0.2);
 }
 
+/* CATEGORY */
 .category{
 color:#00ffff;
 font-weight:bold;
 }
 
+/* PRICE */
 .price{
 color:#00ffff;
 text-shadow:0 0 5px #00ffff;
@@ -89,6 +99,7 @@ text-shadow:0 0 25px #00ffff;
 transform:scale(1.1);
 }
 
+/* WHATSAPP */
 .whatsapp{
 position:fixed;
 bottom:20px;
@@ -102,21 +113,26 @@ border-radius:50%;
 
 <body>
 
+<!-- HOME -->
 <div id="home" class="page active">
 
 <header>
 <div class="marquee">
-⚠ IMEI DEĞİŞTİRMEK YASAL DEĞİLDİR - SADECE ONARIM AMAÇLIDIR
+⚠ T.C. KANUNLARINA GÖRE IMEI DEĞİŞTİRMEK YASAL DEĞİLDİR. BU SUPPORT SADECE ONARIM AMAÇLIDIR
 </div>
 <div class="neon">🚀 AKSYMH GFI SERVICE</div>
 </header>
 
+<h2>Profesyonel Teknik Servis</h2>
+
 <div class="services">
 <div class="box" onclick="openPage('cpid')">💎 Samsung CPID</div>
+<div class="box" onclick="openPage('admin')">👨‍💻 Yönetici</div>
 </div>
 
 </div>
 
+<!-- CPID -->
 <div id="cpid" class="page">
 
 <h2>💎 Samsung CPID FULL</h2>
@@ -194,6 +210,16 @@ border-radius:50%;
 <br>
 <button onclick="goHome()">⬅ Geri</button>
 
+</div>
+
+<!-- ADMIN -->
+<div id="admin" class="page">
+<h2>👨‍💻 Yönetici</h2>
+<div class="card">
+<h3 class="neon">Canbey</h3>
+<p>Engineering Manager</p>
+</div>
+<button onclick="goHome()">⬅ Geri</button>
 </div>
 
 <a class="whatsapp" href="https://wa.me/905447447798">💬</a>
