@@ -155,33 +155,154 @@ background:rgba(0,0,0,0.7);
 
 <!-- CPID -->
 <div id="cpidBox" style="display:none;">
-<h2>Samsung CPID</h2>
+<table id="cpidTable">
+<tr><th>Model</th><th>Bilgi</th></tr>
 
-<input id="search" placeholder="Model ara..." onkeyup="searchTable()">
+<style>
+.price-text{
+color:#00ffff;
+white-space:nowrap;
+overflow:hidden;
+display:block;
+animation:kay 6s linear infinite;
+font-size:14px;
+text-shadow:0 0 10px #00ffff;
+}
 
-<br>
-<button onclick="filterSeries('all')">Tümü</button>
-<button onclick="filterSeries('S')">S</button>
-<button onclick="filterSeries('A')">A</button>
-<button onclick="filterSeries('M')">M</button>
+@keyframes kay{
+0%{transform:translateX(100%);}
+100%{transform:translateX(-100%);}
+}
+</style>
 
 <table id="cpidTable">
-<tr><th>Model</th><th>Fiyat</th></tr>
+<tr><th>Model</th><th>Bilgi</th></tr>
 
-<tr class="category"><td colspan="2">S SERİSİ</td></tr>
-<tr data-series="S"><td>S20</td><td class="price">6.500 TL</td></tr>
-<tr data-series="S"><td>S21</td><td class="price">7.500 TL</td></tr>
-<tr data-series="S"><td>S22</td><td class="price">8.500 TL</td></tr>
-<tr data-series="S"><td>S23</td><td class="price">10.500 TL</td></tr>
-<tr data-series="S"><td>S24</td><td class="price">12.000 TL</td></tr>
+<style>
+.price-text{
+color:#00ffff;
+white-space:nowrap;
+overflow:hidden;
+display:block;
+animation:kay 7s linear infinite;
+font-size:14px;
+text-shadow:0 0 10px #00ffff;
+}
+@keyframes kay{
+0%{transform:translateX(100%);}
+100%{transform:translateX(-100%);}
+}
+</style>
 
-<tr class="category"><td colspan="2">A SERİSİ</td></tr>
-<tr data-series="A"><td>A51</td><td class="price">6.500 TL</td></tr>
-<tr data-series="A"><td>A52</td><td class="price">7.500 TL</td></tr>
+<!-- S -->
+<tr class="category"><td colspan="2">🚀 S SERİSİ</td></tr>
 
-<tr class="category"><td colspan="2">M SERİSİ</td></tr>
-<tr data-series="M"><td>M31</td><td class="price">5.500 TL</td></tr>
+<tr><td>S8</td><td><span class="price-text">Fiyat bilgisi için lütfen WhatsApp’tan mesaj bırakınız</span></td></tr>
+<tr><td>S9</td><td><span class="price-text">Fiyat bilgisi için lütfen WhatsApp’tan mesaj bırakınız</span></td></tr>
 
+<tr><td>S10</td><td><span class="price-text">Fiyat bilgisi için lütfen WhatsApp’tan mesaj bırakınız</span></td></tr>
+<tr><td>S10+</td><td><span class="price-text">Fiyat bilgisi için lütfen WhatsApp’tan mesaj bırakınız</span></td></tr>
+
+<tr><td>S20</td><td><span class="price-text">Fiyat bilgisi için lütfen WhatsApp’tan mesaj bırakınız</span></td></tr>
+<tr><td>S20+</td><td><span class="price-text">Fiyat bilgisi için lütfen WhatsApp’tan mesaj bırakınız</span></td></tr>
+<tr><td>S20 Ultra</td><td><span class="price-text">Fiyat bilgisi için lütfen WhatsApp’tan mesaj bırakınız</span></td></tr>
+
+<tr><td>S21</td><td><span class="price-text">Fiyat bilgisi için lütfen WhatsApp’tan mesaj bırakınız</span></td></tr>
+<tr><td>S21+</td><td><span class="price-text">Fiyat bilgisi için lütfen WhatsApp’tan mesaj bırakınız</span></td></tr>
+<tr><td>S21 Ultra</td><td><span class="price-text">Fiyat bilgisi için lütfen WhatsApp’tan mesaj bırakınız</span></td></tr>
+
+<tr><td>S22</td><td><span class="price-text">Fiyat bilgisi için lütfen WhatsApp’tan mesaj bırakınız</span></td></tr>
+<tr><td>S22+</td><td><span class="price-text">Fiyat bilgisi için lütfen WhatsApp’tan mesaj bırakınız</span></td></tr>
+<tr><td>S22 Ultra</td><td><span class="price-text">Fiyat bilgisi için lütfen WhatsApp’tan mesaj bırakınız</span></td></tr>
+
+<tr><td>S23</td><td><span class="price-text">Fiyat bilgisi için lütfen WhatsApp’tan mesaj bırakınız</span></td></tr>
+<tr><td>S23+</td><td><span class="price-text">Fiyat bilgisi için lütfen WhatsApp’tan mesaj bırakınız</span></td></tr>
+<tr><td>S23 Ultra</td><td><span class="price-text">Fiyat bilgisi için lütfen WhatsApp’tan mesaj bırakınız</span></td></tr>
+
+<tr><td>S24</td><td><span class="price-text">Fiyat bilgisi için lütfen WhatsApp’tan mesaj bırakınız</span></td></tr>
+<tr><td>S24+</td><td><span class="price-text">Fiyat bilgisi için lütfen WhatsApp’tan mesaj bırakınız</span></td></tr>
+<tr><td>S24 Ultra</td><td><span class="price-text">Fiyat bilgisi için lütfen WhatsApp’tan mesaj bırakınız</span></td></tr>
+
+<tr><td>S25</td><td><span class="price-text">Fiyat bilgisi için lütfen WhatsApp’tan mesaj bırakınız</span></td></tr>
+<tr><td>S25+</td><td><span class="price-text">Fiyat bilgisi için lütfen WhatsApp’tan mesaj bırakınız</span></td></tr>
+<tr><td>S25 Ultra</td><td><span class="price-text">Fiyat bilgisi için lütfen WhatsApp’tan mesaj bırakınız</span></td></tr>
+
+<tr><td>S20 FE</td><td><span class="price-text">Fiyat bilgisi için lütfen WhatsApp’tan mesaj bırakınız</span></td></tr>
+<tr><td>S21 FE</td><td><span class="price-text">Fiyat bilgisi için lütfen WhatsApp’tan mesaj bırakınız</span></td></tr>
+<tr><td>S23 FE</td><td><span class="price-text">Fiyat bilgisi için lütfen WhatsApp’tan mesaj bırakınız</span></td></tr>
+<tr><td>S24 FE</td><td><span class="price-text">Fiyat bilgisi için lütfen WhatsApp’tan mesaj bırakınız</span></td></tr>
+
+<!-- NOTE -->
+<tr class="category"><td colspan="2">📝 NOTE</td></tr>
+
+<tr><td>Note 8</td><td><span class="price-text">Fiyat bilgisi için lütfen WhatsApp’tan mesaj bırakınız</span></td></tr>
+<tr><td>Note 9</td><td><span class="price-text">Fiyat bilgisi için lütfen WhatsApp’tan mesaj bırakınız</span></td></tr>
+<tr><td>Note 10</td><td><span class="price-text">Fiyat bilgisi için lütfen WhatsApp’tan mesaj bırakınız</span></td></tr>
+<tr><td>Note 10+</td><td><span class="price-text">Fiyat bilgisi için lütfen WhatsApp’tan mesaj bırakınız</span></td></tr>
+<tr><td>Note 20</td><td><span class="price-text">Fiyat bilgisi için lütfen WhatsApp’tan mesaj bırakınız</span></td></tr>
+<tr><td>Note 20 Ultra</td><td><span class="price-text">Fiyat bilgisi için lütfen WhatsApp’tan mesaj bırakınız</span></td></tr>
+
+<!-- A -->
+<tr class="category"><td colspan="2">📱 A SERİSİ</td></tr>
+
+<tr><td>A01</td><td><span class="price-text">Fiyat bilgisi için lütfen WhatsApp’tan mesaj bırakınız</span></td></tr>
+<tr><td>A02</td><td><span class="price-text">Fiyat bilgisi için lütfen WhatsApp’tan mesaj bırakınız</span></td></tr>
+<tr><td>A03</td><td><span class="price-text">Fiyat bilgisi için lütfen WhatsApp’tan mesaj bırakınız</span></td></tr>
+
+<tr><td>A10</td><td><span class="price-text">Fiyat bilgisi için lütfen WhatsApp’tan mesaj bırakınız</span></td></tr>
+<tr><td>A11</td><td><span class="price-text">Fiyat bilgisi için lütfen WhatsApp’tan mesaj bırakınız</span></td></tr>
+<tr><td>A12</td><td><span class="price-text">Fiyat bilgisi için lütfen WhatsApp’tan mesaj bırakınız</span></td></tr>
+<tr><td>A13</td><td><span class="price-text">Fiyat bilgisi için lütfen WhatsApp’tan mesaj bırakınız</span></td></tr>
+<tr><td>A14</td><td><span class="price-text">Fiyat bilgisi için lütfen WhatsApp’tan mesaj bırakınız</span></td></tr>
+<tr><td>A15</td><td><span class="price-text">Fiyat bilgisi için lütfen WhatsApp’tan mesaj bırakınız</span></td></tr>
+
+<tr><td>A20</td><td><span class="price-text">Fiyat bilgisi için lütfen WhatsApp’tan mesaj bırakınız</span></td></tr>
+<tr><td>A21</td><td><span class="price-text">Fiyat bilgisi için lütfen WhatsApp’tan mesaj bırakınız</span></td></tr>
+<tr><td>A22</td><td><span class="price-text">Fiyat bilgisi için lütfen WhatsApp’tan mesaj bırakınız</span></td></tr>
+<tr><td>A23</td><td><span class="price-text">Fiyat bilgisi için lütfen WhatsApp’tan mesaj bırakınız</span></td></tr>
+<tr><td>A24</td><td><span class="price-text">Fiyat bilgisi için lütfen WhatsApp’tan mesaj bırakınız</span></td></tr>
+
+<tr><td>A30</td><td><span class="price-text">Fiyat bilgisi için lütfen WhatsApp’tan mesaj bırakınız</span></td></tr>
+<tr><td>A31</td><td><span class="price-text">Fiyat bilgisi için lütfen WhatsApp’tan mesaj bırakınız</span></td></tr>
+<tr><td>A32</td><td><span class="price-text">Fiyat bilgisi için lütfen WhatsApp’tan mesaj bırakınız</span></td></tr>
+<tr><td>A33</td><td><span class="price-text">Fiyat bilgisi için lütfen WhatsApp’tan mesaj bırakınız</span></td></tr>
+<tr><td>A34</td><td><span class="price-text">Fiyat bilgisi için lütfen WhatsApp’tan mesaj bırakınız</span></td></tr>
+
+<tr><td>A50</td><td><span class="price-text">Fiyat bilgisi için lütfen WhatsApp’tan mesaj bırakınız</span></td></tr>
+<tr><td>A51</td><td><span class="price-text">Fiyat bilgisi için lütfen WhatsApp’tan mesaj bırakınız</span></td></tr>
+<tr><td>A52</td><td><span class="price-text">Fiyat bilgisi için lütfen WhatsApp’tan mesaj bırakınız</span></td></tr>
+<tr><td>A53</td><td><span class="price-text">Fiyat bilgisi için lütfen WhatsApp’tan mesaj bırakınız</span></td></tr>
+<tr><td>A54</td><td><span class="price-text">Fiyat bilgisi için lütfen WhatsApp’tan mesaj bırakınız</span></td></tr>
+
+<tr><td>A70</td><td><span class="price-text">Fiyat bilgisi için lütfen WhatsApp’tan mesaj bırakınız</span></td></tr>
+<tr><td>A71</td><td><span class="price-text">Fiyat bilgisi için lütfen WhatsApp’tan mesaj bırakınız</span></td></tr>
+<tr><td>A72</td><td><span class="price-text">Fiyat bilgisi için lütfen WhatsApp’tan mesaj bırakınız</span></td></tr>
+<tr><td>A73</td><td><span class="price-text">Fiyat bilgisi için lütfen WhatsApp’tan mesaj bırakınız</span></td></tr>
+
+<!-- M -->
+<tr class="category"><td colspan="2">🔋 M SERİSİ</td></tr>
+
+<tr><td>M10</td><td><span class="price-text">Fiyat bilgisi için lütfen WhatsApp’tan mesaj bırakınız</span></td></tr>
+<tr><td>M11</td><td><span class="price-text">Fiyat bilgisi için lütfen WhatsApp’tan mesaj bırakınız</span></td></tr>
+<tr><td>M12</td><td><span class="price-text">Fiyat bilgisi için lütfen WhatsApp’tan mesaj bırakınız</span></td></tr>
+<tr><td>M13</td><td><span class="price-text">Fiyat bilgisi için lütfen WhatsApp’tan mesaj bırakınız</span></td></tr>
+<tr><td>M14</td><td><span class="price-text">Fiyat bilgisi için lütfen WhatsApp’tan mesaj bırakınız</span></td></tr>
+
+<tr><td>M20</td><td><span class="price-text">Fiyat bilgisi için lütfen WhatsApp’tan mesaj bırakınız</span></td></tr>
+<tr><td>M21</td><td><span class="price-text">Fiyat bilgisi için lütfen WhatsApp’tan mesaj bırakınız</span></td></tr>
+<tr><td>M22</td><td><span class="price-text">Fiyat bilgisi için lütfen WhatsApp’tan mesaj bırakınız</span></td></tr>
+<tr><td>M23</td><td><span class="price-text">Fiyat bilgisi için lütfen WhatsApp’tan mesaj bırakınız</span></td></tr>
+
+<tr><td>M30</td><td><span class="price-text">Fiyat bilgisi için lütfen WhatsApp’tan mesaj bırakınız</span></td></tr>
+<tr><td>M31</td><td><span class="price-text">Fiyat bilgisi için lütfen WhatsApp’tan mesaj bırakınız</span></td></tr>
+<tr><td>M32</td><td><span class="price-text">Fiyat bilgisi için lütfen WhatsApp’tan mesaj bırakınız</span></td></tr>
+<tr><td>M33</td><td><span class="price-text">Fiyat bilgisi için lütfen WhatsApp’tan mesaj bırakınız</span></td></tr>
+
+<tr><td>M51</td><td><span class="price-text">Fiyat bilgisi için lütfen WhatsApp’tan mesaj bırakınız</span></td></tr>
+<tr><td>M52</td><td><span class="price-text">Fiyat bilgisi için lütfen WhatsApp’tan mesaj bırakınız</span></td></tr>
+<tr><td>M53</td><td><span class="price-text">Fiyat bilgisi için lütfen WhatsApp’tan mesaj bırakınız</span></td></tr>
+
+</table>
 </table>
 </div>
 
