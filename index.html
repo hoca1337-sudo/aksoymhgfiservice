@@ -12,16 +12,17 @@ font-family:Arial;
 color:white;
 text-align:center;
 background:
-linear-gradient(rgba(0,0,0,0.85), rgba(0,0,0,0.95)),
+linear-gradient(rgba(0,0,0,0.8), rgba(0,0,0,0.9)),
 url('https://images.unsplash.com/photo-1518770660439-4636190af475');
 background-size:cover;
+background-attachment:fixed;
 }
 
-/* NEON */
+/* LOGO */
 .neon{
 font-size:32px;
 color:#00ffff;
-text-shadow:0 0 10px #00ffff,0 0 25px #00ffff;
+text-shadow:0 0 10px #00ffff,0 0 30px #00ffff;
 }
 
 /* MARQUEE */
@@ -48,13 +49,17 @@ padding:10px;
 /* BOX */
 .card,.box{
 background:rgba(255,255,255,0.08);
+backdrop-filter:blur(10px);
 border-radius:15px;
 margin:10px;
 padding:15px;
 cursor:pointer;
+transition:0.3s;
 }
-
-.box:hover{box-shadow:0 0 25px #00ffff;}
+.box:hover{
+transform:scale(1.05);
+box-shadow:0 0 20px #00ffff;
+}
 
 /* INPUT */
 input{
@@ -72,11 +77,8 @@ border:none;
 border-radius:10px;
 background:#00ffff;
 cursor:pointer;
+margin:5px;
 }
-
-/* PAGE */
-.page{display:none;}
-.active{display:block;}
 
 /* TABLE */
 table{
@@ -90,7 +92,10 @@ border-bottom:1px solid rgba(0,255,255,0.2);
 }
 
 /* CATEGORY */
-.category{color:#00ffff;font-weight:bold;}
+.category{
+color:#00ffff;
+font-weight:bold;
+}
 
 /* PRICE */
 .price{
@@ -115,12 +120,9 @@ border-radius:50%;
 
 <body>
 
-<!-- HOME -->
-<div id="home" class="page active">
-
 <header>
 <div class="marquee">
-⚠ IMEI DEĞİŞTİRMEK YASAL DEĞİLDİR - SADECE ONARIM AMAÇLIDIR
+⚠ T.C. KANUNLARINA GÖRE IMEI DEĞİŞTİRMEK YASAL DEĞİLDİR. SADECE ONARIM AMAÇLIDIR
 </div>
 <div class="neon">🚀 AKSYMH GFI SERVICE</div>
 </header>
@@ -131,17 +133,62 @@ border-radius:50%;
 <br>
 <button onclick="sendWhats()">Sorgula</button>
 
-<!-- MENÜLER -->
+<!-- MENÜ -->
 <div class="services">
 <div class="box">Android Yazılım</div>
 <div class="box">iOS Servis</div>
-<div class="box">Anakart</div>
-<div class="box">Şebeke</div>
+<div class="box">Anakart Onarım</div>
+<div class="box">Hard Brick</div>
 <div class="box">FRP</div>
+<div class="box">Şebeke</div>
+<div class="box">WiFi</div>
+<div class="box">Batarya</div>
 <div class="box">Format</div>
+<div class="box">Güncelleme</div>
+<div class="box">Sistem</div>
 
-<div class="box" onclick="openPage('cpid')">💎 Samsung CPID</div>
-<div class="box" onclick="openPage('admin')">👨‍💻 Yönetici</div>
+<div class="box" onclick="toggleCPID()">💎 Samsung CPID</div>
+</div>
+
+<!-- CPID -->
+<div id="cpidBox" style="display:none;">
+
+<h2>Samsung CPID</h2>
+
+<input id="search" placeholder="Model ara..." onkeyup="searchTable()">
+
+<br>
+<button onclick="filterSeries('all')">Tümü</button>
+<button onclick="filterSeries('S')">S</button>
+<button onclick="filterSeries('A')">A</button>
+<button onclick="filterSeries('M')">M</button>
+
+<table id="cpidTable">
+
+<tr><th>Model</th><th>Fiyat</th></tr>
+
+<tr class="category"><td colspan="2">S SERİSİ</td></tr>
+<tr data-series="S"><td>S8</td><td class="price">5.000 TL</td></tr>
+<tr data-series="S"><td>S9</td><td class="price">5.200 TL</td></tr>
+<tr data-series="S"><td>S10</td><td class="price">5.500 TL</td></tr>
+<tr data-series="S"><td>S20</td><td class="price">6.500 TL</td></tr>
+<tr data-series="S"><td>S21</td><td class="price">7.500 TL</td></tr>
+<tr data-series="S"><td>S22</td><td class="price">8.500 TL</td></tr>
+<tr data-series="S"><td>S23</td><td class="price">10.500 TL</td></tr>
+<tr data-series="S"><td>S24</td><td class="price">12.000 TL</td></tr>
+
+<tr class="category"><td colspan="2">A SERİSİ</td></tr>
+<tr data-series="A"><td>A01</td><td class="price">3.000 TL</td></tr>
+<tr data-series="A"><td>A10</td><td class="price">3.500 TL</td></tr>
+<tr data-series="A"><td>A51</td><td class="price">6.500 TL</td></tr>
+<tr data-series="A"><td>A54</td><td class="price">9.000 TL</td></tr>
+
+<tr class="category"><td colspan="2">M SERİSİ</td></tr>
+<tr data-series="M"><td>M10</td><td class="price">3.500 TL</td></tr>
+<tr data-series="M"><td>M31</td><td class="price">5.500 TL</td></tr>
+
+</table>
+
 </div>
 
 <!-- FORM -->
@@ -166,61 +213,21 @@ border-radius:50%;
 <p>⭐⭐⭐⭐⭐ Hızlı çözüm</p>
 </div>
 
-</div>
-
-<!-- CPID -->
-<div id="cpid" class="page">
-
-<h2>Samsung CPID</h2>
-
-<input id="search" placeholder="Model ara..." onkeyup="searchTable()">
-
-<table id="cpidTable">
-<tr><th>Model</th><th>Fiyat</th></tr>
-
-<tr class="category"><td colspan="2">S SERİSİ</td></tr>
-<tr><td>S20</td><td class="price">6.500 TL</td></tr>
-<tr><td>S21</td><td class="price">7.500 TL</td></tr>
-<tr><td>S22</td><td class="price">8.500 TL</td></tr>
-<tr><td>S23</td><td class="price">10.500 TL</td></tr>
-
-<tr class="category"><td colspan="2">A SERİSİ</td></tr>
-<tr><td>A51</td><td class="price">6.500 TL</td></tr>
-<tr><td>A52</td><td class="price">7.500 TL</td></tr>
-
-<tr class="category"><td colspan="2">M SERİSİ</td></tr>
-<tr><td>M31</td><td class="price">5.500 TL</td></tr>
-
-</table>
-
-<br>
-<button onclick="goHome()">⬅ Geri</button>
-
-</div>
-
-<!-- ADMIN -->
-<div id="admin" class="page">
-<h2>Yönetici</h2>
-<h3 class="neon">Canbey</h3>
-<p>Engineering Manager</p>
-<button onclick="goHome()">⬅ Geri</button>
-</div>
-
-<a class="whatsapp" href="#">💬</a>
+<a class="whatsapp" href="https://wa.me/905447447798">💬</a>
 
 <script>
 setInterval(()=>{
 document.getElementById("online").innerText=Math.floor(Math.random()*50)+10;
 },2000);
 
-function openPage(id){
-document.querySelectorAll(".page").forEach(p=>p.classList.remove("active"));
-document.getElementById(id).classList.add("active");
+function sendWhats(){
+let imei=document.getElementById("imei").value;
+window.open("https://wa.me/905447447798?text="+imei);
 }
 
-function goHome(){
-document.querySelectorAll(".page").forEach(p=>p.classList.remove("active"));
-document.getElementById("home").classList.add("active");
+function toggleCPID(){
+let box=document.getElementById("cpidBox");
+box.style.display = box.style.display==="none"?"block":"none";
 }
 
 function searchTable(){
@@ -228,14 +235,22 @@ let input=document.getElementById("search").value.toLowerCase();
 let rows=document.querySelectorAll("#cpidTable tr");
 
 rows.forEach((row,i)=>{
-if(i===0) return;
+if(i===0)return;
 row.style.display=row.innerText.toLowerCase().includes(input)?"":"none";
 });
 }
 
-function sendWhats(){
-let imei=document.getElementById("imei").value;
-window.open("https://wa.me/905447447798?text="+imei);
+function filterSeries(series){
+let rows=document.querySelectorAll("#cpidTable tr");
+
+rows.forEach((row,i)=>{
+if(i===0)return;
+if(series==="all"){
+row.style.display="";
+}else{
+row.style.display=row.dataset.series===series?"":"none";
+}
+});
 }
 </script>
 
