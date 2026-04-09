@@ -3,9 +3,44 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>AksyMH Gfi Service</title>
+<div class="logo">
+<span class="icon">💻</span>
+<span class="title">AKSY MH GFI SERVICE</span>
+<span class="icon">🔧</span>
+</div>
+<style><style>
+.logo{
+display:flex;
+justify-content:center;
+align-items:center;
+gap:12px;
+font-size:30px;
+font-weight:bold;
+}
 
-<style>
+.title{
+color:#00ffff;
+text-shadow:0 0 10px #00ffff,0 0 25px #00ffff;
+animation:neonBlink 2s infinite alternate;
+}
+
+.icon{
+font-size:28px;
+animation:iconBlink 1.2s infinite alternate;
+}
+
+/* LOGO NEON */
+@keyframes neonBlink{
+0%{opacity:1;text-shadow:0 0 10px #00ffff;}
+100%{opacity:0.6;text-shadow:0 0 30px #00ffff;}
+}
+
+/* ICON BLINK */
+@keyframes iconBlink{
+0%{opacity:1; transform:scale(1);}
+100%{opacity:0.4; transform:scale(1.2);}
+}
+</style>
 body{
 margin:0;
 font-family:Arial;
