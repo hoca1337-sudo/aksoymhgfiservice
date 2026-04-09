@@ -12,7 +12,7 @@ font-family:Arial;
 color:white;
 text-align:center;
 background:
-linear-gradient(rgba(0,0,0,0.85), rgba(0,0,0,0.95)),
+linear-gradient(rgba(0,0,0,0.8), rgba(0,0,0,0.9)),
 url('https://images.unsplash.com/photo-1518770660439-4636190af475');
 background-size:cover;
 background-attachment:fixed;
@@ -23,38 +23,38 @@ background-attachment:fixed;
 display:flex;
 justify-content:center;
 align-items:center;
-gap:10px;
-margin-top:20px;
-font-size:30px;
+gap:12px;
+padding:20px;
+font-size:32px;
 font-weight:bold;
 }
 
 .title{
 color:#00ffff;
 text-shadow:0 0 10px #00ffff,0 0 30px #00ffff;
-animation:neonBlink 2s infinite alternate;
+animation:glow 2s infinite alternate;
 }
 
 .icon{
 font-size:28px;
-animation:iconBlink 1.2s infinite alternate;
+animation:blink 1.2s infinite alternate;
 }
 
-@keyframes neonBlink{
+@keyframes glow{
 0%{opacity:1;}
 100%{opacity:0.6;}
 }
 
-@keyframes iconBlink{
+@keyframes blink{
 0%{opacity:1;transform:scale(1);}
-100%{opacity:0.5;transform:scale(1.2);}
+100%{opacity:0.4;transform:scale(1.2);}
 }
 
 /* MARQUEE */
 .marquee{
 color:#ff4444;
-overflow:hidden;
 white-space:nowrap;
+overflow:hidden;
 animation:marquee 12s linear infinite;
 }
 @keyframes marquee{
@@ -65,7 +65,7 @@ animation:marquee 12s linear infinite;
 /* GRID */
 .services{
 display:grid;
-grid-template-columns:repeat(auto-fit,minmax(150px,1fr));
+grid-template-columns:repeat(auto-fit,minmax(140px,1fr));
 padding:10px;
 }
 
@@ -77,11 +77,8 @@ padding:15px;
 cursor:pointer;
 }
 
-.box:hover{
-box-shadow:0 0 20px #00ffff;
-}
+.box:hover{box-shadow:0 0 20px #00ffff;}
 
-/* INPUT */
 input{
 padding:10px;
 border-radius:10px;
@@ -90,7 +87,6 @@ margin:5px;
 width:240px;
 }
 
-/* BUTTON */
 button{
 padding:10px;
 border:none;
@@ -110,33 +106,26 @@ padding:10px;
 border-bottom:1px solid rgba(0,255,255,0.2);
 }
 
-.category{
-color:#00ffff;
-font-weight:bold;
-}
+.category{color:#00ffff;font-weight:bold;}
 
-/* kayan yazı */
 .price-text{
 display:block;
 white-space:nowrap;
 overflow:hidden;
+animation:kay 7s linear infinite;
 color:#00ffff;
-animation:kay 6s linear infinite;
 }
-
 @keyframes kay{
 0%{transform:translateX(100%);}
 100%{transform:translateX(-100%);}
 }
 
-/* footer */
 footer{
 margin-top:40px;
 padding:20px;
 background:rgba(0,0,0,0.7);
 }
 
-/* whatsapp */
 .whatsapp{
 position:fixed;
 bottom:20px;
@@ -150,6 +139,7 @@ border-radius:50%;
 
 <body>
 
+<!-- LOGO -->
 <div class="logo">
 <span class="icon">💻</span>
 <span class="title">AKSY MH GFI SERVICE</span>
@@ -157,7 +147,7 @@ border-radius:50%;
 </div>
 
 <div class="marquee">
-⚠ IMEI DEĞİŞTİRMEK YASAL DEĞİLDİR - SADECE ONARIM AMAÇLIDIR
+⚠ T.C. KANUNLARINA GÖRE IMEI DEĞİŞTİRMEK YASAL DEĞİLDİR - SADECE ONARIM AMAÇLIDIR
 </div>
 
 <h2>Profesyonel Teknik Servis</h2>
@@ -166,34 +156,52 @@ border-radius:50%;
 <br>
 <button onclick="sendWhats()">Sorgula</button>
 
-<!-- MENÜ -->
+<!-- MENÜLER (SENİN ORJİNALİN) -->
 <div class="services">
-<div class="box">Android</div>
-<div class="box">iOS</div>
-<div class="box">Anakart</div>
+<div class="box">Android Yazılım</div>
+<div class="box">iOS Servis</div>
+<div class="box">Anakart Onarım</div>
+<div class="box">Hard Brick</div>
 <div class="box">FRP</div>
+<div class="box">Kilit</div>
+<div class="box">Bootloop</div>
+<div class="box">Veri Kurtarma</div>
+<div class="box">Şebeke</div>
+<div class="box">WiFi</div>
+<div class="box">Batarya</div>
+<div class="box">Format</div>
+<div class="box">Güncelleme</div>
+<div class="box">Sistem</div>
+
 <div class="box" onclick="toggleCPID()">💎 Samsung CPID</div>
 </div>
 
-<!-- CPID -->
+<!-- CPID FULL -->
 <div id="cpidBox" style="display:none;">
-<h2>Samsung CPID</h2>
+<h2>Samsung CPID FULL</h2>
 
 <table>
-
 <tr><th>Model</th><th>Bilgi</th></tr>
 
-<tr class="category"><td colspan="2">S SERİSİ</td></tr>
-<tr><td>S20</td><td><span class="price-text">Fiyat için WhatsApp’tan yazınız</span></td></tr>
-<tr><td>S21</td><td><span class="price-text">Fiyat için WhatsApp’tan yazınız</span></td></tr>
-<tr><td>S22</td><td><span class="price-text">Fiyat için WhatsApp’tan yazınız</span></td></tr>
-<tr><td>S23</td><td><span class="price-text">Fiyat için WhatsApp’tan yazınız</span></td></tr>
+<tr class="category"><td colspan="2">🚀 S SERİSİ</td></tr>
+<tr><td>S8</td><td><span class="price-text">WhatsApp'tan fiyat alınız</span></td></tr>
+<tr><td>S9</td><td><span class="price-text">WhatsApp'tan fiyat alınız</span></td></tr>
+<tr><td>S10</td><td><span class="price-text">WhatsApp'tan fiyat alınız</span></td></tr>
+<tr><td>S20</td><td><span class="price-text">WhatsApp'tan fiyat alınız</span></td></tr>
+<tr><td>S21</td><td><span class="price-text">WhatsApp'tan fiyat alınız</span></td></tr>
+<tr><td>S22</td><td><span class="price-text">WhatsApp'tan fiyat alınız</span></td></tr>
+<tr><td>S23</td><td><span class="price-text">WhatsApp'tan fiyat alınız</span></td></tr>
+<tr><td>S24</td><td><span class="price-text">WhatsApp'tan fiyat alınız</span></td></tr>
 
-<tr class="category"><td colspan="2">A SERİSİ</td></tr>
-<tr><td>A51</td><td><span class="price-text">Fiyat için WhatsApp’tan yazınız</span></td></tr>
+<tr class="category"><td colspan="2">📱 A SERİSİ</td></tr>
+<tr><td>A01</td><td><span class="price-text">WhatsApp'tan fiyat alınız</span></td></tr>
+<tr><td>A10</td><td><span class="price-text">WhatsApp'tan fiyat alınız</span></td></tr>
+<tr><td>A51</td><td><span class="price-text">WhatsApp'tan fiyat alınız</span></td></tr>
+<tr><td>A54</td><td><span class="price-text">WhatsApp'tan fiyat alınız</span></td></tr>
 
-<tr class="category"><td colspan="2">M SERİSİ</td></tr>
-<tr><td>M31</td><td><span class="price-text">Fiyat için WhatsApp’tan yazınız</span></td></tr>
+<tr class="category"><td colspan="2">🔋 M SERİSİ</td></tr>
+<tr><td>M10</td><td><span class="price-text">WhatsApp'tan fiyat alınız</span></td></tr>
+<tr><td>M31</td><td><span class="price-text">WhatsApp'tan fiyat alınız</span></td></tr>
 
 </table>
 </div>
@@ -218,6 +226,7 @@ border-radius:50%;
 <h3>Müşteri Yorumları</h3>
 <p>⭐⭐⭐⭐⭐ Çok iyi</p>
 <p>⭐⭐⭐⭐⭐ Hızlı çözüm</p>
+<p>⭐⭐⭐⭐⭐ Güvenilir servis</p>
 </div>
 
 <footer>
