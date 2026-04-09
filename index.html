@@ -3,24 +3,35 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<div class="logo">
-<span class="icon">💻</span>
-<span class="title">AKSY MH GFI SERVICE</span>
-<span class="icon">🔧</span>
-</div>
-<style><style>
+<title>AksyMH Gfi Service</title>
+
+<style>
+body{
+margin:0;
+font-family:Arial;
+color:white;
+text-align:center;
+background:
+linear-gradient(rgba(0,0,0,0.85), rgba(0,0,0,0.95)),
+url('https://images.unsplash.com/photo-1518770660439-4636190af475');
+background-size:cover;
+background-attachment:fixed;
+}
+
+/* LOGO */
 .logo{
 display:flex;
 justify-content:center;
 align-items:center;
-gap:12px;
+gap:10px;
+margin-top:20px;
 font-size:30px;
 font-weight:bold;
 }
 
 .title{
 color:#00ffff;
-text-shadow:0 0 10px #00ffff,0 0 25px #00ffff;
+text-shadow:0 0 10px #00ffff,0 0 30px #00ffff;
 animation:neonBlink 2s infinite alternate;
 }
 
@@ -29,44 +40,21 @@ font-size:28px;
 animation:iconBlink 1.2s infinite alternate;
 }
 
-/* LOGO NEON */
 @keyframes neonBlink{
-0%{opacity:1;text-shadow:0 0 10px #00ffff;}
-100%{opacity:0.6;text-shadow:0 0 30px #00ffff;}
+0%{opacity:1;}
+100%{opacity:0.6;}
 }
 
-/* ICON BLINK */
 @keyframes iconBlink{
-0%{opacity:1; transform:scale(1);}
-100%{opacity:0.4; transform:scale(1.2);}
-}
-</style>
-body{
-margin:0;
-font-family:Arial;
-color:white;
-text-align:center;
-background:
-linear-gradient(rgba(0,0,0,0.8), rgba(0,0,0,0.9)),
-url('https://images.unsplash.com/photo-1518770660439-4636190af475');
-background-size:cover;
-background-attachment:fixed;
-}
-
-/* NEON */
-.neon{
-font-size:32px;
-color:#00ffff;
-text-shadow:0 0 10px #00ffff,0 0 30px #00ffff;
+0%{opacity:1;transform:scale(1);}
+100%{opacity:0.5;transform:scale(1.2);}
 }
 
 /* MARQUEE */
 .marquee{
-width:100%;
+color:#ff4444;
 overflow:hidden;
 white-space:nowrap;
-color:#ff4444;
-font-weight:bold;
 animation:marquee 12s linear infinite;
 }
 @keyframes marquee{
@@ -81,24 +69,21 @@ grid-template-columns:repeat(auto-fit,minmax(150px,1fr));
 padding:10px;
 }
 
-/* BOX */
-.card,.box{
+.box,.card{
 background:rgba(255,255,255,0.08);
-backdrop-filter:blur(10px);
 border-radius:15px;
 margin:10px;
 padding:15px;
 cursor:pointer;
-transition:0.3s;
 }
+
 .box:hover{
-transform:scale(1.05);
 box-shadow:0 0 20px #00ffff;
 }
 
 /* INPUT */
 input{
-padding:12px;
+padding:10px;
 border-radius:10px;
 border:none;
 margin:5px;
@@ -112,7 +97,6 @@ border:none;
 border-radius:10px;
 background:#00ffff;
 cursor:pointer;
-margin:5px;
 }
 
 /* TABLE */
@@ -126,19 +110,33 @@ padding:10px;
 border-bottom:1px solid rgba(0,255,255,0.2);
 }
 
-/* CATEGORY */
-.category{color:#00ffff;font-weight:bold;}
-
-/* PRICE */
-.price{
+.category{
 color:#00ffff;
-text-shadow:0 0 5px #00ffff;
-}
-.price:hover{
-text-shadow:0 0 25px #00ffff;
+font-weight:bold;
 }
 
-/* WHATSAPP */
+/* kayan yazı */
+.price-text{
+display:block;
+white-space:nowrap;
+overflow:hidden;
+color:#00ffff;
+animation:kay 6s linear infinite;
+}
+
+@keyframes kay{
+0%{transform:translateX(100%);}
+100%{transform:translateX(-100%);}
+}
+
+/* footer */
+footer{
+margin-top:40px;
+padding:20px;
+background:rgba(0,0,0,0.7);
+}
+
+/* whatsapp */
 .whatsapp{
 position:fixed;
 bottom:20px;
@@ -147,24 +145,20 @@ background:#25D366;
 padding:15px;
 border-radius:50%;
 }
-
-/* FOOTER */
-footer{
-margin-top:40px;
-padding:20px;
-background:rgba(0,0,0,0.7);
-}
 </style>
 </head>
 
 <body>
 
-<header>
-<div class="marquee">
-⚠ T.C. KANUNLARINA GÖRE IMEI DEĞİŞTİRMEK YASAL DEĞİLDİR. SADECE ONARIM AMAÇLIDIR
+<div class="logo">
+<span class="icon">💻</span>
+<span class="title">AKSY MH GFI SERVICE</span>
+<span class="icon">🔧</span>
 </div>
-<div class="neon">🚀 AKSYMH GFI SERVICE</div>
-</header>
+
+<div class="marquee">
+⚠ IMEI DEĞİŞTİRMEK YASAL DEĞİLDİR - SADECE ONARIM AMAÇLIDIR
+</div>
 
 <h2>Profesyonel Teknik Servis</h2>
 
@@ -174,170 +168,33 @@ background:rgba(0,0,0,0.7);
 
 <!-- MENÜ -->
 <div class="services">
-<div class="box">Android Yazılım</div>
-<div class="box">iOS Servis</div>
-<div class="box">Anakart Onarım</div>
-<div class="box">Hard Brick</div>
+<div class="box">Android</div>
+<div class="box">iOS</div>
+<div class="box">Anakart</div>
 <div class="box">FRP</div>
-<div class="box">Şebeke</div>
-<div class="box">WiFi</div>
-<div class="box">Batarya</div>
-<div class="box">Format</div>
-<div class="box">Güncelleme</div>
-<div class="box">Sistem</div>
 <div class="box" onclick="toggleCPID()">💎 Samsung CPID</div>
 </div>
 
 <!-- CPID -->
 <div id="cpidBox" style="display:none;">
-<table id="cpidTable">
+<h2>Samsung CPID</h2>
+
+<table>
+
 <tr><th>Model</th><th>Bilgi</th></tr>
 
-<style>
-.price-text{
-color:#00ffff;
-white-space:nowrap;
-overflow:hidden;
-display:block;
-animation:kay 6s linear infinite;
-font-size:14px;
-text-shadow:0 0 10px #00ffff;
-}
+<tr class="category"><td colspan="2">S SERİSİ</td></tr>
+<tr><td>S20</td><td><span class="price-text">Fiyat için WhatsApp’tan yazınız</span></td></tr>
+<tr><td>S21</td><td><span class="price-text">Fiyat için WhatsApp’tan yazınız</span></td></tr>
+<tr><td>S22</td><td><span class="price-text">Fiyat için WhatsApp’tan yazınız</span></td></tr>
+<tr><td>S23</td><td><span class="price-text">Fiyat için WhatsApp’tan yazınız</span></td></tr>
 
-@keyframes kay{
-0%{transform:translateX(100%);}
-100%{transform:translateX(-100%);}
-}
-</style>
+<tr class="category"><td colspan="2">A SERİSİ</td></tr>
+<tr><td>A51</td><td><span class="price-text">Fiyat için WhatsApp’tan yazınız</span></td></tr>
 
-<table id="cpidTable">
-<tr><th>Model</th><th>Bilgi</th></tr>
+<tr class="category"><td colspan="2">M SERİSİ</td></tr>
+<tr><td>M31</td><td><span class="price-text">Fiyat için WhatsApp’tan yazınız</span></td></tr>
 
-<style>
-.price-text{
-color:#00ffff;
-white-space:nowrap;
-overflow:hidden;
-display:block;
-animation:kay 7s linear infinite;
-font-size:14px;
-text-shadow:0 0 10px #00ffff;
-}
-@keyframes kay{
-0%{transform:translateX(100%);}
-100%{transform:translateX(-100%);}
-}
-</style>
-
-<!-- S -->
-<tr class="category"><td colspan="2">🚀 S SERİSİ</td></tr>
-
-<tr><td>S8</td><td><span class="price-text">Fiyat bilgisi için lütfen WhatsApp’tan mesaj bırakınız</span></td></tr>
-<tr><td>S9</td><td><span class="price-text">Fiyat bilgisi için lütfen WhatsApp’tan mesaj bırakınız</span></td></tr>
-
-<tr><td>S10</td><td><span class="price-text">Fiyat bilgisi için lütfen WhatsApp’tan mesaj bırakınız</span></td></tr>
-<tr><td>S10+</td><td><span class="price-text">Fiyat bilgisi için lütfen WhatsApp’tan mesaj bırakınız</span></td></tr>
-
-<tr><td>S20</td><td><span class="price-text">Fiyat bilgisi için lütfen WhatsApp’tan mesaj bırakınız</span></td></tr>
-<tr><td>S20+</td><td><span class="price-text">Fiyat bilgisi için lütfen WhatsApp’tan mesaj bırakınız</span></td></tr>
-<tr><td>S20 Ultra</td><td><span class="price-text">Fiyat bilgisi için lütfen WhatsApp’tan mesaj bırakınız</span></td></tr>
-
-<tr><td>S21</td><td><span class="price-text">Fiyat bilgisi için lütfen WhatsApp’tan mesaj bırakınız</span></td></tr>
-<tr><td>S21+</td><td><span class="price-text">Fiyat bilgisi için lütfen WhatsApp’tan mesaj bırakınız</span></td></tr>
-<tr><td>S21 Ultra</td><td><span class="price-text">Fiyat bilgisi için lütfen WhatsApp’tan mesaj bırakınız</span></td></tr>
-
-<tr><td>S22</td><td><span class="price-text">Fiyat bilgisi için lütfen WhatsApp’tan mesaj bırakınız</span></td></tr>
-<tr><td>S22+</td><td><span class="price-text">Fiyat bilgisi için lütfen WhatsApp’tan mesaj bırakınız</span></td></tr>
-<tr><td>S22 Ultra</td><td><span class="price-text">Fiyat bilgisi için lütfen WhatsApp’tan mesaj bırakınız</span></td></tr>
-
-<tr><td>S23</td><td><span class="price-text">Fiyat bilgisi için lütfen WhatsApp’tan mesaj bırakınız</span></td></tr>
-<tr><td>S23+</td><td><span class="price-text">Fiyat bilgisi için lütfen WhatsApp’tan mesaj bırakınız</span></td></tr>
-<tr><td>S23 Ultra</td><td><span class="price-text">Fiyat bilgisi için lütfen WhatsApp’tan mesaj bırakınız</span></td></tr>
-
-<tr><td>S24</td><td><span class="price-text">Fiyat bilgisi için lütfen WhatsApp’tan mesaj bırakınız</span></td></tr>
-<tr><td>S24+</td><td><span class="price-text">Fiyat bilgisi için lütfen WhatsApp’tan mesaj bırakınız</span></td></tr>
-<tr><td>S24 Ultra</td><td><span class="price-text">Fiyat bilgisi için lütfen WhatsApp’tan mesaj bırakınız</span></td></tr>
-
-<tr><td>S25</td><td><span class="price-text">Fiyat bilgisi için lütfen WhatsApp’tan mesaj bırakınız</span></td></tr>
-<tr><td>S25+</td><td><span class="price-text">Fiyat bilgisi için lütfen WhatsApp’tan mesaj bırakınız</span></td></tr>
-<tr><td>S25 Ultra</td><td><span class="price-text">Fiyat bilgisi için lütfen WhatsApp’tan mesaj bırakınız</span></td></tr>
-
-<tr><td>S20 FE</td><td><span class="price-text">Fiyat bilgisi için lütfen WhatsApp’tan mesaj bırakınız</span></td></tr>
-<tr><td>S21 FE</td><td><span class="price-text">Fiyat bilgisi için lütfen WhatsApp’tan mesaj bırakınız</span></td></tr>
-<tr><td>S23 FE</td><td><span class="price-text">Fiyat bilgisi için lütfen WhatsApp’tan mesaj bırakınız</span></td></tr>
-<tr><td>S24 FE</td><td><span class="price-text">Fiyat bilgisi için lütfen WhatsApp’tan mesaj bırakınız</span></td></tr>
-
-<!-- NOTE -->
-<tr class="category"><td colspan="2">📝 NOTE</td></tr>
-
-<tr><td>Note 8</td><td><span class="price-text">Fiyat bilgisi için lütfen WhatsApp’tan mesaj bırakınız</span></td></tr>
-<tr><td>Note 9</td><td><span class="price-text">Fiyat bilgisi için lütfen WhatsApp’tan mesaj bırakınız</span></td></tr>
-<tr><td>Note 10</td><td><span class="price-text">Fiyat bilgisi için lütfen WhatsApp’tan mesaj bırakınız</span></td></tr>
-<tr><td>Note 10+</td><td><span class="price-text">Fiyat bilgisi için lütfen WhatsApp’tan mesaj bırakınız</span></td></tr>
-<tr><td>Note 20</td><td><span class="price-text">Fiyat bilgisi için lütfen WhatsApp’tan mesaj bırakınız</span></td></tr>
-<tr><td>Note 20 Ultra</td><td><span class="price-text">Fiyat bilgisi için lütfen WhatsApp’tan mesaj bırakınız</span></td></tr>
-
-<!-- A -->
-<tr class="category"><td colspan="2">📱 A SERİSİ</td></tr>
-
-<tr><td>A01</td><td><span class="price-text">Fiyat bilgisi için lütfen WhatsApp’tan mesaj bırakınız</span></td></tr>
-<tr><td>A02</td><td><span class="price-text">Fiyat bilgisi için lütfen WhatsApp’tan mesaj bırakınız</span></td></tr>
-<tr><td>A03</td><td><span class="price-text">Fiyat bilgisi için lütfen WhatsApp’tan mesaj bırakınız</span></td></tr>
-
-<tr><td>A10</td><td><span class="price-text">Fiyat bilgisi için lütfen WhatsApp’tan mesaj bırakınız</span></td></tr>
-<tr><td>A11</td><td><span class="price-text">Fiyat bilgisi için lütfen WhatsApp’tan mesaj bırakınız</span></td></tr>
-<tr><td>A12</td><td><span class="price-text">Fiyat bilgisi için lütfen WhatsApp’tan mesaj bırakınız</span></td></tr>
-<tr><td>A13</td><td><span class="price-text">Fiyat bilgisi için lütfen WhatsApp’tan mesaj bırakınız</span></td></tr>
-<tr><td>A14</td><td><span class="price-text">Fiyat bilgisi için lütfen WhatsApp’tan mesaj bırakınız</span></td></tr>
-<tr><td>A15</td><td><span class="price-text">Fiyat bilgisi için lütfen WhatsApp’tan mesaj bırakınız</span></td></tr>
-
-<tr><td>A20</td><td><span class="price-text">Fiyat bilgisi için lütfen WhatsApp’tan mesaj bırakınız</span></td></tr>
-<tr><td>A21</td><td><span class="price-text">Fiyat bilgisi için lütfen WhatsApp’tan mesaj bırakınız</span></td></tr>
-<tr><td>A22</td><td><span class="price-text">Fiyat bilgisi için lütfen WhatsApp’tan mesaj bırakınız</span></td></tr>
-<tr><td>A23</td><td><span class="price-text">Fiyat bilgisi için lütfen WhatsApp’tan mesaj bırakınız</span></td></tr>
-<tr><td>A24</td><td><span class="price-text">Fiyat bilgisi için lütfen WhatsApp’tan mesaj bırakınız</span></td></tr>
-
-<tr><td>A30</td><td><span class="price-text">Fiyat bilgisi için lütfen WhatsApp’tan mesaj bırakınız</span></td></tr>
-<tr><td>A31</td><td><span class="price-text">Fiyat bilgisi için lütfen WhatsApp’tan mesaj bırakınız</span></td></tr>
-<tr><td>A32</td><td><span class="price-text">Fiyat bilgisi için lütfen WhatsApp’tan mesaj bırakınız</span></td></tr>
-<tr><td>A33</td><td><span class="price-text">Fiyat bilgisi için lütfen WhatsApp’tan mesaj bırakınız</span></td></tr>
-<tr><td>A34</td><td><span class="price-text">Fiyat bilgisi için lütfen WhatsApp’tan mesaj bırakınız</span></td></tr>
-
-<tr><td>A50</td><td><span class="price-text">Fiyat bilgisi için lütfen WhatsApp’tan mesaj bırakınız</span></td></tr>
-<tr><td>A51</td><td><span class="price-text">Fiyat bilgisi için lütfen WhatsApp’tan mesaj bırakınız</span></td></tr>
-<tr><td>A52</td><td><span class="price-text">Fiyat bilgisi için lütfen WhatsApp’tan mesaj bırakınız</span></td></tr>
-<tr><td>A53</td><td><span class="price-text">Fiyat bilgisi için lütfen WhatsApp’tan mesaj bırakınız</span></td></tr>
-<tr><td>A54</td><td><span class="price-text">Fiyat bilgisi için lütfen WhatsApp’tan mesaj bırakınız</span></td></tr>
-
-<tr><td>A70</td><td><span class="price-text">Fiyat bilgisi için lütfen WhatsApp’tan mesaj bırakınız</span></td></tr>
-<tr><td>A71</td><td><span class="price-text">Fiyat bilgisi için lütfen WhatsApp’tan mesaj bırakınız</span></td></tr>
-<tr><td>A72</td><td><span class="price-text">Fiyat bilgisi için lütfen WhatsApp’tan mesaj bırakınız</span></td></tr>
-<tr><td>A73</td><td><span class="price-text">Fiyat bilgisi için lütfen WhatsApp’tan mesaj bırakınız</span></td></tr>
-
-<!-- M -->
-<tr class="category"><td colspan="2">🔋 M SERİSİ</td></tr>
-
-<tr><td>M10</td><td><span class="price-text">Fiyat bilgisi için lütfen WhatsApp’tan mesaj bırakınız</span></td></tr>
-<tr><td>M11</td><td><span class="price-text">Fiyat bilgisi için lütfen WhatsApp’tan mesaj bırakınız</span></td></tr>
-<tr><td>M12</td><td><span class="price-text">Fiyat bilgisi için lütfen WhatsApp’tan mesaj bırakınız</span></td></tr>
-<tr><td>M13</td><td><span class="price-text">Fiyat bilgisi için lütfen WhatsApp’tan mesaj bırakınız</span></td></tr>
-<tr><td>M14</td><td><span class="price-text">Fiyat bilgisi için lütfen WhatsApp’tan mesaj bırakınız</span></td></tr>
-
-<tr><td>M20</td><td><span class="price-text">Fiyat bilgisi için lütfen WhatsApp’tan mesaj bırakınız</span></td></tr>
-<tr><td>M21</td><td><span class="price-text">Fiyat bilgisi için lütfen WhatsApp’tan mesaj bırakınız</span></td></tr>
-<tr><td>M22</td><td><span class="price-text">Fiyat bilgisi için lütfen WhatsApp’tan mesaj bırakınız</span></td></tr>
-<tr><td>M23</td><td><span class="price-text">Fiyat bilgisi için lütfen WhatsApp’tan mesaj bırakınız</span></td></tr>
-
-<tr><td>M30</td><td><span class="price-text">Fiyat bilgisi için lütfen WhatsApp’tan mesaj bırakınız</span></td></tr>
-<tr><td>M31</td><td><span class="price-text">Fiyat bilgisi için lütfen WhatsApp’tan mesaj bırakınız</span></td></tr>
-<tr><td>M32</td><td><span class="price-text">Fiyat bilgisi için lütfen WhatsApp’tan mesaj bırakınız</span></td></tr>
-<tr><td>M33</td><td><span class="price-text">Fiyat bilgisi için lütfen WhatsApp’tan mesaj bırakınız</span></td></tr>
-
-<tr><td>M51</td><td><span class="price-text">Fiyat bilgisi için lütfen WhatsApp’tan mesaj bırakınız</span></td></tr>
-<tr><td>M52</td><td><span class="price-text">Fiyat bilgisi için lütfen WhatsApp’tan mesaj bırakınız</span></td></tr>
-<tr><td>M53</td><td><span class="price-text">Fiyat bilgisi için lütfen WhatsApp’tan mesaj bırakınız</span></td></tr>
-
-</table>
 </table>
 </div>
 
@@ -363,12 +220,12 @@ text-shadow:0 0 10px #00ffff;
 <p>⭐⭐⭐⭐⭐ Hızlı çözüm</p>
 </div>
 
-<a class="whatsapp" href="https://wa.me/905447447798">💬</a>
-
 <footer>
 <p>© 2026 AksyMH Gfi Service</p>
 <p>Tüm Hakları Saklıdır</p>
 </footer>
+
+<a class="whatsapp" href="https://wa.me/905447447798">💬</a>
 
 <script>
 setInterval(()=>{
@@ -383,29 +240,6 @@ window.open("https://wa.me/905447447798?text="+imei);
 function toggleCPID(){
 let box=document.getElementById("cpidBox");
 box.style.display = box.style.display==="none"?"block":"none";
-}
-
-function searchTable(){
-let input=document.getElementById("search").value.toLowerCase();
-let rows=document.querySelectorAll("#cpidTable tr");
-
-rows.forEach((row,i)=>{
-if(i===0)return;
-row.style.display=row.innerText.toLowerCase().includes(input)?"":"none";
-});
-}
-
-function filterSeries(series){
-let rows=document.querySelectorAll("#cpidTable tr");
-
-rows.forEach((row,i)=>{
-if(i===0)return;
-if(series==="all"){
-row.style.display="";
-}else{
-row.style.display=row.dataset.series===series?"":"none";
-}
-});
 }
 </script>
 
