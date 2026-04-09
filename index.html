@@ -15,17 +15,16 @@ background:
 linear-gradient(rgba(0,0,0,0.85), rgba(0,0,0,0.95)),
 url('https://images.unsplash.com/photo-1518770660439-4636190af475');
 background-size:cover;
-background-attachment:fixed;
 }
 
 /* NEON */
 .neon{
 font-size:32px;
 color:#00ffff;
-text-shadow:0 0 10px #00ffff,0 0 20px #00ffff;
+text-shadow:0 0 10px #00ffff,0 0 25px #00ffff;
 }
 
-/* KAYAN YAZI */
+/* MARQUEE */
 .marquee{
 width:100%;
 overflow:hidden;
@@ -46,7 +45,8 @@ grid-template-columns:repeat(auto-fit,minmax(150px,1fr));
 padding:10px;
 }
 
-.box,.card{
+/* BOX */
+.card,.box{
 background:rgba(255,255,255,0.08);
 border-radius:15px;
 margin:10px;
@@ -54,9 +54,7 @@ padding:15px;
 cursor:pointer;
 }
 
-.box:hover{
-box-shadow:0 0 25px #00ffff;
-}
+.box:hover{box-shadow:0 0 25px #00ffff;}
 
 /* INPUT */
 input{
@@ -64,7 +62,16 @@ padding:12px;
 border-radius:10px;
 border:none;
 margin:5px;
-width:260px;
+width:240px;
+}
+
+/* BUTTON */
+button{
+padding:10px;
+border:none;
+border-radius:10px;
+background:#00ffff;
+cursor:pointer;
 }
 
 /* PAGE */
@@ -83,20 +90,15 @@ border-bottom:1px solid rgba(0,255,255,0.2);
 }
 
 /* CATEGORY */
-.category{
-color:#00ffff;
-font-weight:bold;
-}
+.category{color:#00ffff;font-weight:bold;}
 
 /* PRICE */
 .price{
 color:#00ffff;
 text-shadow:0 0 5px #00ffff;
-transition:0.3s;
 }
 .price:hover{
 text-shadow:0 0 25px #00ffff;
-transform:scale(1.1);
 }
 
 /* WHATSAPP */
@@ -118,16 +120,50 @@ border-radius:50%;
 
 <header>
 <div class="marquee">
-⚠ T.C. KANUNLARINA GÖRE IMEI DEĞİŞTİRMEK YASAL DEĞİLDİR. BU SUPPORT SADECE ONARIM AMAÇLIDIR
+⚠ IMEI DEĞİŞTİRMEK YASAL DEĞİLDİR - SADECE ONARIM AMAÇLIDIR
 </div>
 <div class="neon">🚀 AKSYMH GFI SERVICE</div>
 </header>
 
 <h2>Profesyonel Teknik Servis</h2>
 
+<input id="imei" placeholder="IMEI gir">
+<br>
+<button onclick="sendWhats()">Sorgula</button>
+
+<!-- MENÜLER -->
 <div class="services">
+<div class="box">Android Yazılım</div>
+<div class="box">iOS Servis</div>
+<div class="box">Anakart</div>
+<div class="box">Şebeke</div>
+<div class="box">FRP</div>
+<div class="box">Format</div>
+
 <div class="box" onclick="openPage('cpid')">💎 Samsung CPID</div>
 <div class="box" onclick="openPage('admin')">👨‍💻 Yönetici</div>
+</div>
+
+<!-- FORM -->
+<div class="card">
+<h3>Hızlı Talep</h3>
+<input placeholder="Ad">
+<input placeholder="Telefon">
+<br>
+<button>Gönder</button>
+</div>
+
+<!-- CANLI -->
+<div class="card">
+<h3>Canlı Kullanıcı</h3>
+<p>👁️ <span id="online">0</span></p>
+</div>
+
+<!-- YORUM -->
+<div class="card">
+<h3>Müşteri Yorumları</h3>
+<p>⭐⭐⭐⭐⭐ Çok iyi</p>
+<p>⭐⭐⭐⭐⭐ Hızlı çözüm</p>
 </div>
 
 </div>
@@ -135,75 +171,25 @@ border-radius:50%;
 <!-- CPID -->
 <div id="cpid" class="page">
 
-<h2>💎 Samsung CPID FULL</h2>
+<h2>Samsung CPID</h2>
 
 <input id="search" placeholder="Model ara..." onkeyup="searchTable()">
 
 <table id="cpidTable">
-
 <tr><th>Model</th><th>Fiyat</th></tr>
 
 <tr class="category"><td colspan="2">S SERİSİ</td></tr>
-<tr><td>S8</td><td class="price">5.000 TL</td></tr>
-<tr><td>S9</td><td class="price">5.200 TL</td></tr>
-<tr><td>S10</td><td class="price">5.500 TL</td></tr>
-<tr><td>S10+</td><td class="price">6.000 TL</td></tr>
 <tr><td>S20</td><td class="price">6.500 TL</td></tr>
-<tr><td>S20+</td><td class="price">7.000 TL</td></tr>
-<tr><td>S20 Ultra</td><td class="price">7.500 TL</td></tr>
 <tr><td>S21</td><td class="price">7.500 TL</td></tr>
-<tr><td>S21+</td><td class="price">8.000 TL</td></tr>
-<tr><td>S21 Ultra</td><td class="price">9.000 TL</td></tr>
 <tr><td>S22</td><td class="price">8.500 TL</td></tr>
-<tr><td>S22+</td><td class="price">9.500 TL</td></tr>
-<tr><td>S22 Ultra</td><td class="price">11.000 TL</td></tr>
 <tr><td>S23</td><td class="price">10.500 TL</td></tr>
-<tr><td>S23+</td><td class="price">11.500 TL</td></tr>
-<tr><td>S23 Ultra</td><td class="price">13.000 TL</td></tr>
-<tr><td>S24</td><td class="price">12.000 TL</td></tr>
-<tr><td>S24+</td><td class="price">13.500 TL</td></tr>
-<tr><td>S24 Ultra</td><td class="price">15.000 TL</td></tr>
 
 <tr class="category"><td colspan="2">A SERİSİ</td></tr>
-<tr><td>A01</td><td class="price">3.000 TL</td></tr>
-<tr><td>A02</td><td class="price">3.200 TL</td></tr>
-<tr><td>A03</td><td class="price">3.500 TL</td></tr>
-<tr><td>A10</td><td class="price">3.500 TL</td></tr>
-<tr><td>A11</td><td class="price">4.000 TL</td></tr>
-<tr><td>A12</td><td class="price">4.500 TL</td></tr>
-<tr><td>A13</td><td class="price">5.000 TL</td></tr>
-<tr><td>A14</td><td class="price">5.500 TL</td></tr>
-<tr><td>A15</td><td class="price">6.000 TL</td></tr>
-<tr><td>A20</td><td class="price">4.000 TL</td></tr>
-<tr><td>A21</td><td class="price">5.500 TL</td></tr>
-<tr><td>A22</td><td class="price">6.000 TL</td></tr>
-<tr><td>A23</td><td class="price">6.500 TL</td></tr>
-<tr><td>A24</td><td class="price">7.000 TL</td></tr>
-<tr><td>A30</td><td class="price">4.500 TL</td></tr>
-<tr><td>A31</td><td class="price">6.000 TL</td></tr>
-<tr><td>A32</td><td class="price">6.500 TL</td></tr>
-<tr><td>A33</td><td class="price">7.000 TL</td></tr>
-<tr><td>A34</td><td class="price">7.500 TL</td></tr>
-<tr><td>A50</td><td class="price">5.000 TL</td></tr>
 <tr><td>A51</td><td class="price">6.500 TL</td></tr>
 <tr><td>A52</td><td class="price">7.500 TL</td></tr>
-<tr><td>A53</td><td class="price">8.500 TL</td></tr>
-<tr><td>A54</td><td class="price">9.000 TL</td></tr>
 
 <tr class="category"><td colspan="2">M SERİSİ</td></tr>
-<tr><td>M10</td><td class="price">3.500 TL</td></tr>
-<tr><td>M11</td><td class="price">4.000 TL</td></tr>
-<tr><td>M12</td><td class="price">4.500 TL</td></tr>
-<tr><td>M13</td><td class="price">5.000 TL</td></tr>
-<tr><td>M14</td><td class="price">5.500 TL</td></tr>
-<tr><td>M20</td><td class="price">4.500 TL</td></tr>
-<tr><td>M21</td><td class="price">5.000 TL</td></tr>
-<tr><td>M22</td><td class="price">5.500 TL</td></tr>
-<tr><td>M23</td><td class="price">6.000 TL</td></tr>
 <tr><td>M31</td><td class="price">5.500 TL</td></tr>
-<tr><td>M32</td><td class="price">6.000 TL</td></tr>
-<tr><td>M33</td><td class="price">6.500 TL</td></tr>
-<tr><td>M51</td><td class="price">7.000 TL</td></tr>
 
 </table>
 
@@ -214,17 +200,19 @@ border-radius:50%;
 
 <!-- ADMIN -->
 <div id="admin" class="page">
-<h2>👨‍💻 Yönetici</h2>
-<div class="card">
+<h2>Yönetici</h2>
 <h3 class="neon">Canbey</h3>
 <p>Engineering Manager</p>
-</div>
 <button onclick="goHome()">⬅ Geri</button>
 </div>
 
-<a class="whatsapp" href="https://wa.me/905447447798">💬</a>
+<a class="whatsapp" href="#">💬</a>
 
 <script>
+setInterval(()=>{
+document.getElementById("online").innerText=Math.floor(Math.random()*50)+10;
+},2000);
+
 function openPage(id){
 document.querySelectorAll(".page").forEach(p=>p.classList.remove("active"));
 document.getElementById(id).classList.add("active");
@@ -243,6 +231,11 @@ rows.forEach((row,i)=>{
 if(i===0) return;
 row.style.display=row.innerText.toLowerCase().includes(input)?"":"none";
 });
+}
+
+function sendWhats(){
+let imei=document.getElementById("imei").value;
+window.open("https://wa.me/905447447798?text="+imei);
 }
 </script>
 
