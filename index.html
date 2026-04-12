@@ -16,6 +16,30 @@ linear-gradient(rgba(0,0,0,0.8), rgba(0,0,0,0.9)),
 url('https://images.unsplash.com/photo-1518770660439-4636190af475');
 background-size:cover;
 background-attachment:fixed;
+padding-top:60px;
+}
+
+/* 🔴 ÜST UYARI */
+#topLaw{
+position:fixed;
+top:0;
+left:0;
+width:100%;
+background:black;
+color:red;
+font-size:16px;
+font-weight:bold;
+padding:12px;
+text-align:center;
+z-index:9999;
+animation:flash 1s infinite;
+border-bottom:3px solid red;
+}
+
+@keyframes flash{
+0%{opacity:1;text-shadow:0 0 10px red;}
+50%{opacity:0.3;text-shadow:0 0 30px red;}
+100%{opacity:1;text-shadow:0 0 10px red;}
 }
 
 /* HEADER */
@@ -117,7 +141,7 @@ background:#1877F2;
 box-shadow:0 0 15px #1877F2;
 }
 
-/* LAW BAR */
+/* ALT BAR */
 #lawBar{
 position:fixed;
 bottom:0;
@@ -126,7 +150,7 @@ width:100%;
 background:rgba(0,0,0,0.95);
 color:#fff;
 font-size:12px;
-padding:10px;
+padding:8px;
 text-align:center;
 border-top:2px solid red;
 z-index:9999;
@@ -152,6 +176,11 @@ background:rgba(0,0,0,0.8);
 </head>
 
 <body>
+
+<!-- 🔴 ÜST UYARI -->
+<div id="topLaw">
+⚠️ TC KANUNLARINA GÖRE IMEI DEĞİŞTİRMEK YASAL DEĞİLDİR – SADECE BİLGİLENDİRME AMAÇLIDIR
+</div>
 
 <header>
 <span class="icon">📱🔧</span>
@@ -183,46 +212,35 @@ background:rgba(0,0,0,0.8);
 <div class="box">Sistem</div>
 </div>
 
-<!-- 🔥 CPID PANEL -->
+<!-- CPID -->
 <div class="card">
 <h3>📱 CPID İşlemleri</h3>
-
 <button onclick="toggleCPID()">Fiyatları Göster</button>
 
-<div id="cpidList" style="display:none; margin-top:15px; text-align:left;">
+<div id="cpidList" style="display:none; text-align:left;">
 
-<!-- XIAOMI -->
-<h4 style="color:#00ffff;">🔧 Xiaomi CPID (ON)</h4>
-
+<h4 style="color:#00ffff;">Xiaomi CPID (ON)</h4>
 <p>Mi 11 Ultra – 40$</p>
-
 <p>Xiaomi 12 Serisi – 70$</p>
-
-<p>Xiaomi 13 Ultra Serisi – 100$</p>
-
-<p>Xiaomi 14 Ultra Serisi – 110$</p>
-
-<p>Xiaomi 15 Ultra Serisi – 150$</p>
-
+<p>Xiaomi 13 Ultra – 100$</p>
+<p>Xiaomi 14 Ultra – 110$</p>
+<p>Xiaomi 15 Ultra – 150$</p>
 <p>Xiaomi 17 Ultra – 170$</p>
 
 <hr>
 
-<!-- SAMSUNG -->
-<h4 style="color:#00ff00;">🔧 Samsung CPID</h4>
-
+<h4 style="color:#00ff00;">Samsung CPID (ON)</h4>
 <p>S Serisi – 80$</p>
 <p>Note Serisi – 90$</p>
 <p>A Serisi – 70$</p>
 
-<hr>
-
-<p style="color:#ffcc00;">
-📩 Detaylı fiyat bilgisi için lütfen WhatsApp’tan yazınız.
+<p style="color:yellow;">
+📩 Detaylı fiyat için WhatsApp yazınız
 </p>
 
 </div>
 </div>
+
 <!-- SOCIAL -->
 <div class="card social">
 <h3>📡 Hesaplarımız</h3>
@@ -262,15 +280,14 @@ background:rgba(0,0,0,0.8);
 <p>© 2026 AksyMH Gfi Service</p>
 </footer>
 
-<!-- LAW -->
+<!-- ALT BAR -->
 <div id="lawBar">
-⚠️ TC kanunları gereği kayıp / çalıntı cihazlara işlem yapılmaz.
+⚠️ kayıp / çalıntı cihazlara işlem yapılmaz.
 </div>
 
 <a class="whatsapp" href="https://wa.me/905447447798">💬</a>
 
 <script>
-
 setInterval(()=>{
 document.getElementById("online").innerText=Math.floor(Math.random()*50)+10;
 },2000);
@@ -288,7 +305,6 @@ function toggleCPID(){
 let x=document.getElementById("cpidList");
 x.style.display=(x.style.display==="none")?"block":"none";
 }
-
 </script>
 
 </body>
