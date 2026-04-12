@@ -13,6 +13,7 @@ background:#050505;
 color:white;
 text-align:center;
 padding-top:60px;
+scroll-behavior:smooth;
 }
 
 /* ÜST UYARI */
@@ -41,7 +42,7 @@ font-size:28px;
 color:#00ffff;
 }
 
-/* 🔥 MENÜ */
+/* MENÜ */
 nav{
 display:flex;
 justify-content:center;
@@ -60,13 +61,11 @@ text-decoration:none;
 padding:8px 14px;
 border-radius:8px;
 border:1px solid #00ffff;
-transition:0.3s;
 }
 
 nav a:hover{
 background:#00ffff;
 color:black;
-box-shadow:0 0 10px #00ffff;
 }
 
 /* CARD */
@@ -124,17 +123,16 @@ font-size:12px;
 
 <header>⚡ AKSYMH GFI SERVICE ⚡</header>
 
-<!-- 🔥 MENÜ -->
 <nav>
 <a href="#">Ana Sayfa</a>
-<a href="#">Servisler</a>
-<a href="#">CPID</a>
-<a href="#">Hakkımızda</a>
-<a href="#">İletişim</a>
+<a href="#services">Servisler</a>
+<a href="#cpid">CPID</a>
+<a href="#about">Hakkımızda</a>
+<a href="#contact">İletişim</a>
 </nav>
 
 <!-- SERVICES -->
-<div class="card">
+<div class="card" id="services">
 <h3>Servisler</h3>
 <div class="services">
 <div class="box">Android Yazılım</div>
@@ -146,7 +144,7 @@ font-size:12px;
 </div>
 
 <!-- CPID -->
-<div class="card">
+<div class="card" id="cpid">
 <h3>📱 CPID İşlemleri</h3>
 <button onclick="toggleCPID()">Fiyatları Göster</button>
 
@@ -174,13 +172,6 @@ font-size:12px;
 </div>
 </div>
 
-<!-- SOCIAL -->
-<div class="card social">
-<h3>📡 Hesaplarımız</h3>
-<a class="instagram" href="https://instagram.com/aksoymhgfiservice" target="_blank">Instagram</a>
-<a class="facebook" href="https://www.facebook.com/aksoymhgfiservice" target="_blank">Facebook</a>
-</div>
-
 <!-- REVIEWS -->
 <div class="card">
 <h3>Müşteri Yorumları</h3>
@@ -191,9 +182,49 @@ font-size:12px;
 </div>
 
 <!-- ABOUT -->
-<div class="card">
-<h3>Biz Kimiz</h3>
-<p>Profesyonel teknik servis hizmeti sunuyoruz.</p>
+<div class="card" id="about">
+<h3>👨‍🔧 Hakkımızda</h3>
+
+<p>2012’den beri teknik servis sektöründe hizmet vermekteyiz.</p>
+
+<p>
+Profesyonel ekib ile hizmetimizi sürdürmekteyiz.
+</p>
+
+<p>
+✔ Hızlı çözüm  
+✔ Garantili işlem  
+✔ Güvenilir hizmet  
+</p>
+
+</div>
+
+<!-- CONTACT -->
+<div class="card" id="contact">
+<h3>📞 İletişim</h3>
+
+<p>📱 Telefon: 0544 744 77 98</p>
+
+<p>
+<a href="https://wa.me/905447447798" target="_blank" style="color:#25D366;">
+💬 WhatsApp ile İletişim
+</a>
+</p>
+
+<hr>
+
+<p>
+<a href="https://instagram.com/aksoymhgfiservice" target="_blank" style="color:#ff00ff;">
+📸 Instagram
+</a>
+</p>
+
+<p>
+<a href="https://www.facebook.com/aksoymhgfiservice" target="_blank" style="color:#1877F2;">
+📘 Facebook
+</a>
+</p>
+
 </div>
 
 <!-- ALT -->
