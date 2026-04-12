@@ -18,145 +18,154 @@ background-size:cover;
 background-attachment:fixed;
 }
 
-/* LOGO */
-.logo{
+/* HEADER */
+header{
 display:flex;
 justify-content:center;
 align-items:center;
-gap:12px;
-padding:20px;
-font-size:32px;
-font-weight:bold;
+gap:15px;
+padding:25px;
 }
 
-.title{
-color:#00ffff;
-text-shadow:0 0 10px #00ffff,0 0 30px #00ffff;
-animation:glow 2s infinite alternate;
+.logo{
+font-size:34px;
+font-weight:900;
+animation:rgbGlow 2s infinite alternate;
+}
+
+@keyframes rgbGlow{
+0%{color:#00ffff;text-shadow:0 0 10px #00ffff;}
+50%{color:#ff00ff;text-shadow:0 0 20px #ff00ff;}
+100%{color:#00ff00;text-shadow:0 0 30px #00ff00;}
 }
 
 .icon{
 font-size:28px;
-animation:blink 1.2s infinite alternate;
-}
-
-@keyframes glow{
-0%{opacity:1;}
-100%{opacity:0.6;}
+animation:blink 1s infinite alternate;
 }
 
 @keyframes blink{
-0%{opacity:1;transform:scale(1);}
-100%{opacity:0.4;transform:scale(1.2);}
+0%{opacity:1;}
+100%{opacity:0.4; transform:scale(1.2);}
 }
 
-/* MARQUEE */
-.marquee{
-color:#ff4444;
-white-space:nowrap;
-overflow:hidden;
-animation:marquee 12s linear infinite;
-}
-@keyframes marquee{
-0%{transform:translateX(100%);}
-100%{transform:translateX(-100%);}
-}
-
-/* GRID */
-.services{
-display:grid;
-grid-template-columns:repeat(auto-fit,minmax(140px,1fr));
-padding:10px;
-}
-
-.box,.card{
-background:rgba(255,255,255,0.08);
+/* CAM */
+.card, .box{
+background:rgba(255,255,255,0.05);
+backdrop-filter:blur(10px);
 border-radius:15px;
 margin:10px;
 padding:15px;
-cursor:pointer;
+animation:pulse 2s infinite alternate;
 }
 
-.box:hover{box-shadow:0 0 20px #00ffff;}
+@keyframes pulse{
+0%{box-shadow:0 0 10px #00ffff;}
+50%{box-shadow:0 0 25px #ff00ff;}
+100%{box-shadow:0 0 40px #00ff00;}
+}
 
-input{
+/* SERVICES */
+.services{
+display:grid;
+grid-template-columns:repeat(auto-fit,minmax(150px,1fr));
 padding:10px;
+}
+
+/* INPUT */
+input{
+padding:12px;
 border-radius:10px;
 border:none;
 margin:5px;
 width:240px;
+background:rgba(0,0,0,0.7);
+color:#00ffff;
+box-shadow:0 0 10px #00ffff;
 }
 
+/* BUTTON */
 button{
-padding:10px;
+padding:12px 20px;
 border:none;
 border-radius:10px;
-background:#00ffff;
-cursor:pointer;
-}
-
-/* TABLE */
-table{
-width:95%;
-margin:auto;
-border-collapse:collapse;
-}
-td,th{
-padding:10px;
-border-bottom:1px solid rgba(0,255,255,0.2);
-}
-
-.category{color:#00ffff;font-weight:bold;}
-
-.price-text{
-display:block;
-white-space:nowrap;
-overflow:hidden;
-animation:kay 7s linear infinite;
-color:#00ffff;
-}
-@keyframes kay{
-0%{transform:translateX(100%);}
-100%{transform:translateX(-100%);}
-}
-
-footer{
-margin-top:40px;
-padding:20px;
 background:rgba(0,0,0,0.7);
+color:#00ffff;
+cursor:pointer;
+box-shadow:0 0 15px #00ffff;
 }
 
+/* SOCIAL */
+.social a{
+display:block;
+margin:10px auto;
+padding:12px;
+width:80%;
+border-radius:10px;
+text-decoration:none;
+color:white;
+font-weight:bold;
+}
+
+.instagram{
+background:linear-gradient(45deg,#ff00ff,#ff6600);
+box-shadow:0 0 15px #ff00ff;
+}
+
+.facebook{
+background:#1877F2;
+box-shadow:0 0 15px #1877F2;
+}
+
+/* LAW BAR */
+#lawBar{
+position:fixed;
+bottom:0;
+left:0;
+width:100%;
+background:rgba(0,0,0,0.95);
+color:#fff;
+font-size:12px;
+padding:10px;
+text-align:center;
+border-top:2px solid red;
+z-index:9999;
+}
+
+/* WHATSAPP */
 .whatsapp{
 position:fixed;
-bottom:20px;
+bottom:60px;
 right:20px;
 background:#25D366;
 padding:15px;
 border-radius:50%;
+box-shadow:0 0 20px #25D366;
+}
+
+footer{
+margin-top:30px;
+padding:20px;
+background:rgba(0,0,0,0.8);
 }
 </style>
 </head>
 
 <body>
 
-<!-- LOGO -->
-<div class="logo">
-<span class="icon">💻</span>
-<span class="title">AKSY MH GFI SERVICE</span>
-<span class="icon">🔧</span>
-</div>
-
-<div class="marquee">
-⚠ T.C. KANUNLARINA GÖRE IMEI DEĞİŞTİRMEK YASAL DEĞİLDİR - SADECE ONARIM AMAÇLIDIR
-</div>
+<header>
+<span class="icon">📱🔧</span>
+<span class="logo">AKSYMH GFI SERVICE</span>
+<span class="icon">🔧📱</span>
+</header>
 
 <h2>Profesyonel Teknik Servis</h2>
 
 <input id="imei" placeholder="IMEI gir">
 <br>
-<button onclick="sendWhats()">Sorgula</button>
+<button onclick="sendWhats()">Sorgula & İletişim</button>
 
-<!-- MENÜLER (SENİN ORJİNALİN) -->
+<!-- SERVICES -->
 <div class="services">
 <div class="box">Android Yazılım</div>
 <div class="box">iOS Servis</div>
@@ -172,71 +181,71 @@ border-radius:50%;
 <div class="box">Format</div>
 <div class="box">Güncelleme</div>
 <div class="box">Sistem</div>
-
-<div class="box" onclick="toggleCPID()">💎 Samsung CPID</div>
 </div>
 
-<!-- CPID FULL -->
-<div id="cpidBox" style="display:none;">
-<h2>Samsung CPID FULL</h2>
-
-<table>
-<tr><th>Model</th><th>Bilgi</th></tr>
-
-<tr class="category"><td colspan="2">🚀 S SERİSİ</td></tr>
-<tr><td>S8</td><td><span class="price-text">WhatsApp'tan fiyat alınız</span></td></tr>
-<tr><td>S9</td><td><span class="price-text">WhatsApp'tan fiyat alınız</span></td></tr>
-<tr><td>S10</td><td><span class="price-text">WhatsApp'tan fiyat alınız</span></td></tr>
-<tr><td>S20</td><td><span class="price-text">WhatsApp'tan fiyat alınız</span></td></tr>
-<tr><td>S21</td><td><span class="price-text">WhatsApp'tan fiyat alınız</span></td></tr>
-<tr><td>S22</td><td><span class="price-text">WhatsApp'tan fiyat alınız</span></td></tr>
-<tr><td>S23</td><td><span class="price-text">WhatsApp'tan fiyat alınız</span></td></tr>
-<tr><td>S24</td><td><span class="price-text">WhatsApp'tan fiyat alınız</span></td></tr>
-
-<tr class="category"><td colspan="2">📱 A SERİSİ</td></tr>
-<tr><td>A01</td><td><span class="price-text">WhatsApp'tan fiyat alınız</span></td></tr>
-<tr><td>A10</td><td><span class="price-text">WhatsApp'tan fiyat alınız</span></td></tr>
-<tr><td>A51</td><td><span class="price-text">WhatsApp'tan fiyat alınız</span></td></tr>
-<tr><td>A54</td><td><span class="price-text">WhatsApp'tan fiyat alınız</span></td></tr>
-
-<tr class="category"><td colspan="2">🔋 M SERİSİ</td></tr>
-<tr><td>M10</td><td><span class="price-text">WhatsApp'tan fiyat alınız</span></td></tr>
-<tr><td>M31</td><td><span class="price-text">WhatsApp'tan fiyat alınız</span></td></tr>
-
-</table>
-</div>
-
-<!-- FORM -->
+<!-- 🔥 XIAOMI CPID -->
 <div class="card">
-<h3>Hızlı Talep</h3>
-<input placeholder="Ad">
-<input placeholder="Telefon">
-<br>
-<button>Gönder</button>
+<h3>📱 Xiaomi CPID</h3>
+<button onclick="toggleCPID()">Fiyatları Göster</button>
+
+<div id="cpidList" style="display:none;">
+<p>Redmi Note 9 – 1000₺</p>
+<p>Redmi Note 10 – 1100₺</p>
+<p>Redmi Note 11 – 1200₺</p>
+<p>Mi 10 – 1500₺</p>
+<p>Mi 11 – 1800₺</p>
+<p>Poco X3 – 1200₺</p>
+</div>
 </div>
 
-<!-- CANLI -->
+<!-- SOCIAL -->
+<div class="card social">
+<h3>📡 Hesaplarımız</h3>
+<a class="instagram" href="https://instagram.com/aksoymhgfiservice" target="_blank">Instagram</a>
+<a class="facebook" href="https://www.facebook.com/aksoymhgfiservice" target="_blank">Facebook</a>
+</div>
+
+<!-- LIVE -->
 <div class="card">
 <h3>Canlı Kullanıcı</h3>
 <p>👁️ <span id="online">0</span></p>
 </div>
 
-<!-- YORUM -->
+<!-- REVIEWS -->
 <div class="card">
 <h3>Müşteri Yorumları</h3>
 <p>⭐⭐⭐⭐⭐ Çok iyi</p>
 <p>⭐⭐⭐⭐⭐ Hızlı çözüm</p>
 <p>⭐⭐⭐⭐⭐ Güvenilir servis</p>
+<p>⭐⭐⭐⭐⭐ Hızlı teslim</p>
+<p>✔ 10.000+ işlem</p>
+</div>
+
+<!-- ABOUT -->
+<div class="card">
+<h3>Biz Kimiz</h3>
+<p>Profesyonel teknik servis hizmeti sunuyoruz.</p>
+</div>
+
+<!-- PAYMENT -->
+<div class="card">
+<h3>Ödeme</h3>
+<button onclick="goWhats()">WhatsApp</button>
 </div>
 
 <footer>
 <p>© 2026 AksyMH Gfi Service</p>
-<p>Tüm Hakları Saklıdır</p>
 </footer>
+
+<!-- LAW -->
+<div id="lawBar">
+⚠️ TC kanunları gereği kayıp / çalıntı cihazlara işlem yapılmaz.
+</div>
 
 <a class="whatsapp" href="https://wa.me/905447447798">💬</a>
 
 <script>
+
 setInterval(()=>{
 document.getElementById("online").innerText=Math.floor(Math.random()*50)+10;
 },2000);
@@ -246,10 +255,15 @@ let imei=document.getElementById("imei").value;
 window.open("https://wa.me/905447447798?text="+imei);
 }
 
-function toggleCPID(){
-let box=document.getElementById("cpidBox");
-box.style.display = box.style.display==="none"?"block":"none";
+function goWhats(){
+window.open("https://wa.me/905447447798");
 }
+
+function toggleCPID(){
+let x=document.getElementById("cpidList");
+x.style.display=(x.style.display==="none")?"block":"none";
+}
+
 </script>
 
 </body>
