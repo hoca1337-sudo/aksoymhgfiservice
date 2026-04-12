@@ -16,7 +16,7 @@ padding-top:60px;
 scroll-behavior:smooth;
 }
 
-/* ÜST UYARI */
+/* 🔴 ÜST UYARI */
 #topLaw{
 position:fixed;
 top:0;
@@ -35,11 +35,28 @@ z-index:9999;
 100%{opacity:1;}
 }
 
-/* HEADER */
+/* 🔥 LOGO */
 header{
 padding:20px;
-font-size:28px;
-color:#00ffff;
+font-size:32px;
+font-weight:bold;
+animation:neon 2s infinite alternate;
+}
+
+@keyframes neon{
+0%{color:#00ffff;text-shadow:0 0 10px #00ffff;}
+50%{color:#ff00ff;text-shadow:0 0 20px #ff00ff;}
+100%{color:#00ff00;text-shadow:0 0 30px #00ff00;}
+}
+
+.logo-icons{
+font-size:24px;
+animation:blinkIcon 1s infinite alternate;
+}
+
+@keyframes blinkIcon{
+0%{opacity:1;}
+100%{opacity:0.3;}
 }
 
 /* MENÜ */
@@ -121,7 +138,11 @@ font-size:12px;
 ⚠️ TC KANUNLARINA GÖRE IMEI DEĞİŞTİRMEK YASAL DEĞİLDİR – SADECE BİLGİLENDİRME AMAÇLIDIR
 </div>
 
-<header>⚡ AKSYMH GFI SERVICE ⚡</header>
+<header>
+<span class="logo-icons">🔧📱</span>
+AKSYMH GFI SERVICE
+<span class="logo-icons">📱🔧</span>
+</header>
 
 <nav>
 <a href="#">Ana Sayfa</a>
@@ -135,11 +156,20 @@ font-size:12px;
 <div class="card" id="services">
 <h3>Servisler</h3>
 <div class="services">
+
 <div class="box">Android Yazılım</div>
 <div class="box">iOS Servis</div>
-<div class="box">FRP</div>
-<div class="box">Bootloop</div>
-<div class="box">Şebeke</div>
+<div class="box">FRP Kilit Açma</div>
+<div class="box">Bootloop Onarım</div>
+<div class="box">Şebeke Onarım</div>
+<div class="box">WiFi Tamir</div>
+<div class="box">Batarya Değişim</div>
+<div class="box">Format Atma</div>
+<div class="box">Güncelleme</div>
+<div class="box">Sistem Onarım</div>
+<div class="box">Hard Brick</div>
+<div class="box">Anakart Onarım</div>
+
 </div>
 </div>
 
@@ -165,71 +195,30 @@ font-size:12px;
 <p>Note Serisi – 90$</p>
 <p>A Serisi – 70$</p>
 
-<p style="color:yellow;">
-📩 Detaylı fiyat için WhatsApp yazınız
-</p>
-
 </div>
-</div>
-
-<!-- REVIEWS -->
-<div class="card">
-<h3>Müşteri Yorumları</h3>
-<p>⭐⭐⭐⭐⭐ Çok iyi</p>
-<p>⭐⭐⭐⭐⭐ Hızlı çözüm</p>
-<p>⭐⭐⭐⭐⭐ Güvenilir servis</p>
-<p>⭐⭐⭐⭐⭐ Hızlı teslim</p>
 </div>
 
 <!-- ABOUT -->
 <div class="card" id="about">
-<h3>👨‍🔧 Hakkımızda</h3>
-
-<p>2012’den beri teknik servis sektöründe hizmet vermekteyiz.</p>
-
-<p>
-Profesyonel ekib ile hizmetimizi sürdürmekteyiz.
-</p>
-
-<p>
-✔ Hızlı çözüm  
-✔ Garantili işlem  
-✔ Güvenilir hizmet  
-</p>
-
+<h3>Hakkımızda</h3>
+<p>2012’den beri hizmet vermekteyiz.</p>
+<p>Profesyonel ekib ile hizmetimizi sürdürmekteyiz.</p>
 </div>
 
 <!-- CONTACT -->
 <div class="card" id="contact">
-<h3>📞 İletişim</h3>
+<h3>İletişim</h3>
+<p>📱 0544 744 77 98</p>
 
-<p>📱 Telefon: 0544 744 77 98</p>
+<p><a href="https://wa.me/905447447798" style="color:#25D366;">WhatsApp</a></p>
 
-<p>
-<a href="https://wa.me/905447447798" target="_blank" style="color:#25D366;">
-💬 WhatsApp ile İletişim
-</a>
-</p>
-
-<hr>
-
-<p>
-<a href="https://instagram.com/aksoymhgfiservice" target="_blank" style="color:#ff00ff;">
-📸 Instagram
-</a>
-</p>
-
-<p>
-<a href="https://www.facebook.com/aksoymhgfiservice" target="_blank" style="color:#1877F2;">
-📘 Facebook
-</a>
-</p>
-
+<p><a href="https://instagram.com/aksoymhgfiservice" style="color:#ff00ff;">Instagram</a></p>
+<p><a href="https://www.facebook.com/aksoymhgfiservice" style="color:#1877F2;">Facebook</a></p>
 </div>
 
 <!-- ALT -->
 <div id="lawBar">
-⚠️ TC kanunları gereği kayıp cihazlara işlem yapılmaz
+⚠️ Kayıp cihazlara işlem yapılmaz
 </div>
 
 <script>
@@ -239,7 +228,7 @@ x.style.display=(x.style.display==="none")?"block":"none";
 }
 </script>
 
-<!-- 🔥 CANLI DESTEK -->
+<!-- CANLI DESTEK -->
 <script type="text/javascript">
 var Tawk_API=Tawk_API||{}, Tawk_LoadStart=new Date();
 (function(){
