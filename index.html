@@ -9,13 +9,9 @@
 body{
 margin:0;
 font-family:Arial;
+background:#050505;
 color:white;
 text-align:center;
-background:
-linear-gradient(rgba(0,0,0,0.8), rgba(0,0,0,0.9)),
-url('https://images.unsplash.com/photo-1518770660439-4636190af475');
-background-size:cover;
-background-attachment:fixed;
 padding-top:60px;
 }
 
@@ -23,97 +19,64 @@ padding-top:60px;
 #topLaw{
 position:fixed;
 top:0;
-left:0;
 width:100%;
 background:black;
 color:red;
-font-size:16px;
 font-weight:bold;
-padding:12px;
-text-align:center;
+padding:10px;
+animation:blink 1s infinite;
 z-index:9999;
-animation:flash 1s infinite;
-border-bottom:3px solid red;
-}
-
-@keyframes flash{
-0%{opacity:1;text-shadow:0 0 10px red;}
-50%{opacity:0.3;text-shadow:0 0 30px red;}
-100%{opacity:1;text-shadow:0 0 10px red;}
-}
-
-/* HEADER */
-header{
-display:flex;
-justify-content:center;
-align-items:center;
-gap:15px;
-padding:25px;
-}
-
-.logo{
-font-size:34px;
-font-weight:900;
-animation:rgbGlow 2s infinite alternate;
-}
-
-@keyframes rgbGlow{
-0%{color:#00ffff;}
-50%{color:#ff00ff;}
-100%{color:#00ff00;}
-}
-
-.icon{
-font-size:28px;
-animation:blink 1s infinite alternate;
 }
 
 @keyframes blink{
 0%{opacity:1;}
-100%{opacity:0.4; transform:scale(1.2);}
+50%{opacity:0.3;}
+100%{opacity:1;}
 }
 
-/* CAM */
-.card,.box{
-background:rgba(255,255,255,0.05);
-backdrop-filter:blur(10px);
-border-radius:15px;
-margin:10px;
+/* HEADER */
+header{
+padding:20px;
+font-size:28px;
+color:#00ffff;
+}
+
+/* MENÜ */
+nav{
+display:flex;
+justify-content:center;
+gap:15px;
+background:#000;
+padding:10px;
+position:sticky;
+top:40px;
+}
+
+nav a{
+color:#00ffff;
+text-decoration:none;
+}
+
+/* CARD */
+.card{
+margin:15px;
 padding:15px;
-animation:pulse 2s infinite alternate;
-}
-
-@keyframes pulse{
-0%{box-shadow:0 0 10px #00ffff;}
-100%{box-shadow:0 0 40px #ff00ff;}
+background:#111;
+border-radius:10px;
+box-shadow:0 0 10px #00ffff;
 }
 
 /* SERVICES */
 .services{
 display:grid;
-grid-template-columns:repeat(auto-fit,minmax(150px,1fr));
-padding:10px;
+grid-template-columns:repeat(auto-fit,minmax(120px,1fr));
+gap:10px;
 }
 
-/* INPUT */
-input{
-padding:12px;
-border-radius:10px;
-border:none;
-margin:5px;
-width:240px;
-background:rgba(0,0,0,0.7);
-color:#00ffff;
-}
-
-/* BUTTON */
-button{
+.box{
+background:#000;
 padding:10px;
-border:none;
-border-radius:10px;
-background:#00ffff;
-color:black;
-cursor:pointer;
+border-radius:8px;
 }
 
 /* SOCIAL */
@@ -126,54 +89,18 @@ color:white;
 text-decoration:none;
 }
 
-.instagram{background:linear-gradient(45deg,#ff00ff,#ff6600);}
-.facebook{background:#1877F2;}
+.instagram{background:purple;}
+.facebook{background:blue;}
 
 /* ALT BAR */
 #lawBar{
 position:fixed;
 bottom:0;
-left:0;
 width:100%;
 background:black;
-color:white;
-font-size:12px;
 padding:8px;
-border-top:2px solid red;
+font-size:12px;
 }
-
-/* WHATSAPP */
-.whatsapp{
-position:fixed;
-bottom:70px;
-right:20px;
-background:#25D366;
-padding:15px;
-border-radius:50%;
-}
-
-/* CANLI DESTEK */
-#chatBtn{
-position:fixed;
-bottom:130px;
-right:20px;
-background:#00ffff;
-padding:15px;
-border-radius:50%;
-cursor:pointer;
-}
-
-#chatBox{
-display:none;
-position:fixed;
-bottom:200px;
-right:20px;
-width:250px;
-background:black;
-padding:15px;
-border-radius:10px;
-}
-
 </style>
 </head>
 
@@ -183,86 +110,101 @@ border-radius:10px;
 ⚠️ TC KANUNLARINA GÖRE IMEI DEĞİŞTİRMEK YASAL DEĞİLDİR – SADECE BİLGİLENDİRME AMAÇLIDIR
 </div>
 
-<header>
-<span class="icon">📱🔧</span>
-<span class="logo">AKSYMH GFI SERVICE</span>
-<span class="icon">🔧📱</span>
-</header>
+<header>⚡ AKSYMH GFI SERVICE ⚡</header>
 
-<h2>Profesyonel Teknik Servis</h2>
+<nav>
+<a href="#">Ana Sayfa</a>
+<a href="#">Servisler</a>
+<a href="#">CPID</a>
+<a href="#">İletişim</a>
+</nav>
 
-<input id="imei" placeholder="IMEI gir">
-<br>
-<button onclick="sendWhats()">İletişim</button>
-
+<!-- SERVICES -->
+<div class="card">
+<h3>Servisler</h3>
 <div class="services">
-<div class="box">Android</div>
-<div class="box">iOS</div>
-<div class="box">Anakart</div>
+<div class="box">Android Yazılım</div>
+<div class="box">iOS Servis</div>
 <div class="box">FRP</div>
 <div class="box">Bootloop</div>
+<div class="box">Şebeke</div>
+</div>
 </div>
 
 <!-- CPID -->
 <div class="card">
-<h3>CPID</h3>
-<button onclick="toggleCPID()">Göster</button>
+<h3>📱 CPID İşlemleri</h3>
+<button onclick="toggleCPID()">Fiyatları Göster</button>
 
-<div id="cpidList" style="display:none;">
-<p>Xiaomi 11 Ultra – 40$</p>
-<p>Xiaomi 12 – 70$</p>
-<p>Xiaomi 13 – 100$</p>
-<p>Xiaomi 14 – 110$</p>
-<p>Xiaomi 15 – 150$</p>
-<p>Xiaomi 17 – 170$</p>
+<div id="cpidList" style="display:none; text-align:left;">
+
+<h4 style="color:#00ffff;">Xiaomi CPID (ON)</h4>
+<p>Mi 11 Ultra – 40$</p>
+<p>Xiaomi 12 Serisi – 70$</p>
+<p>Xiaomi 13 Ultra – 100$</p>
+<p>Xiaomi 14 Ultra – 110$</p>
+<p>Xiaomi 15 Ultra – 150$</p>
+<p>Xiaomi 17 Ultra – 170$</p>
+
 <hr>
-<p>Samsung S – 80$</p>
-<p>Samsung Note – 90$</p>
+
+<h4 style="color:#00ff00;">Samsung CPID (ON)</h4>
+<p>S Serisi – 80$</p>
+<p>Note Serisi – 90$</p>
+<p>A Serisi – 70$</p>
+
+<p style="color:yellow;">
+📩 Detaylı fiyat için WhatsApp yazınız
+</p>
+
 </div>
 </div>
 
 <!-- SOCIAL -->
 <div class="card social">
-<a class="instagram" href="https://instagram.com/aksoymhgfiservice">Instagram</a>
-<a class="facebook" href="https://facebook.com/aksoymhgfiservice">Facebook</a>
+<h3>📡 Hesaplarımız</h3>
+<a class="instagram" href="https://instagram.com/aksoymhgfiservice" target="_blank">Instagram</a>
+<a class="facebook" href="https://www.facebook.com/aksoymhgfiservice" target="_blank">Facebook</a>
 </div>
 
 <!-- REVIEWS -->
 <div class="card">
-<h3>Yorumlar</h3>
+<h3>Müşteri Yorumları</h3>
 <p>⭐⭐⭐⭐⭐ Çok iyi</p>
-<p>⭐⭐⭐⭐⭐ Hızlı</p>
+<p>⭐⭐⭐⭐⭐ Hızlı çözüm</p>
+<p>⭐⭐⭐⭐⭐ Güvenilir servis</p>
+<p>⭐⭐⭐⭐⭐ Hızlı teslim</p>
 </div>
 
-<!-- CHAT -->
-<div id="chatBtn" onclick="toggleChat()">💬</div>
-
-<div id="chatBox">
-<p>Canlı Destek</p>
-<button onclick="sendWhats()">WhatsApp</button>
-<button onclick="toggleChat()">Kapat</button>
+<!-- ABOUT -->
+<div class="card">
+<h3>Biz Kimiz</h3>
+<p>Profesyonel teknik servis hizmeti sunuyoruz.</p>
 </div>
 
+<!-- ALT -->
 <div id="lawBar">
-⚠️ Kayıp cihazlara işlem yapılmaz
+⚠️ TC kanunları gereği kayıp cihazlara işlem yapılmaz
 </div>
-
-<a class="whatsapp" href="https://wa.me/905447447798">💬</a>
 
 <script>
 function toggleCPID(){
 let x=document.getElementById("cpidList");
 x.style.display=(x.style.display==="none")?"block":"none";
 }
+</script>
 
-function toggleChat(){
-let c=document.getElementById("chatBox");
-c.style.display=(c.style.display==="none")?"block":"none";
-}
-
-function sendWhats(){
-window.open("https://wa.me/905447447798");
-}
+<!-- 🔥 GERÇEK CANLI DESTEK -->
+<script type="text/javascript">
+var Tawk_API=Tawk_API||{}, Tawk_LoadStart=new Date();
+(function(){
+var s1=document.createElement("script"),s0=document.getElementsByTagName("script")[0];
+s1.async=true;
+s1.src='https://embed.tawk.to/69dbeb299969501c32cc7d00/1jm1gt6fd';
+s1.charset='UTF-8';
+s1.setAttribute('crossorigin','*');
+s0.parentNode.insertBefore(s1,s0);
+})();
 </script>
 
 </body>
