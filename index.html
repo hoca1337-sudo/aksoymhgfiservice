@@ -3,242 +3,274 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>AksyMH Gfi Service</title>
+<title>AKSYMH GFI SERVICE</title>
+
+<link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css" rel="stylesheet">
 
 <style>
-body{
+*{
 margin:0;
-font-family:Arial;
-background:#050505;
-color:white;
-text-align:center;
-padding-top:60px;
+padding:0;
+box-sizing:border-box;
+font-family: 'Segoe UI', sans-serif;
 scroll-behavior:smooth;
 }
 
-/* 🔴 ÜST UYARI */
-#topLaw{
-position:fixed;
-top:0;
-width:100%;
-background:black;
-color:red;
-font-weight:bold;
-padding:10px;
-animation:blink 1s infinite;
-z-index:9999;
+body{
+background:#030303;
+color:white;
 }
 
-@keyframes blink{
-0%{opacity:1;}
-50%{opacity:0.3;}
-100%{opacity:1;}
-}
-
-/* 🔥 LOGO */
-header{
-padding:20px;
-font-size:32px;
-font-weight:bold;
-animation:neon 2s infinite alternate;
-}
-
-@keyframes neon{
-0%{color:#00ffff;text-shadow:0 0 10px #00ffff;}
-50%{color:#ff00ff;text-shadow:0 0 20px #ff00ff;}
-100%{color:#00ff00;text-shadow:0 0 30px #00ff00;}
-}
-
-.logo-icons{
-font-size:24px;
-animation:blinkIcon 1s infinite alternate;
-}
-
-@keyframes blinkIcon{
-0%{opacity:1;}
-100%{opacity:0.3;}
-}
-
-/* MENÜ */
+/* NAVBAR */
 nav{
-display:flex;
-justify-content:center;
-gap:15px;
-background:#000;
-padding:12px;
 position:sticky;
-top:40px;
-z-index:999;
-border-bottom:1px solid #00ffff;
+top:0;
+display:flex;
+justify-content:space-between;
+align-items:center;
+padding:15px 40px;
+background:rgba(10,10,10,0.7);
+backdrop-filter:blur(10px);
+border-bottom:1px solid #111;
+z-index:1000;
+}
+
+.logo{
+font-size:20px;
+color:#0ff;
+text-shadow:0 0 10px #0ff;
 }
 
 nav a{
-color:#00ffff;
+margin-left:20px;
+color:white;
 text-decoration:none;
-padding:8px 14px;
-border-radius:8px;
-border:1px solid #00ffff;
+transition:.3s;
 }
 
 nav a:hover{
-background:#00ffff;
-color:black;
+color:#0ff;
 }
 
-/* CARD */
-.card{
-margin:15px;
-padding:15px;
-background:#111;
-border-radius:10px;
-box-shadow:0 0 10px #00ffff;
+/* HERO */
+.hero{
+height:90vh;
+display:flex;
+flex-direction:column;
+justify-content:center;
+align-items:center;
+text-align:center;
+}
+
+.neon{
+font-size:60px;
+color:#0ff;
+animation:glow 2s infinite alternate;
+}
+
+@keyframes glow{
+from{ text-shadow:0 0 10px #0ff;}
+to{ text-shadow:0 0 25px #0ff,0 0 40px #0ff;}
+}
+
+.hero p{
+margin-top:20px;
+color:#aaa;
+}
+
+.btn{
+margin-top:30px;
+padding:15px 40px;
+background:#0ff;
+border:none;
+font-size:18px;
+border-radius:30px;
+cursor:pointer;
+transition:.3s;
+}
+
+.btn:hover{
+box-shadow:0 0 20px #0ff;
 }
 
 /* SERVICES */
 .services{
+padding:80px 40px;
+text-align:center;
+}
+
+.grid{
 display:grid;
-grid-template-columns:repeat(auto-fit,minmax(120px,1fr));
-gap:10px;
+grid-template-columns:repeat(auto-fit,minmax(250px,1fr));
+gap:25px;
+margin-top:40px;
 }
 
-.box{
-background:#000;
-padding:10px;
-border-radius:8px;
+.card{
+background:rgba(255,255,255,0.05);
+border:1px solid rgba(255,255,255,0.1);
+padding:30px;
+border-radius:15px;
+backdrop-filter:blur(10px);
+transition:.3s;
 }
 
-/* SOCIAL */
-.social a{
-display:block;
-margin:10px;
-padding:10px;
-border-radius:10px;
-color:white;
-text-decoration:none;
+.card i{
+font-size:30px;
+color:#0ff;
+margin-bottom:15px;
 }
 
-.instagram{background:linear-gradient(45deg,#ff00ff,#ff6600);}
-.facebook{background:#1877F2;}
+.card:hover{
+transform:translateY(-10px);
+box-shadow:0 0 30px #0ff;
+}
 
-/* ALT BAR */
-#lawBar{
+/* ABOUT */
+.about{
+padding:80px 20px;
+text-align:center;
+}
+
+.about p{
+max-width:700px;
+margin:auto;
+color:#bbb;
+margin-top:20px;
+}
+
+/* CONTACT */
+.contact{
+padding:80px 20px;
+text-align:center;
+}
+
+.contact button{
+margin-top:20px;
+}
+
+/* WHATSAPP */
+.whatsapp{
 position:fixed;
-bottom:0;
+bottom:20px;
+right:20px;
+background:#25D366;
+padding:15px;
+border-radius:50%;
+font-size:22px;
+cursor:pointer;
+box-shadow:0 0 10px #25D366;
+}
+
+/* FOOTER */
+footer{
+padding:30px;
+text-align:center;
+color:#666;
+border-top:1px solid #111;
+}
+
+/* BACKGROUND EFFECT */
+body::before{
+content:"";
+position:fixed;
 width:100%;
-background:black;
-padding:8px;
-font-size:12px;
+height:100%;
+background:radial-gradient(#0ff1 1px,transparent 1px);
+background-size:50px 50px;
+animation:move 12s linear infinite;
+z-index:-1;
+}
+
+@keyframes move{
+from{transform:translateY(0);}
+to{transform:translateY(50px);}
 }
 </style>
+
 </head>
 
 <body>
 
-<div id="topLaw">
-⚠️ TC KANUNLARINA GÖRE IMEI DEĞİŞTİRMEK YASAL DEĞİLDİR – SADECE BİLGİLENDİRME AMAÇLIDIR
-</div>
-
-<header>
-<span class="logo-icons">🔧📱</span>
-AKSYMH GFI SERVICE
-<span class="logo-icons">📱🔧</span>
-</header>
-
 <nav>
-<a href="#">Ana Sayfa</a>
+<div class="logo">AKSYMH GFI</div>
+<div>
+<a href="#home">Ana Sayfa</a>
 <a href="#services">Servisler</a>
-<a href="#cpid">CPID</a>
 <a href="#about">Hakkımızda</a>
 <a href="#contact">İletişim</a>
+</div>
 </nav>
 
-<!-- SERVICES -->
-<div class="card" id="services">
-<h3>Servisler</h3>
-<div class="services">
+<section id="home" class="hero">
+<h1 class="neon">PROFESYONEL TELEFON TAMİR</h1>
+<p>Android • iOS • FRP • Bootloop • Şebeke</p>
+<button class="btn" onclick="wa()">WhatsApp'tan Yaz</button>
+</section>
 
-<div class="box">Android Yazılım</div>
-<div class="box">iOS Servis</div>
-<div class="box">FRP Kilit Açma</div>
-<div class="box">Bootloop Onarım</div>
-<div class="box">Şebeke Onarım</div>
-<div class="box">WiFi Tamir</div>
-<div class="box">Batarya Değişim</div>
-<div class="box">Format Atma</div>
-<div class="box">Güncelleme</div>
-<div class="box">Sistem Onarım</div>
-<div class="box">Hard Brick</div>
-<div class="box">Anakart Onarım</div>
+<section id="services" class="services">
+<h2>Hizmetlerimiz</h2>
+<div class="grid">
 
-</div>
+<div class="card">
+<i class="fa-solid fa-android"></i>
+<h3>Android Yazılım</h3>
+<p>ROM, root, güncelleme</p>
 </div>
 
-<!-- CPID -->
-<div class="card" id="cpid">
-<h3>📱 CPID İşlemleri</h3>
-<button onclick="toggleCPID()">Fiyatları Göster</button>
-
-<div id="cpidList" style="display:none; text-align:left;">
-
-<h4 style="color:#00ffff;">Xiaomi CPID (ON)</h4>
-<p>Mi 11 Ultra – 40$</p>
-<p>Xiaomi 12 Serisi – 70$</p>
-<p>Xiaomi 13 Ultra – 100$</p>
-<p>Xiaomi 14 Ultra – 110$</p>
-<p>Xiaomi 15 Ultra – 150$</p>
-<p>Xiaomi 17 Ultra – 170$</p>
-
-<hr>
-
-<h4 style="color:#00ff00;">Samsung CPID (ON)</h4>
-<p>S Serisi – 80$</p>
-<p>Note Serisi – 90$</p>
-<p>A Serisi – 70$</p>
-
-</div>
+<div class="card">
+<i class="fa-brands fa-apple"></i>
+<h3>iOS Servis</h3>
+<p>iPhone yazılım ve onarım</p>
 </div>
 
-<!-- ABOUT -->
-<div class="card" id="about">
-<h3>Hakkımızda</h3>
-<p>2012’den beri hizmet vermekteyiz.</p>
-<p>Profesyonel ekib ile hizmetimizi sürdürmekteyiz.</p>
+<div class="card">
+<i class="fa-solid fa-lock"></i>
+<h3>FRP Açma</h3>
+<p>Google hesap kaldırma</p>
 </div>
 
-<!-- CONTACT -->
-<div class="card" id="contact">
-<h3>İletişim</h3>
-<p>📱 0544 744 77 98</p>
-
-<p><a href="https://wa.me/905447447798" style="color:#25D366;">WhatsApp</a></p>
-
-<p><a href="https://instagram.com/aksoymhgfiservice" style="color:#ff00ff;">Instagram</a></p>
-<p><a href="https://www.facebook.com/aksoymhgfiservice" style="color:#1877F2;">Facebook</a></p>
+<div class="card">
+<i class="fa-solid fa-microchip"></i>
+<h3>Bootloop</h3>
+<p>Açılmayan cihaz onarım</p>
 </div>
 
-<!-- ALT -->
-<div id="lawBar">
-⚠️ Kayıp cihazlara işlem yapılmaz
+<div class="card">
+<i class="fa-solid fa-signal"></i>
+<h3>Şebeke Sorunu</h3>
+<p>IMEI ve sinyal problemleri</p>
 </div>
+
+</div>
+</section>
+
+<section id="about" class="about">
+<h2>Hakkımızda</h2>
+<p>
+AKSYMH GFI SERVICE olarak profesyonel tamir ve yazılım çözümleri sunuyoruz.
+Hızlı, güvenilir ve garantili hizmet.
+</p>
+</section>
+
+<section id="contact" class="contact">
+<h2>İletişim</h2>
+<p>Hemen bizimle iletişime geçin</p>
+<button class="btn" onclick="wa()">WhatsApp</button>
+</section>
+
+<div class="whatsapp" onclick="wa()">
+<i class="fa-brands fa-whatsapp"></i>
+</div>
+
+<footer>
+© 2026 AKSYMH GFI SERVICE
+</footer>
 
 <script>
-function toggleCPID(){
-let x=document.getElementById("cpidList");
-x.style.display=(x.style.display==="none")?"block":"none";
+function wa(){
+window.open("https://wa.me/905XXXXXXXXX","_blank");
 }
-</script>
-
-<!-- CANLI DESTEK -->
-<script type="text/javascript">
-var Tawk_API=Tawk_API||{}, Tawk_LoadStart=new Date();
-(function(){
-var s1=document.createElement("script"),s0=document.getElementsByTagName("script")[0];
-s1.async=true;
-s1.src='https://embed.tawk.to/69dbeb299969501c32cc7d00/1jm1gt6fd';
-s1.charset='UTF-8';
-s1.setAttribute('crossorigin','*');
-s0.parentNode.insertBefore(s1,s0);
-})();
 </script>
 
 </body>
