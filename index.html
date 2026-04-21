@@ -8,154 +8,126 @@
 <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css" rel="stylesheet">
 
 <style>
-body{margin:0;background:#050505;color:white;font-family:Arial}
-.center{text-align:center;padding:40px}
-input,textarea{padding:10px;margin:5px;width:250px}
-button{padding:10px 20px;background:#0ff;border:none;cursor:pointer}
-.card{background:#111;padding:10px;margin:10px;border-radius:10px}
-.neon{color:#0ff;text-shadow:0 0 10px #0ff}
-#admin{display:none;background:#000;padding:20px}
-.flex{display:flex;gap:20px;flex-wrap:wrap;justify-content:center}
-.box{background:#111;padding:20px;border-radius:10px;width:300px}
+body{
+margin:0;
+font-family:Arial;
+background:#0b0b0b;
+color:white;
+}
+
+/* HERO */
+.hero{
+padding:100px 20px;
+text-align:center;
+background:linear-gradient(180deg,#000,#111);
+}
+
+.hero h1{
+font-size:40px;
+color:#0ff;
+}
+
+.hero p{
+color:#aaa;
+margin-top:10px;
+}
+
+.btn{
+margin-top:20px;
+padding:15px 30px;
+background:#0ff;
+border:none;
+border-radius:30px;
+cursor:pointer;
+}
+
+/* SERVICES */
+.services{
+padding:60px 20px;
+}
+
+.grid{
+display:grid;
+grid-template-columns:repeat(auto-fit,minmax(250px,1fr));
+gap:20px;
+}
+
+.card{
+background:#111;
+padding:20px;
+border-radius:10px;
+text-align:center;
+}
+
+/* TRUST */
+.trust{
+padding:60px 20px;
+text-align:center;
+background:#080808;
+}
+
+/* CTA */
+.cta{
+padding:60px;
+text-align:center;
+background:#0ff;
+color:black;
+}
+
+/* FLOAT BUTTON */
+.whatsapp{
+position:fixed;
+bottom:20px;
+right:20px;
+background:#25D366;
+padding:15px;
+border-radius:50%;
+cursor:pointer;
+}
 </style>
+
 </head>
 
 <body>
 
-<div class="center">
-<h1 class="neon">AKSYMH GFI SERVICE</h1>
+<section class="hero">
+<h1>AKSYMH GFI SERVICE</h1>
+<p>Profesyonel Telefon Tamir ve Yazılım Hizmeti</p>
+<button class="btn" onclick="wa()">WhatsApp'tan Yaz</button>
+</section>
 
-<button onclick="wa()">WhatsApp</button>
-<button onclick="call()">Ara</button>
+<section class="services">
+<h2 style="text-align:center">Hizmetler</h2>
 
-<h2>Yorumlar</h2>
-<input id="yorumTxt" placeholder="Yorum yaz">
-<button onclick="addYorum()">Ekle</button>
-<div id="yorumlar"></div>
-
-<hr>
-
-<h2>İletişim</h2>
-<input id="ad" placeholder="Ad">
-<textarea id="mesaj" placeholder="Mesaj"></textarea>
-<button onclick="sendMsg()">Gönder</button>
-
-<hr>
-
-<button onclick="showAdmin()">Admin Panel</button>
+<div class="grid">
+<div class="card">Android Yazılım</div>
+<div class="card">iOS Servis</div>
+<div class="card">FRP Açma</div>
+<div class="card">Bootloop</div>
+<div class="card">Şebeke</div>
 </div>
+</section>
 
-<!-- ADMIN -->
-<div id="admin">
-<h2>Admin Giriş</h2>
-<input id="email" placeholder="mail">
-<input id="pass" type="password">
-<button onclick="login()">Giriş</button>
+<section class="trust">
+<h2>Neden Biz?</h2>
+<p>✔ Hızlı işlem</p>
+<p>✔ Garantili servis</p>
+<p>✔ Uygun fiyat</p>
+</section>
 
-<div id="panel" style="display:none">
+<section class="cta">
+<h2>Hemen İletişime Geç</h2>
+<button class="btn" onclick="wa()">WhatsApp</button>
+</section>
 
-<h2>Yönetim Paneli</h2>
-
-<div class="flex">
-
-<div class="box">
-<h3>Yorum Yönetimi</h3>
-<div id="adminYorum"></div>
+<div class="whatsapp" onclick="wa()">
+<i class="fa-brands fa-whatsapp"></i>
 </div>
-
-<div class="box">
-<h3>Mesajlar</h3>
-<div id="adminMesaj"></div>
-</div>
-
-</div>
-
-</div>
-</div>
-
-<script type="module">
-
-import { initializeApp } from "https://www.gstatic.com/firebasejs/10.7.1/firebase-app.js";
-import { getFirestore, collection, addDoc, getDocs, deleteDoc, doc } from "https://www.gstatic.com/firebasejs/10.7.1/firebase-firestore.js";
-import { getAuth, signInWithEmailAndPassword } from "https://www.gstatic.com/firebasejs/10.7.1/firebase-auth.js";
-
-/* 🔥 CONFIG */
-const firebaseConfig = {
-apiKey: "SENIN_KEY",
-authDomain: "SENIN_DOMAIN",
-projectId: "SENIN_ID"
-};
-
-const app = initializeApp(firebaseConfig);
-const db = getFirestore(app);
-const auth = getAuth(app);
-
-/* YORUM EKLE */
-window.addYorum = async ()=>{
-let text=document.getElementById("yorumTxt").value;
-await addDoc(collection(db,"yorumlar"),{text});
-load();
-};
-
-/* MESAJ */
-window.sendMsg = async ()=>{
-let ad=document.getElementById("ad").value;
-let mesaj=document.getElementById("mesaj").value;
-await addDoc(collection(db,"mesajlar"),{ad,mesaj});
-alert("Gönderildi");
-};
-
-/* LOAD */
-async function load(){
-let y=await getDocs(collection(db,"yorumlar"));
-let m=await getDocs(collection(db,"mesajlar"));
-
-let html="";
-let adminY="";
-let adminM="";
-
-y.forEach(d=>{
-html+=`<div class="card">${d.data().text}</div>`;
-adminY+=`<div class="card">${d.data().text}
-<button onclick="delY('${d.id}')">Sil</button></div>`;
-});
-
-m.forEach(d=>{
-adminM+=`<div class="card">
-<b>${d.data().ad}</b><br>${d.data().mesaj}
-</div>`;
-});
-
-document.getElementById("yorumlar").innerHTML=html;
-document.getElementById("adminYorum").innerHTML=adminY;
-document.getElementById("adminMesaj").innerHTML=adminM;
-}
-
-window.delY = async(id)=>{
-await deleteDoc(doc(db,"yorumlar",id));
-load();
-};
-
-/* LOGIN */
-window.login = async ()=>{
-let email=document.getElementById("email").value;
-let pass=document.getElementById("pass").value;
-await signInWithEmailAndPassword(auth,email,pass);
-document.getElementById("panel").style.display="block";
-};
-
-/* ADMIN */
-window.showAdmin=()=>{
-document.getElementById("admin").style.display="block";
-};
-
-load();
-
-</script>
 
 <script>
-function wa(){window.open("https://wa.me/905XXXXXXXXX")}
-function call(){window.open("tel:05XXXXXXXXX")}
+function wa(){
+window.open("https://wa.me/905XXXXXXXXX");
+}
 </script>
 
 </body>
