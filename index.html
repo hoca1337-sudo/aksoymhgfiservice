@@ -12,13 +12,14 @@
 margin:0;
 padding:0;
 box-sizing:border-box;
-font-family: 'Segoe UI', sans-serif;
+font-family:'Segoe UI', sans-serif;
 scroll-behavior:smooth;
 }
 
 body{
-background:#030303;
+background:#020202;
 color:white;
+overflow-x:hidden;
 }
 
 /* NAVBAR */
@@ -28,28 +29,43 @@ top:0;
 display:flex;
 justify-content:space-between;
 align-items:center;
-padding:15px 40px;
-background:rgba(10,10,10,0.7);
+padding:15px 30px;
+background:rgba(0,0,0,0.7);
 backdrop-filter:blur(10px);
-border-bottom:1px solid #111;
 z-index:1000;
 }
 
+/* 🔥 LOGO FIX */
 .logo{
-font-size:20px;
+font-size:clamp(16px,2.5vw,24px);
 color:#0ff;
-text-shadow:0 0 10px #0ff;
+white-space:nowrap; /* taşmayı önler */
+text-shadow:
+0 0 5px #0ff,
+0 0 10px #0ff,
+0 0 20px #0ff,
+0 0 40px #0ff;
+animation:logoGlow 2s infinite alternate;
+}
+
+@keyframes logoGlow{
+from{
+text-shadow:
+0 0 5px #0ff,
+0 0 10px #0ff;
+}
+to{
+text-shadow:
+0 0 10px #0ff,
+0 0 25px #0ff,
+0 0 50px #0ff;
+}
 }
 
 nav a{
 margin-left:20px;
 color:white;
 text-decoration:none;
-transition:.3s;
-}
-
-nav a:hover{
-color:#0ff;
 }
 
 /* HERO */
@@ -60,17 +76,32 @@ flex-direction:column;
 justify-content:center;
 align-items:center;
 text-align:center;
+padding:20px;
 }
 
+/* 🔥 ULTRA NEON YAZI */
 .neon{
-font-size:60px;
+font-size:clamp(28px,6vw,70px);
 color:#0ff;
-animation:glow 2s infinite alternate;
+letter-spacing:3px;
+animation:flicker 2s infinite;
 }
 
-@keyframes glow{
-from{ text-shadow:0 0 10px #0ff;}
-to{ text-shadow:0 0 25px #0ff,0 0 40px #0ff;}
+/* 🔥 GERÇEK NEON FLICKER */
+@keyframes flicker{
+0%,18%,22%,25%,53%,57%,100%{
+text-shadow:
+0 0 5px #0ff,
+0 0 10px #0ff,
+0 0 20px #0ff,
+0 0 40px #0ff,
+0 0 80px #0ff;
+opacity:1;
+}
+20%,24%,55%{
+text-shadow:none;
+opacity:0.4;
+}
 }
 
 .hero p{
@@ -83,7 +114,6 @@ margin-top:30px;
 padding:15px 40px;
 background:#0ff;
 border:none;
-font-size:18px;
 border-radius:30px;
 cursor:pointer;
 transition:.3s;
@@ -95,7 +125,7 @@ box-shadow:0 0 20px #0ff;
 
 /* SERVICES */
 .services{
-padding:80px 40px;
+padding:80px 20px;
 text-align:center;
 }
 
@@ -108,45 +138,20 @@ margin-top:40px;
 
 .card{
 background:rgba(255,255,255,0.05);
-border:1px solid rgba(255,255,255,0.1);
 padding:30px;
 border-radius:15px;
-backdrop-filter:blur(10px);
 transition:.3s;
 }
 
 .card i{
 font-size:30px;
 color:#0ff;
-margin-bottom:15px;
+margin-bottom:10px;
 }
 
 .card:hover{
 transform:translateY(-10px);
-box-shadow:0 0 30px #0ff;
-}
-
-/* ABOUT */
-.about{
-padding:80px 20px;
-text-align:center;
-}
-
-.about p{
-max-width:700px;
-margin:auto;
-color:#bbb;
-margin-top:20px;
-}
-
-/* CONTACT */
-.contact{
-padding:80px 20px;
-text-align:center;
-}
-
-.contact button{
-margin-top:20px;
+box-shadow:0 0 25px #0ff;
 }
 
 /* WHATSAPP */
@@ -159,32 +164,29 @@ padding:15px;
 border-radius:50%;
 font-size:22px;
 cursor:pointer;
-box-shadow:0 0 10px #25D366;
 }
 
-/* FOOTER */
-footer{
-padding:30px;
-text-align:center;
-color:#666;
-border-top:1px solid #111;
-}
-
-/* BACKGROUND EFFECT */
+/* BG ANIM */
 body::before{
 content:"";
 position:fixed;
 width:100%;
 height:100%;
-background:radial-gradient(#0ff1 1px,transparent 1px);
+background:radial-gradient(#0ff2 1px,transparent 1px);
 background-size:50px 50px;
-animation:move 12s linear infinite;
+animation:bgMove 10s linear infinite;
 z-index:-1;
 }
 
-@keyframes move{
+@keyframes bgMove{
 from{transform:translateY(0);}
 to{transform:translateY(50px);}
+}
+
+footer{
+text-align:center;
+padding:30px;
+color:#666;
 }
 </style>
 
@@ -193,70 +195,51 @@ to{transform:translateY(50px);}
 <body>
 
 <nav>
-<div class="logo">AKSYMH GFI</div>
+<div class="logo">AKSYMH GFI SERVICE</div>
 <div>
-<a href="#home">Ana Sayfa</a>
-<a href="#services">Servisler</a>
-<a href="#about">Hakkımızda</a>
-<a href="#contact">İletişim</a>
+<a href="#">Ana Sayfa</a>
+<a href="#">Servisler</a>
+<a href="#">İletişim</a>
 </div>
 </nav>
 
-<section id="home" class="hero">
-<h1 class="neon">PROFESYONEL TELEFON TAMİR</h1>
+<section class="hero">
+<h1 class="neon">AKSYMH GFI SERVICE</h1>
 <p>Android • iOS • FRP • Bootloop • Şebeke</p>
-<button class="btn" onclick="wa()">WhatsApp'tan Yaz</button>
+<button class="btn" onclick="wa()">WhatsApp Yaz</button>
 </section>
 
-<section id="services" class="services">
+<section class="services">
 <h2>Hizmetlerimiz</h2>
+
 <div class="grid">
 
 <div class="card">
-<i class="fa-solid fa-android"></i>
+<i class="fa-brands fa-android"></i>
 <h3>Android Yazılım</h3>
-<p>ROM, root, güncelleme</p>
 </div>
 
 <div class="card">
 <i class="fa-brands fa-apple"></i>
 <h3>iOS Servis</h3>
-<p>iPhone yazılım ve onarım</p>
 </div>
 
 <div class="card">
 <i class="fa-solid fa-lock"></i>
 <h3>FRP Açma</h3>
-<p>Google hesap kaldırma</p>
 </div>
 
 <div class="card">
 <i class="fa-solid fa-microchip"></i>
 <h3>Bootloop</h3>
-<p>Açılmayan cihaz onarım</p>
 </div>
 
 <div class="card">
 <i class="fa-solid fa-signal"></i>
-<h3>Şebeke Sorunu</h3>
-<p>IMEI ve sinyal problemleri</p>
+<h3>Şebeke</h3>
 </div>
 
 </div>
-</section>
-
-<section id="about" class="about">
-<h2>Hakkımızda</h2>
-<p>
-AKSYMH GFI SERVICE olarak profesyonel tamir ve yazılım çözümleri sunuyoruz.
-Hızlı, güvenilir ve garantili hizmet.
-</p>
-</section>
-
-<section id="contact" class="contact">
-<h2>İletişim</h2>
-<p>Hemen bizimle iletişime geçin</p>
-<button class="btn" onclick="wa()">WhatsApp</button>
 </section>
 
 <div class="whatsapp" onclick="wa()">
