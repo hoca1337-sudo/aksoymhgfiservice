@@ -1,83 +1,77 @@
-!DOCTYPE html>
+<!DOCTYPE html>
 <html lang="tr">
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>AksyMH Gfi Service</title>
+<title>AKSYMH GFI SERVICE</title>
 
 <style>
-
 body{
 margin:0;
 font-family:Arial;
 color:white;
 text-align:center;
 background:
-linear-gradient(rgba(0,0,0,0.8), rgba(0,0,0,0.9)),
+linear-gradient(rgba(0,0,0,0.85), rgba(0,0,0,0.95)),
 url('https://images.unsplash.com/photo-1518770660439-4636190af475');
 background-size:cover;
 background-attachment:fixed;
 }
 
-/* 🔥 HEADER */
-header{
-display:flex;
-justify-content:center;
-align-items:center;
-gap:15px;
-padding:25px;
-}
+/* HEADER */
+header{padding:25px;}
 
 .logo{
 font-size:34px;
 font-weight:900;
-animation:rgbGlow 2s infinite alternate;
+color:#8a2eff;
+text-shadow:0 0 10px #8a2eff,0 0 30px #6f00ff;
+animation:logoPulse 3s infinite alternate;
 }
 
-@keyframes rgbGlow{
-0%{color:#00ffff;text-shadow:0 0 10px #00ffff;}
-50%{color:#ff00ff;text-shadow:0 0 20px #ff00ff;}
-100%{color:#00ff00;text-shadow:0 0 30px #00ff00;}
+@keyframes logoPulse{
+from{text-shadow:0 0 10px #8a2eff}
+to{text-shadow:0 0 30px #6f00ff,0 0 60px #4b00ff}
 }
 
-/* ICON BLINK */
-.icon{
-font-size:28px;
-animation:blink 1s infinite alternate;
+/* MENU */
+.menu{
+display:flex;
+flex-wrap:wrap;
+gap:10px;
+justify-content:center;
+padding:10px;
 }
 
-@keyframes blink{
-0%{opacity:1; transform:scale(1);}
-100%{opacity:0.3; transform:scale(1.3);}
-}
-
-/* CAM EFFECT */
-.card, .box{
+.menu a{
+padding:8px 15px;
+border-radius:20px;
 background:rgba(255,255,255,0.05);
-backdrop-filter:blur(10px);
-border-radius:15px;
-margin:10px;
-padding:15px;
-animation:pulse 2s infinite alternate;
+color:#bbb;
+text-decoration:none;
+font-size:13px;
+border:1px solid #8a2eff33;
+transition:.3s;
 }
 
-/* PULSE */
-@keyframes pulse{
-0%{box-shadow:0 0 10px #00ffff;}
-50%{box-shadow:0 0 25px #ff00ff;}
-100%{box-shadow:0 0 40px #00ff00;}
+.menu a:hover{
+color:#fff;
+box-shadow:0 0 10px #8a2eff,0 0 25px #6f00ff;
 }
 
-/* GRID */
+/* SERVICES */
 .services{
 display:grid;
 grid-template-columns:repeat(auto-fit,minmax(150px,1fr));
 padding:10px;
 }
 
-/* TEXT */
-h1,h2,h3,p{
-text-shadow:0 0 5px #00ffff;
+.box{
+background:rgba(255,255,255,0.05);
+border-radius:15px;
+padding:15px;
+margin:5px;
+border:1px solid #8a2eff33;
 }
 
 /* INPUT */
@@ -88,8 +82,7 @@ border:none;
 margin:5px;
 width:240px;
 background:rgba(0,0,0,0.7);
-color:#00ffff;
-box-shadow:0 0 10px #00ffff;
+color:#8a2eff;
 }
 
 /* BUTTON */
@@ -97,15 +90,30 @@ button{
 padding:12px 20px;
 border:none;
 border-radius:10px;
-background:rgba(0,0,0,0.7);
-color:#00ffff;
+background:#8a2eff;
+color:white;
 cursor:pointer;
-animation:btnGlow 1.5s infinite alternate;
 }
 
-@keyframes btnGlow{
-0%{box-shadow:0 0 10px #00ffff;}
-100%{box-shadow:0 0 30px #00ffff;}
+/* LEGAL WARNING */
+.legal{
+margin-top:30px;
+font-size:14px;
+color:#ff4d4d;
+animation:legalBlink 2s infinite;
+}
+
+@keyframes legalBlink{
+0%,100%{opacity:1;}
+50%{opacity:0.5;}
+}
+
+/* FOOTER */
+footer{
+margin-top:20px;
+padding:20px;
+background:rgba(0,0,0,0.8);
+font-size:14px;
 }
 
 /* WHATSAPP */
@@ -116,25 +124,59 @@ right:20px;
 background:#25D366;
 padding:15px;
 border-radius:50%;
-box-shadow:0 0 20px #25D366;
 }
-
-footer{
-margin-top:30px;
-padding:20px;
-background:rgba(0,0,0,0.8);
-}
-
 </style>
 </head>
 
 <body>
 
 <header>
-<span class="icon">📱🔧</span>
-<span class="logo">AKSYMH GFI SERVICE</span>
-<span class="icon">🔧📱</span>
+<div class="logo">AKSYMH GFI SERVICE</div>
 </header>
+
+<!-- 🔥 40 MENU -->
+<div class="menu">
+<a href="#">Ana Sayfa</a>
+<a href="#">Android Yazılım</a>
+<a href="#">iOS Servis</a>
+<a href="#">FRP Açma</a>
+<a href="#">Bootloop</a>
+<a href="#">Şebeke</a>
+<a href="#">Anakart</a>
+<a href="#">Ekran</a>
+<a href="#">Batarya</a>
+<a href="#">Şarj Soketi</a>
+<a href="#">Kamera</a>
+<a href="#">Mikrofon</a>
+<a href="#">Hoparlör</a>
+<a href="#">WiFi</a>
+<a href="#">Bluetooth</a>
+<a href="#">Baseband</a>
+<a href="#">Sinyal Yok</a>
+<a href="#">Dokunmatik</a>
+<a href="#">Sıvı Teması</a>
+<a href="#">BGA</a>
+<a href="#">CPU</a>
+<a href="#">UFS</a>
+<a href="#">Güncelleme</a>
+<a href="#">Format</a>
+<a href="#">Logo Sorunu</a>
+<a href="#">Açılmayan</a>
+<a href="#">Parça</a>
+<a href="#">Veri Kurtarma</a>
+<a href="#">Face ID</a>
+<a href="#">Şifre</a>
+<a href="#">Power</a>
+<a href="#">Ses Entegre</a>
+<a href="#">Ekran IC</a>
+<a href="#">Şarj Entegre</a>
+<a href="#">NAND</a>
+<a href="#">True Tone</a>
+<a href="#">Apple Logo</a>
+<a href="#">Samsung Logo</a>
+<a href="#">Isınma</a>
+<a href="#">Kısa Devre</a>
+</div>
 
 <h2>Profesyonel Teknik Servis</h2>
 
@@ -142,97 +184,34 @@ background:rgba(0,0,0,0.8);
 <br>
 <button onclick="sendWhats()">Sorgula & İletişim</button>
 
-<p id="result"></p>
-
 <!-- SERVICES -->
 <div class="services">
 <div class="box">Android Yazılım</div>
 <div class="box">iOS Servis</div>
 <div class="box">Anakart Onarım</div>
-<div class="box">Hard Brick</div>
-<div class="box">FRP</div>
-<div class="box">Kilit</div>
 <div class="box">Bootloop</div>
-<div class="box">Veri Kurtarma</div>
+<div class="box">FRP</div>
 <div class="box">Şebeke</div>
-<div class="box">WiFi</div>
-<div class="box">Batarya</div>
-<div class="box">Format</div>
-<div class="box">Güncelleme</div>
-<div class="box">Sistem</div>
 </div>
 
-<!-- FORM -->
-<div class="card">
-<h3>Hızlı Talep</h3>
-<input id="ad" placeholder="Ad">
-<input id="tel" placeholder="Telefon">
-<br>
-<button onclick="formGonder()">Gönder</button>
-</div>
-
-<!-- LIVE -->
-<div class="card">
-<h3>Canlı Kullanıcı</h3>
-<p>👁️ <span id="online">0</span></p>
-</div>
-
-<!-- REVIEWS -->
-<div class="card">
-<h3>Müşteri Yorumları</h3>
-<p>⭐⭐⭐⭐⭐ Çok iyi</p>
-<p>⭐⭐⭐⭐⭐ Hızlı çözüm</p>
-<p>⭐⭐⭐⭐⭐ Güvenilir servis</p>
-<p>⭐⭐⭐⭐⭐ Hızlı teslim</p>
-<p>✔ 10.000+ işlem</p>
-</div>
-
-<!-- ABOUT -->
-<div class="card">
-<h3>Biz Kimiz</h3>
-<p>Profesyonel teknik servis hizmeti sunuyoruz.</p>
-</div>
-
-<!-- PAYMENT -->
-<div class="card">
-<h3>Ödeme</h3>
-<button onclick="goWhats()">WhatsApp</button>
+<!-- ⚠️ YASAL UYARI -->
+<div class="legal">
+⚠️ IMEI değiştirmek yasal değildir. Bu site yalnızca bilgilendirme ve teknik destek amaçlıdır.
 </div>
 
 <footer>
-<p>© 2026 AksyMH Gfi Service</p>
-<p>Tüm Hakları Saklıdır</p>
+<p>© 2026 AKSYMH GFI SERVICE</p>
+<p>Tüm hakları saklıdır.</p>
 </footer>
 
 <a class="whatsapp" href="https://wa.me/905447447798">💬</a>
 
 <script>
-
-// canlı
-setInterval(()=>{
-document.getElementById("online").innerText=Math.floor(Math.random()*50)+10;
-},2000);
-
-// imei
 function sendWhats(){
 let imei=document.getElementById("imei").value;
 let msg="IMEI: "+imei+" hakkında bilgi almak istiyorum.";
 window.open("https://wa.me/905447447798?text="+encodeURIComponent(msg));
 }
-
-// form
-function formGonder(){
-let ad=document.getElementById("ad").value;
-let tel=document.getElementById("tel").value;
-let msg="Ad:"+ad+" Tel:"+tel;
-window.open("https://wa.me/905447447798?text="+encodeURIComponent(msg));
-}
-
-// ödeme
-function goWhats(){
-window.open("https://wa.me/905447447798");
-}
-
 </script>
 
 </body>
