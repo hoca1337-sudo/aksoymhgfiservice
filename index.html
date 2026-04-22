@@ -7,16 +7,43 @@
 
 <style>
 
+/* BODY FIX */
 body{
 margin:0;
 font-family:Arial;
 color:white;
 text-align:center;
+padding-top:40px; /* üst uyarı için boşluk */
 background:
 linear-gradient(rgba(0,0,0,0.8), rgba(0,0,0,0.9)),
 url('https://images.unsplash.com/photo-1518770660439-4636190af475');
 background-size:cover;
 background-attachment:fixed;
+}
+
+/* 🔥 ÜST KAYAN YASAL UYARI */
+.top-legal{
+position:fixed;
+top:0;
+width:100%;
+background:#000;
+color:#ff3b3b;
+font-weight:bold;
+padding:8px 0;
+z-index:9999;
+box-shadow:0 0 10px #ff0000;
+overflow:hidden;
+}
+
+.top-legal span{
+display:inline-block;
+white-space:nowrap;
+animation:scrollText 15s linear infinite;
+}
+
+@keyframes scrollText{
+from{transform:translateX(100%)}
+to{transform:translateX(-100%)}
 }
 
 /* HEADER */
@@ -74,11 +101,6 @@ grid-template-columns:repeat(auto-fit,minmax(150px,1fr));
 padding:10px;
 }
 
-/* TEXT */
-h1,h2,h3,p{
-text-shadow:0 0 5px #00ffff;
-}
-
 /* INPUT */
 input{
 padding:12px;
@@ -107,25 +129,6 @@ animation:btnGlow 1.5s infinite alternate;
 100%{box-shadow:0 0 30px #00ffff;}
 }
 
-/* LEGAL */
-.legal-box{
-margin:20px auto;
-max-width:600px;
-padding:15px;
-background:rgba(255,0,0,0.1);
-border:1px solid #ff4444;
-border-radius:12px;
-color:#ff4444;
-font-weight:bold;
-box-shadow:0 0 10px #ff4444;
-animation:legalFlash 1.8s infinite;
-}
-
-@keyframes legalFlash{
-0%,100%{opacity:1;}
-50%{opacity:0.6;}
-}
-
 /* WHATSAPP */
 .whatsapp{
 position:fixed;
@@ -148,6 +151,14 @@ background:rgba(0,0,0,0.8);
 
 <body>
 
+<!-- 🔥 ÜST YASAL UYARI -->
+<div class="top-legal">
+<span>
+⚠️ YASAL UYARI: Türkiye Cumhuriyeti yasalarına göre IMEI değiştirmek suçtur. 
+Bu site yalnızca bilgilendirme ve teknik destek amaçlıdır.
+</span>
+</div>
+
 <header>
 <span class="icon">📱🔧</span>
 <span class="logo">AKSYMH GFI SERVICE</span>
@@ -160,7 +171,7 @@ background:rgba(0,0,0,0.8);
 <br>
 <button onclick="sendWhats()">Sorgula & İletişim</button>
 
-<!-- SERVICES (40 ADET) -->
+<!-- SERVICES (40) -->
 <div class="services">
 
 <div class="box">Android Yazılım</div>
@@ -180,7 +191,7 @@ background:rgba(0,0,0,0.8);
 
 <div class="box">Ekran Değişimi</div>
 <div class="box">Şarj Soketi</div>
-<div class="box">Kamera Tamiri</div>
+<div class="box">Kamera</div>
 <div class="box">Mikrofon</div>
 <div class="box">Hoparlör</div>
 <div class="box">Bluetooth</div>
@@ -193,8 +204,8 @@ background:rgba(0,0,0,0.8);
 <div class="box">UFS</div>
 <div class="box">Reset</div>
 <div class="box">Logo Sorunu</div>
-<div class="box">Açılmayan Cihaz</div>
-<div class="box">Parça Değişimi</div>
+<div class="box">Açılmayan</div>
+<div class="box">Parça</div>
 <div class="box">Face ID</div>
 <div class="box">Şifre</div>
 <div class="box">Power</div>
@@ -210,27 +221,6 @@ background:rgba(0,0,0,0.8);
 
 </div>
 
-<!-- ⚠️ YASAL UYARI -->
-<div class="legal-box">
-⚠️ YASAL UYARI: Türkiye Cumhuriyeti yasalarına göre IMEI değiştirmek suçtur. 
-Bu site yalnızca bilgilendirme ve teknik destek amaçlıdır.
-</div>
-
-<!-- FORM -->
-<div class="card">
-<h3>Hızlı Talep</h3>
-<input id="ad" placeholder="Ad">
-<input id="tel" placeholder="Telefon">
-<br>
-<button onclick="formGonder()">Gönder</button>
-</div>
-
-<!-- LIVE -->
-<div class="card">
-<h3>Canlı Kullanıcı</h3>
-<p>👁️ <span id="online">0</span></p>
-</div>
-
 <footer>
 <p>© 2026 AKSYMH GFI SERVICE</p>
 <p>Tüm Hakları Saklıdır</p>
@@ -241,19 +231,13 @@ Bu site yalnızca bilgilendirme ve teknik destek amaçlıdır.
 <script>
 
 setInterval(()=>{
-document.getElementById("online").innerText=Math.floor(Math.random()*50)+10;
+document.getElementById("online")?.innerText=Math.floor(Math.random()*50)+10;
 },2000);
 
 function sendWhats(){
 let imei=document.getElementById("imei").value;
-let msg="IMEI: "+imei;
+let msg="IMEI: "+imei+" hakkında bilgi almak istiyorum.";
 window.open("https://wa.me/905447447798?text="+encodeURIComponent(msg));
-}
-
-function formGonder(){
-let ad=document.getElementById("ad").value;
-let tel=document.getElementById("tel").value;
-window.open("https://wa.me/905447447798?text="+encodeURIComponent(ad+" "+tel));
 }
 
 </script>
