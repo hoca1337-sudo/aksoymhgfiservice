@@ -23,43 +23,75 @@ transition:.3s;
 }
 .header.shrink{padding:10px 30px;background:#000}
 
-/* LOGO */
+/* LOGO NEON */
 .logo{
 color:#0ff;
 font-size:22px;
-text-shadow:0 0 6px #0ff;
-animation:pulse 3s infinite alternate;
+text-shadow:0 0 10px #0ff,0 0 30px #0ff;
+animation:flicker 3s infinite;
 }
-@keyframes pulse{
-from{text-shadow:0 0 5px #0ff}
-to{text-shadow:0 0 15px #0ff}
+
+@keyframes flicker{
+0%,18%,22%,25%,53%,57%,100%{
+text-shadow:0 0 10px #0ff,0 0 30px #0ff;
+}
+20%,24%,55%{text-shadow:none;opacity:.6;}
 }
 
 /* MENU */
+.menu{
+display:flex;
+align-items:center;
+}
+
 .menu a{
 margin-left:20px;
 color:#aaa;
 text-decoration:none;
 position:relative;
+transition:.3s;
 }
+
+.menu a:hover,
 .menu a.active{
 color:#0ff;
 text-shadow:0 0 10px #0ff;
 }
-.menu a:hover{color:#0ff}
-.menu a::after{
-content:"";
-position:absolute;
-bottom:-5px;
-left:0;
-width:0%;
-height:2px;
-background:#0ff;
-transition:.3s;
-}
-.menu a:hover::after{width:100%}
 
-/* WHATSAPP HEADER */
+/* MEGA MENU */
+.mega{position:relative}
+
+.mega-box{
+display:none;
+position:absolute;
+top:40px;
+left:0;
+background:#000;
+padding:20px;
+border-radius:10px;
+width:700px;
+display:grid;
+grid-template-columns:repeat(4,1fr);
+gap:20px;
+border:1px solid #0ff2;
+}
+
+.mega:hover .mega-box{
+display:grid;
+}
+
+.mega-col h4{
+color:#0ff;
+margin-bottom:10px;
+}
+
+.mega-col a{
+display:block;
+margin:5px 0;
+font-size:14px;
+}
+
+/* WHATSAPP */
 .header-wa{
 background:#25D366;
 padding:8px 15px;
@@ -67,18 +99,49 @@ border-radius:20px;
 cursor:pointer;
 }
 
+/* MOBILE */
+.menu-btn{
+display:none;
+font-size:22px;
+cursor:pointer;
+}
+
+.mobile-menu{
+display:none;
+position:fixed;
+top:60px;
+width:100%;
+background:#000;
+padding:20px;
+z-index:999;
+}
+
+.mobile-menu a{
+display:block;
+margin:10px 0;
+color:white;
+}
+
 /* HERO */
 .hero{
 height:100vh;
-display:flex;flex-direction:column;
-justify-content:center;align-items:center;
+display:flex;
+flex-direction:column;
+justify-content:center;
+align-items:center;
 text-align:center;
 }
 
 .hero h1{
 font-size:clamp(36px,6vw,70px);
 color:#0ff;
-text-shadow:0 0 10px #0ff,0 0 30px #0ff;
+text-shadow:0 0 10px #0ff,0 0 40px #0ff;
+animation:heroGlow 3s infinite alternate;
+}
+
+@keyframes heroGlow{
+from{text-shadow:0 0 10px #0ff}
+to{text-shadow:0 0 30px #0ff,0 0 60px #0ff}
 }
 
 .hero p{color:#aaa;margin-top:10px}
@@ -112,16 +175,8 @@ transition:.3s;
 }
 .card:hover{
 transform:translateY(-10px);
-box-shadow:0 0 25px #0ff;
+box-shadow:0 0 20px #0ff,0 0 40px #0ff;
 }
-
-/* TIMELINE */
-.timeline{max-width:700px;margin:auto;text-align:left;margin-top:30px}
-.timeline div{border-left:2px solid #0ff;padding:10px}
-
-/* FAQ */
-.faq{max-width:700px;margin:auto;text-align:left;margin-top:20px}
-.faq div{margin-bottom:15px}
 
 /* SOCIAL */
 .social a{margin:10px;font-size:25px;color:#0ff}
@@ -137,13 +192,22 @@ background:#0ff;padding:12px;border-radius:50%;cursor:pointer;
 
 /* BG */
 body::before{
-content:"";position:fixed;width:100%;height:100%;
+content:"";
+position:fixed;
+width:100%;
+height:100%;
 background:radial-gradient(#0ff2 1px,transparent 1px);
 background-size:50px 50px;
 animation:bg 10s linear infinite;
 z-index:-1;
 }
 @keyframes bg{to{transform:translateY(50px)}}
+
+/* RESPONSIVE */
+@media(max-width:900px){
+.menu{display:none}
+.menu-btn{display:block}
+}
 
 footer{text-align:center;padding:30px;color:#777}
 </style>
@@ -152,77 +216,89 @@ footer{text-align:center;padding:30px;color:#777}
 <body>
 
 <header class="header" id="header">
+
 <div class="logo">AKSYMH GFI SERVICE</div>
 
 <nav class="menu">
+
 <a href="#home" class="active">Ana Sayfa</a>
-<a href="#servis">Servisler</a>
-<a href="#surec">Süreç</a>
-<a href="#faq">SSS</a>
+
+<div class="mega">
+<a href="#">Servisler ▾</a>
+
+<div class="mega-box">
+
+<div class="mega-col">
+<h4>Yazılım</h4>
+<a href="#">Android</a>
+<a href="#">iOS</a>
+<a href="#">FRP</a>
+<a href="#">Format</a>
+<a href="#">Güncelleme</a>
+</div>
+
+<div class="mega-col">
+<h4>Donanım</h4>
+<a href="#">Ekran</a>
+<a href="#">Batarya</a>
+<a href="#">Kamera</a>
+<a href="#">Hoparlör</a>
+<a href="#">Mikrofon</a>
+</div>
+
+<div class="mega-col">
+<h4>Teknik</h4>
+<a href="#">Anakart</a>
+<a href="#">BGA</a>
+<a href="#">CPU</a>
+<a href="#">UFS</a>
+<a href="#">Power</a>
+</div>
+
+<div class="mega-col">
+<h4>Arıza</h4>
+<a href="#">Bootloop</a>
+<a href="#">Şebeke</a>
+<a href="#">WiFi</a>
+<a href="#">Bluetooth</a>
+<a href="#">Isınma</a>
+</div>
+
+</div>
+</div>
+
 <a href="#iletisim">İletişim</a>
+
 </nav>
 
 <div class="header-wa" onclick="wa()">WhatsApp</div>
+
+<div class="menu-btn" onclick="toggleMenu()">☰</div>
+
 </header>
+
+<div class="mobile-menu" id="mobileMenu">
+<a href="#">Ana Sayfa</a>
+<a href="#">Servisler</a>
+<a href="#">İletişim</a>
+</div>
 
 <section id="home" class="hero">
 <h1>AKSYMH GFI SERVICE</h1>
-<p>Android • iOS • FRP • Bootloop • Şebeke • Anakart</p>
-<button class="btn" onclick="waQuick('Bilgi almak istiyorum')">WhatsApp Yaz</button>
+<p>Profesyonel Telefon Tamir Servisi</p>
+<button class="btn" onclick="wa()">WhatsApp</button>
 <button class="btn" onclick="call()">Ara</button>
 </section>
 
-<section id="servis" class="section">
+<section class="section">
 <h2>Hizmetler</h2>
 <div class="grid">
-
-<div class="card" onclick="waQuick('Android Yazılım')">Android Yazılım</div>
-<div class="card" onclick="waQuick('iOS Servis')">iOS Servis</div>
-<div class="card" onclick="waQuick('FRP Açma')">FRP Açma</div>
-<div class="card" onclick="waQuick('Bootloop')">Bootloop</div>
-<div class="card" onclick="waQuick('Şebeke')">Şebeke Problemleri</div>
-<div class="card" onclick="waQuick('Anakart')">Anakart Tamiri</div>
-
-<div class="card">Ekran Değişimi</div>
-<div class="card">Batarya Değişimi</div>
-<div class="card">Şarj Soketi</div>
-<div class="card">Kamera</div>
-<div class="card">WiFi Sorunu</div>
-<div class="card">Bluetooth</div>
-
-<div class="card">IMEI Onarım</div>
-<div class="card">Sinyal Yok</div>
-<div class="card">Sıvı Teması</div>
-<div class="card">BGA Reballing</div>
-<div class="card">CPU Reballing</div>
-<div class="card">UFS Değişim</div>
-
-<div class="card">Format</div>
-<div class="card">Logo Sorunu</div>
-<div class="card">Açılmayan Cihaz</div>
-<div class="card">Veri Kurtarma</div>
-<div class="card">Face ID</div>
-<div class="card">Şifre Kaldırma</div>
-
-</div>
-</section>
-
-<section id="surec" class="section">
-<h2>Süreç</h2>
-<div class="timeline">
-<div>1. Arıza Tespit</div>
-<div>2. Onarım</div>
-<div>3. Test</div>
-<div>4. Teslim</div>
-</div>
-</section>
-
-<section id="faq" class="section">
-<h2>SSS</h2>
-<div class="faq">
-<div><b>Ne kadar sürer?</b><br>Aynı gün.</div>
-<div><b>Garanti var mı?</b><br>Evet.</div>
-<div><b>Fiyat?</b><br>Modele göre değişir.</div>
+<div class="card">Android Yazılım</div>
+<div class="card">iOS Servis</div>
+<div class="card">FRP Açma</div>
+<div class="card">Bootloop</div>
+<div class="card">Şebeke</div>
+<div class="card">Anakart</div>
 </div>
 </section>
 
@@ -246,33 +322,17 @@ footer{text-align:center;padding:30px;color:#777}
 
 <script>
 function wa(){window.open("https://wa.me/905447447798")}
-function waQuick(t){window.open("https://wa.me/905447447798?text="+encodeURIComponent(t))}
 function call(){window.open("tel:05447447798")}
 
-/* HEADER SCROLL */
+function toggleMenu(){
+let m=document.getElementById("mobileMenu");
+m.style.display=(m.style.display==="block")?"none":"block";
+}
+
 window.addEventListener("scroll",()=>{
 let h=document.getElementById("header");
-if(window.scrollY>50){h.classList.add("shrink")}
+if(scrollY>50){h.classList.add("shrink")}
 else{h.classList.remove("shrink")}
-});
-
-/* MENU ACTIVE */
-const sections=document.querySelectorAll("section");
-const links=document.querySelectorAll(".menu a");
-
-window.addEventListener("scroll",()=>{
-let current="";
-sections.forEach(sec=>{
-if(scrollY>=sec.offsetTop-100){
-current=sec.id;
-}
-});
-links.forEach(a=>{
-a.classList.remove("active");
-if(a.getAttribute("href")==="#"+current){
-a.classList.add("active");
-}
-});
 });
 </script>
 
