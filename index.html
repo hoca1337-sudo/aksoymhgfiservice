@@ -15,69 +15,97 @@ color:white;
 overflow-x:hidden;
 }
 
-/* 🔥 ARKA PLAN CODE EFEKT */
+/* 🔥 ARKA PLAN CODE */
 body::before{
-content:"0101010101 1100110011 0011001100 1010101010";
+content:"010101010101 1100110011 0011001100 1010101010";
 position:fixed;
 width:100%;
 height:100%;
-color:#7a00ff22;
+color:#8a2eff22;
 font-size:20px;
-white-space:wrap;
 z-index:-1;
-animation:move 20s linear infinite;
+animation:bgMove 20s linear infinite;
 }
-
-@keyframes move{
-from{transform:translateY(0)}
-to{transform:translateY(200px)}
-}
+@keyframes bgMove{to{transform:translateY(200px)}}
 
 /* HEADER */
 .header{
 position:fixed;
 width:100%;
-display:flex;
-justify-content:space-between;
-padding:15px 40px;
+padding:15px 20px;
 background:rgba(10,0,20,0.7);
 backdrop-filter:blur(10px);
+z-index:1000;
 }
 
 /* LOGO */
 .logo{
+text-align:center;
 font-size:22px;
 color:#8a2eff;
-
-/* 🔥 SOFTWARE NEON */
 text-shadow:
 0 0 5px #8a2eff,
-0 0 15px #6f00ff,
-0 0 30px #4b00ff;
-
-animation:pulse 3s infinite alternate;
+0 0 20px #6f00ff;
+animation:logoFlicker 3s infinite;
 }
 
-@keyframes pulse{
-from{text-shadow:0 0 5px #6f00ff}
-to{text-shadow:0 0 20px #8a2eff}
+@keyframes logoFlicker{
+0%,18%,22%,25%,53%,57%,100%{
+text-shadow:0 0 5px #8a2eff,0 0 20px #6f00ff;
+}
+20%,24%,55%{text-shadow:none;opacity:.6;}
 }
 
-/* MENU */
-.menu a{
-margin-left:20px;
-color:#aaa;
+/* MENU KUTU */
+.menu-box{
+display:flex;
+flex-wrap:wrap;
+gap:10px;
+padding:70px 10px 10px;
+justify-content:center;
+}
+
+.menu-box a{
+padding:8px 15px;
+border-radius:20px;
+background:#120020;
+color:#bbb;
 text-decoration:none;
+font-size:13px;
+border:1px solid #8a2eff33;
+transition:.3s;
+text-shadow:0 0 3px #8a2eff;
 }
 
-.menu a:hover{
-color:#8a2eff;
-text-shadow:0 0 10px #8a2eff;
+/* HOVER */
+.menu-box a:hover{
+color:#fff;
+background:#1a0033;
+box-shadow:
+0 0 10px #8a2eff,
+0 0 25px #6f00ff;
+}
+
+/* AKTİF */
+.menu-box a.active{
+color:#fff;
+background:#2a0055;
+box-shadow:
+0 0 10px #8a2eff,
+0 0 25px #6f00ff;
+animation:menuFlicker 3s infinite;
+}
+
+@keyframes menuFlicker{
+0%,18%,22%,25%,53%,57%,100%{
+box-shadow:0 0 10px #8a2eff,0 0 25px #6f00ff;
+}
+20%,24%,55%{box-shadow:none;}
 }
 
 /* HERO */
 .hero{
-height:100vh;
+height:80vh;
 display:flex;
 flex-direction:column;
 justify-content:center;
@@ -85,18 +113,6 @@ align-items:center;
 text-align:center;
 }
 
-/* 🔥 LOGO ARKASI CODE */
-.hero::before{
-content:"<code> { system.init(); boot.start(); repair.execute(); } </code>";
-position:absolute;
-font-size:18px;
-color:#ffffff11;
-top:30%;
-width:80%;
-text-align:center;
-}
-
-/* HERO TEXT */
 .hero h1{
 font-size:clamp(40px,6vw,80px);
 color:#8a2eff;
@@ -106,7 +122,8 @@ text-shadow:
 0 0 60px #4b00ff;
 }
 
-/* BUTTON */
+.hero p{color:#aaa;margin-top:10px}
+
 .btn{
 margin-top:20px;
 padding:15px 30px;
@@ -121,7 +138,7 @@ cursor:pointer;
 display:grid;
 grid-template-columns:repeat(auto-fit,minmax(250px,1fr));
 gap:20px;
-padding:60px;
+padding:40px;
 }
 
 .card{
@@ -131,7 +148,6 @@ border-radius:10px;
 transition:.3s;
 border:1px solid #6f00ff33;
 }
-
 .card:hover{
 transform:translateY(-10px);
 box-shadow:
@@ -140,6 +156,10 @@ box-shadow:
 }
 
 /* SOCIAL */
+.social{
+text-align:center;
+padding:30px;
+}
 .social a{
 margin:10px;
 font-size:25px;
@@ -155,7 +175,6 @@ display:flex;
 flex-direction:column;
 gap:10px;
 }
-
 .float div{
 background:#8a2eff;
 padding:12px;
@@ -171,41 +190,22 @@ footer{text-align:center;padding:30px;color:#aaa}
 
 <header class="header">
 <div class="logo">AKSYMH GFI SERVICE</div>
-
-<nav class="menu">
-<a href="#">Ana Sayfa</a>
-<a href="#">Servisler</a>
-<a href="#">İletişim</a>
-</nav>
 </header>
 
-<section class="hero">
-<h1>AKSYMH GFI SERVICE</h1>
-<p>Software • Repair • Unlock • Network</p>
-
-<button class="btn" onclick="wa()">WhatsApp</button>
-<button class="btn" onclick="call()">Ara</button>
-</section>
-
-<div class="grid">
-<nav class="menu">
-
-<a href="#home" class="active">Ana Sayfa</a>
-
+<!-- 🔥 40 MENU -->
 <nav class="menu-box">
 
 <a href="#" class="active">Ana Sayfa</a>
-
 <a href="#">Android Yazılım</a>
 <a href="#">iOS Servis</a>
 <a href="#">FRP Açma</a>
-<a href="#">Bootloop Onarım</a>
-<a href="#">Şebeke Problemleri</a>
-<a href="#">Anakart Tamiri</a>
-<a href="#">Ekran Değişimi</a>
-<a href="#">Batarya Değişimi</a>
+<a href="#">Bootloop</a>
+<a href="#">Şebeke</a>
+<a href="#">Anakart</a>
+<a href="#">Ekran</a>
+<a href="#">Batarya</a>
 <a href="#">Şarj Soketi</a>
-<a href="#">Kamera Tamiri</a>
+<a href="#">Kamera</a>
 <a href="#">Mikrofon</a>
 <a href="#">Hoparlör</a>
 <a href="#">WiFi</a>
@@ -214,18 +214,18 @@ footer{text-align:center;padding:30px;color:#aaa}
 <a href="#">Sinyal Yok</a>
 <a href="#">Dokunmatik</a>
 <a href="#">Sıvı Teması</a>
-<a href="#">BGA Reballing</a>
-<a href="#">CPU Reballing</a>
-<a href="#">UFS / EMMC</a>
+<a href="#">BGA</a>
+<a href="#">CPU</a>
+<a href="#">UFS</a>
 <a href="#">Güncelleme</a>
 <a href="#">Format</a>
 <a href="#">Logo Sorunu</a>
-<a href="#">Açılmayan Cihaz</a>
-<a href="#">Parça Değişimi</a>
+<a href="#">Açılmayan</a>
+<a href="#">Parça</a>
 <a href="#">Veri Kurtarma</a>
 <a href="#">Face ID</a>
-<a href="#">Şifre Kaldırma</a>
-<a href="#">Power Entegre</a>
+<a href="#">Şifre</a>
+<a href="#">Power</a>
 <a href="#">Ses Entegre</a>
 <a href="#">Ekran IC</a>
 <a href="#">Şarj Entegre</a>
@@ -236,24 +236,30 @@ footer{text-align:center;padding:30px;color:#aaa}
 <a href="#">Isınma</a>
 <a href="#">Kısa Devre</a>
 
-<a href="#iletisim">İletişim</a>
-
 </nav>
-<a href="#iletisim">İletişim</a>
 
-</nav>
+<section class="hero">
+<h1>AKSYMH GFI SERVICE</h1>
+<p>Software • Repair • Unlock • Network</p>
+
+<button class="btn" onclick="wa()">WhatsApp</button>
+<button class="btn" onclick="call()">Ara</button>
+</section>
+
+<div class="grid">
+<div class="card">Android Yazılım</div>
+<div class="card">iOS Servis</div>
+<div class="card">FRP Açma</div>
+<div class="card">Bootloop</div>
+<div class="card">Şebeke</div>
+<div class="card">Anakart</div>
 </div>
-
-<section style="text-align:center;padding:50px">
-<h2>İletişim</h2>
-<p>📞 0544 744 77 98</p>
 
 <div class="social">
 <a href="https://wa.me/905447447798"><i class="fa-brands fa-whatsapp"></i></a>
 <a href="#"><i class="fa-brands fa-instagram"></i></a>
 <a href="#"><i class="fa-brands fa-tiktok"></i></a>
 </div>
-</section>
 
 <div class="float">
 <div onclick="wa()">💬</div>
